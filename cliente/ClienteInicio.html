@@ -8,7 +8,7 @@
 	<meta name="description" content="Neon Admin Panel" />
 	<meta name="author" content="" />
 	
-	<title>Inicio - MIIZI</title>
+	<title>MIZZI | Inicio</title>
 	
 
 	<link rel="stylesheet" href="assets/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css">
@@ -23,13 +23,6 @@
 
 	<script src="assets/js/jquery-1.11.0.min.js"></script>
 
-	<!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-
-	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!--[if lt IE 9]>
-		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-	<![endif]-->
 	
 	
 </head>
@@ -44,7 +37,7 @@
 			
 			<!-- logo -->
 			<div class="logo">
-				<a href="index.html">
+				<a href="ClienteInicio.html">
 					<h1 style="color: aliceblue "class="text-uppercase text-center"><strong>MIZZI</strong></h1>
 				</a>
 			</div>
@@ -68,15 +61,10 @@
 			
 		</header>
 				
-		
-		
 				
 		
 				
 		<ul id="main-menu" class="">
-			<!-- add class "multiple-expanded" to allow multiple submenus to open -->
-			<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
-			<!-- Search Bar -->
 			<li id="search">
 				<form method="get" action="">
 					<input type="text" name="q" class="search-input" placeholder="Buscar.."/>
@@ -86,13 +74,13 @@
 				</form>
 			</li>
 			<li>
-				<a href="index.html">
+				<a href="ClienteNuevaP.html">
 					<i class="entypo-gauge"></i>
 					<span>Nueva publicacion</span>
 				</a>
 			</li>
 			<li>
-				<a href="layout-api.html">
+				<a href="ContratosR.html">
 					<i class="entypo-layout"></i>
 					<span>Contratos realizados</span>
 				</a>
@@ -103,7 +91,7 @@
 					<span>Desarrolladores</span>
 				</a>
 			</li>
-			<li class="active opened active">
+			<li>
 				<a href="ui-panels.html">
 					<i class="entypo-newspaper"></i>
 					<span>Proyectos en progreso</span>
@@ -130,36 +118,27 @@
 					</li>
 				</ul>
 			</li>
-		</ul>
-				
+		</ul>				
 	</div>	
-	<div class="main-content">
-		
+	<div class="main-content">		
 <div class="row">
 	
 	<!-- Profile Info and Notifications -->
 	<div class="col-md-6 col-sm-8 clearfix">
-		
 		<ul class="user-info pull-left pull-none-xsm">
 		
 						<!-- Profile Info -->
-			<li class="profile-info dropdown"><!-- add class "pull-right" if you want to place this from right -->
-				
+			<li class="profile-info dropdown">				
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 					<img src="assets/images/thumb-1@2x.png" alt="" class="img-circle" width="44" />
-					Jorge Paredes
+					Nombre Usuario
 				</a>
-				
 				<ul class="dropdown-menu">
-					
-					<!-- Reverse Caret -->
 					<li class="caret"></li>
-					
-					<!-- Profile sub-links -->
 					<li>
 						<a href="extra-timeline.html">
 							<i class="entypo-user"></i>
-							Edit Profile
+							Editar Perfil
 						</a>
 					</li>
 					
@@ -173,14 +152,14 @@
 					<li>
 						<a href="extra-calendar.html">
 							<i class="entypo-calendar"></i>
-							Calendar
+							Calendario
 						</a>
 					</li>
 					
 					<li>
 						<a href="#">
 							<i class="entypo-clipboard"></i>
-							Tasks
+							Tareas
 						</a>
 					</li>
 				</ul>
@@ -201,7 +180,7 @@
 				<ul class="dropdown-menu">
 					<li class="top">
 	<p class="small">
-		<a href="#" class="pull-right">Mark all Read</a>
+		<a href="#" class="pull-right">Arcar todas como leídas</a>
 		Usted tiene <strong>3</strong> nuevas notificaciones.
 	</p>
 </li>
@@ -211,7 +190,6 @@
 		<li class="unread notification-info">
 			<a href="#">
 				<i class="entypo-user-add pull-right"></i>
-				
 				<span class="line">
 					<strong>Cambios en las políticas de MIIZI</strong>
 				</span>
@@ -231,11 +209,10 @@
 				</span>
 				
 				<span class="line small">
-					2 minutes ago
+					Hace 2 minutos
 				</span>
 			</a>
 		</li>
-		
 	</ul>
 </li>
 
@@ -250,7 +227,7 @@
 				
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
 					<i class="entypo-mail"></i>
-					<span class="badge badge-secondary">2</span>
+					<span class="badge badge-secondary">2</span> <!-- Cantidad de notificacion en icono -->
 				</a>
 				
 				<ul class="dropdown-menu">
@@ -305,7 +282,7 @@
 				
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
 					<i class="entypo-list"></i>
-					<span class="badge badge-warning">1</span>
+					<span class="badge badge-warning">1</span> <!-- Cantidad de notificacion en icono -->
 				</a>
 				
 				<ul class="dropdown-menu">
@@ -413,7 +390,7 @@
 					<i class="entypo-chat"></i>
 					Chat
 					
-					<span class="badge badge-success chat-notifications-badge is-hidden">0</span>
+					<span class="badge badge-success chat-notifications-badge is-hidden">0</span> <!-- Cantidad de notificacion en icono -->
 				</a>
 			</li>
 			
@@ -421,7 +398,7 @@
 			
 			<li>
 				<a href="extra-login.html">
-					Log Out <i class="entypo-logout right"></i>
+					Cerrar sesión <i class="entypo-logout right"></i>
 				</a>
 			</li>
 		</ul>
@@ -431,6 +408,7 @@
 </div>
 
 <hr />
+
 			
 			
 <h1>Información destacada</h1>
@@ -641,6 +619,38 @@
 </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <footer class="main">
 
 		
@@ -722,25 +732,25 @@
 <ul class="chat-history" id="sample_history">
 	<li>
 		<span class="user">Art Ramadani</span>
-		<p>Are you here?</p>
+		<p>Prueba historial</p>
 		<span class="time">09:00</span>
 	</li>
 	
 	<li class="opponent">
 		<span class="user">Catherine J. Watkins</span>
-		<p>This message is pre-queued.</p>
+		<p>Mensaje 1</p>
 		<span class="time">09:25</span>
 	</li>
 	
 	<li class="opponent">
 		<span class="user">Catherine J. Watkins</span>
-		<p>Whohoo!</p>
+		<p>Mensaje 2</p>
 		<span class="time">09:26</span>
 	</li>
 	
 	<li class="opponent unread">
 		<span class="user">Catherine J. Watkins</span>
-		<p>Do you like it?</p>
+		<p>Mensaje 3</p>
 		<span class="time">09:27</span>
 	</li>
 </ul>
@@ -752,13 +762,13 @@
 <ul class="chat-history" id="sample_history_2">
 	<li class="opponent unread">
 		<span class="user">Daniel A. Pena</span>
-		<p>I am going out.</p>
+		<p>Mensaje 1</p>
 		<span class="time">08:21</span>
 	</li>
 	
 	<li class="opponent unread">
 		<span class="user">Daniel A. Pena</span>
-		<p>Call me when you see this message.</p>
+		<p>Mensaje 2</p>
 		<span class="time">08:27</span>
 	</li>
 </ul>	
