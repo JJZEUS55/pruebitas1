@@ -8,7 +8,7 @@
 	<meta name="description" content="Neon Admin Panel" />
 	<meta name="author" content="" />
 	
-	<title>MIZZI | nombre</title>
+	<title>MIZZI | Desarrolladores</title>
 	
 
 	<link rel="stylesheet" href="assets/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css">
@@ -74,24 +74,24 @@
 				</form>
 			</li>
 			<li>
-				<a href="index.html">
+				<a href="ClienteNuevaP.html">
 					<i class="entypo-gauge"></i>
 					<span>Nueva publicacion</span>
 				</a>
 			</li>
 			<li>
-				<a href="layout-api.html">
+				<a href="ContratosR.html">
 					<i class="entypo-layout"></i>
 					<span>Contratos realizados</span>
 				</a>
 			</li>
-			<li>
-				<a href="index.html" target="_blank">
+			<li class="active opened active">
+				<a href="Desarrolladores.html" target="_blank">
 					<i class="entypo-monitor"></i>
 					<span>Desarrolladores</span>
 				</a>
 			</li>
-			<li class="active opened active">
+			<li>
 				<a href="ui-panels.html">
 					<i class="entypo-newspaper"></i>
 					<span>Proyectos en progreso</span>
@@ -414,7 +414,140 @@
 
 <br />
 
+<div class="row">
+	<div class="col-md-12">
+		
+		<table class="table table-bordered responsive" id="table-3">
+			<thead>
+    			<tr class="replace-inputs">
+      				<th>Nombre</th>
+      				<th>Especialidades</th>
+      				<th>Calificacion</th>
+      				<th>Ultimos proyectos</th>
+    			</tr>
+    			<tr>
+    				<th>Nombre</th>
+      				<th>Especialidades</th>
+      				<th>Calificacion</th>
+      				<th>Ultimos proyectos</th>
+    			</tr>
+  			</thead>
+  			<tbody>
+  				<tr>
+  					<td>Jorge de Jesus Romero Santana</td>
+  					<td>C,HTML,CSS</td>
+  					<td>9.8</td>
+  					<td>MIZZI, algo</td>
+  				</tr>
+  				<tr>
+  					<td>Angel Alexis Chavez Chavez</td>
+  					<td>MySQL,C,Phyton</td>
+  					<td>9.4</td>
+  					<td>MIZZI, algo</td>
+  				</tr>
+  				<tr>
+  					<td>Nombre</td>
+  					<td>x,x,x,x</td>
+  					<td>9.4</td>
+  					<td>y,y,y</td>
+  				</tr>
+  				<tr>
+  					<td>Nombre</td>
+  					<td>x,x,x,x</td>
+  					<td>9.4</td>
+  					<td>y,y,y</td>
+  				</tr>
+  				<tr>
+  					<td>Nombre</td>
+  					<td>x,x,x,x</td>
+  					<td>9.4</td>
+  					<td>y,y,y</td>
+  				</tr>
+  				<tr>
+  					<td>Nombre</td>
+  					<td>x,x,x,x</td>
+  					<td>9.4</td>
+  					<td>y,y,y</td>
+  				</tr>
+  				<tr>
+  					<td>Nombre</td>
+  					<td>x,x,x,x</td>
+  					<td>9.4</td>
+  					<td>y,y,y</td>
+  				</tr>
+  				<tr>
+  					<td>Nombre</td>
+  					<td>x,x,x,x</td>
+  					<td>9.4</td>
+  					<td>y,y,y</td>
+  				</tr>
+  				<tr>
+  					<td>Nombre</td>
+  					<td>x,x,x,x</td>
+  					<td>9.4</td>
+  					<td>y,y,y</td>
+  				</tr>
+  				<tr>
+  					<td>Nombre</td>
+  					<td>x,x,x,x</td>
+  					<td>9.4</td>
+  					<td>y,y,y</td>
+  				</tr>
+  				<tr>
+  					<td>Nombre</td>
+  					<td>x,x,x,x</td>
+  					<td>9.4</td>
+  					<td>y,y,y</td>
+  				</tr>
+  				<tr>
+  					<td>Nombre</td>
+  					<td>x,x,x,x</td>
+  					<td>9.4</td>
+  					<td>y,y,y</td>
+  				</tr>
+  				<tr>
+  					<td>Nombre</td>
+  					<td>x,x,x,x</td>
+  					<td>9.4</td>
+  					<td>y,y,y</td>
+  				</tr>
+  				<tr>
+  					<td>Nombre</td>
+  					<td>x,x,x,x</td>
+  					<td>9.4</td>
+  					<td>y,y,y</td>
+  				</tr>
+  				<tr>
+  					<td>Nombre</td>
+  					<td>x,x,x,x</td>
+  					<td>9.4</td>
+  					<td>y,y,y</td>
+  				</tr>
+  				<tr>
+  					<td>Nombre</td>
+  					<td>x,x,x,x</td>
+  					<td>9.4</td>
+  					<td>y,y,y</td>
+  				</tr>
+  			</tbody>
+		</table>
+		<script type="text/javascript">
+		jQuery(document).ready(function($)
+		{
+			var table = $("#table-3").dataTable({
+				"sPaginationType": "bootstrap",
+				"aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+				"bStateSave": true
+			});
+		
+			table.columnFilter({
+				"sPlaceHolder" : "head:after"
+			});
+		});
+</script>
 
+	</div>
+</div>
 
 
 
@@ -580,6 +713,13 @@
 	<script src="assets/js/joinable.js"></script>
 	<script src="assets/js/resizeable.js"></script>
 	<script src="assets/js/neon-api.js"></script>
+	<script src="assets/js/jquery.dataTables.min.js"></script>
+	<script src="assets/js/datatables/TableTools.min.js"></script>
+	<script src="assets/js/dataTables.bootstrap.js"></script>
+	<script src="assets/js/datatables/jquery.dataTables.columnFilter.js"></script>
+	<script src="assets/js/datatables/lodash.min.js"></script>
+	<script src="assets/js/datatables/responsive/js/datatables.responsive.js"></script>
+	<script src="assets/js/select2/select2.min.js"></script>
 	<script src="assets/js/neon-chat.js"></script>
 	<script src="assets/js/neon-custom.js"></script>
 	<script src="assets/js/neon-demo.js"></script>

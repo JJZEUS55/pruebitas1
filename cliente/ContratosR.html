@@ -86,7 +86,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="index.html" target="_blank">
+				<a href="Desarrolladores.html" target="_blank">
 					<i class="entypo-monitor"></i>
 					<span>Desarrolladores</span>
 				</a>
@@ -417,10 +417,17 @@
 <div class="row">
 	<div class="col-md-12">
 		
-		<table class="table table-bordered responsive">
+		<table class="table table-bordered responsive" id="table-3">
 			<thead>
-				<tr>
+				<tr class="replace-inputs">
 					<th width="15%">ID</th>
+					<th>Nombre Proyecto</th>
+					<th>Desarrollador</th>
+					<th>Precio</th>
+					<th width="33%">Fecha</th>
+				</tr>
+				<tr>
+					<th>ID</th>
 					<th>Nombre Proyecto</th>
 					<th>Desarrollador</th>
 					<th>Precio</th>
@@ -647,7 +654,20 @@
 				</tr>
 			</tbody>
 		</table>
+		<script type="text/javascript">
+		jQuery(document).ready(function($)
+		{
+			var table = $("#table-3").dataTable({
+				"sPaginationType": "bootstrap",
+				"aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+				"bStateSave": true
+			});
 		
+			table.columnFilter({
+				"sPlaceHolder" : "head:after"
+			});
+		});
+</script>
 	</div>
 
 
@@ -816,9 +836,17 @@
 	<script src="assets/js/joinable.js"></script>
 	<script src="assets/js/resizeable.js"></script>
 	<script src="assets/js/neon-api.js"></script>
+	<script src="assets/js/jquery.dataTables.min.js"></script>
+	<script src="assets/js/datatables/TableTools.min.js"></script>
+	<script src="assets/js/dataTables.bootstrap.js"></script>
+	<script src="assets/js/datatables/jquery.dataTables.columnFilter.js"></script>
+	<script src="assets/js/datatables/lodash.min.js"></script>
+	<script src="assets/js/datatables/responsive/js/datatables.responsive.js"></script>
+	<script src="assets/js/select2/select2.min.js"></script>
 	<script src="assets/js/neon-chat.js"></script>
 	<script src="assets/js/neon-custom.js"></script>
 	<script src="assets/js/neon-demo.js"></script>
+
 
 </body>
 </html>
