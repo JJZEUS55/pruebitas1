@@ -85,7 +85,7 @@
 					<span>Publicaciones</span>
 				</a>
 			</li>
-			<li>
+			<li class="active opened active">
 				<a href="clientes.html">
 					<i class="entypo-monitor"></i>
 					<span>Clientes</span>
@@ -395,77 +395,6 @@
 <hr />
 			
 
-<div class="row">
-	<div class="col-md-3">
-		<div class="tile-progress tile-blue">
-			
-			<div class="tile-header">
-				<h3>Reputacion</h3>
-				<span>MIZZI</span>
-			</div>
-			
-			<div class="tile-progressbar">
-				<span data-fill="95.5%"></span>
-			</div>
-			
-			<div class="tile-footer">
-				<h4>
-					<span class="pct-counter">0</span>% 
-				</h4>
-				
-				<span>MIZZI</span>
-			</div>
-		</div>
-	
-	</div>
-	<div class="col-md-3">
-		
-		<div class="tile-stats tile-blue">
-			<div class="icon"><i class="entypo-gauge"></i></div>
-			<div class="num">4</div>
-			
-			<h3>Proyectos Terminados</h3>
-			<br>
-			<br>
-			<br>
-		</div>
-
-	</div>
-	<div class="col-md-3">
-
-		<div class="tile-title tile-aqua">
-			
-			<div class="icon">
-				<i class="glyphicon glyphicon-random"></i>
-			</div>
-			
-			<div class="title">
-				<h3>MIZZI1</h3>
-				<p>Proyecto en curso</p>
-			</div>
-		</div>
-		
-		
-	</div>
-	<div class="col-md-3">
-		<div class="tile-stats tile-aqua">
-			<div class="icon"><i class="entypo-gauge"></i></div>
-			<div class="num">19/06/17</div>
-			
-			<h3>Siguiente entrega</h3>
-			<p>Entrega 3 de 4</p>
-			<br>
-			<br>
-		</div>
-
-	</div>
-</div>
-
-
-
-
-
-
 <br />
 
 <!-- UI Panels -->
@@ -476,13 +405,12 @@
 		<div class="panel minimal minimal-gray">
 			
 			<div class="panel-heading">
-				<div class="panel-title"><h4>Nuevo</h4></div>
+				<div class="panel-title"><h2>Clientes</h2></div>
 				<div class="panel-options">
 					
 					<ul class="nav nav-tabs bordered">
-						<li class="active"><a href="#profile-1" data-toggle="tab">Informacion General</a></li>
-						<li><a href="#profile-2" data-toggle="tab">¿Como crear publicación?</a></li>
-						<li><a href="#profile-3" data-toggle="tab">Tipos de proyecto</a></li>
+						<li class="active"><a href="#profile-1" data-toggle="tab">Clientes actuales</a></li>
+						<li><a href="#profile-2" data-toggle="tab">Historial de clientes</a></li>
 					</ul>
 				</div>
 			</div>
@@ -493,37 +421,179 @@
 					<div class="tab-pane active" id="profile-1">
 						<br>
 		
-						<p>Bienvenido a MIIZI donde podrás publicar los proyectos que deseas realizar y encontraras a la persona indicada para poder realizar tu proyecto.</p>
-						
-						<p>Al momento de publicar asegurate de describir de manera correcta lo que deseas para evitar confusiones, estarás en contacto con el desarrollador que hayas seleccionado.</p>
+							<table class="table table-bordered datatable" id="table-3">
+								<thead>
+									<tr class="replace-inputs">
+										<th>Proyecto</th>
+										<th>Nombre</th>			
+										<th>Fecha inicio</th>
+										<th>Fecha fin</th>
+										<th>Valoracion</th>
+										<th>Costo</th>
+										<th>Seguimiento</th>
+									</tr>
+									<tr>
+										<th>Proyecto</th>
+										<th>Nombre</th>			
+										<th>Fecha inicio</th>
+										<th>Fecha fin</th>
+										<th>Valoracion</th>
+										<th>Costo</th>
+										<th>Seguimiento</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="odd gradeX">
+										<th>Proyecto C++</th>
+										<th>Alex Duran</th>			
+										<th>12/06/2017</th>
+										<th>27/06/2017</th>
+										<th>89%</th>
+										<th>$2300</th>
+										<th >
+										<a href="seg_trabajo.html" class="btn btn-info btn-sm btn-icon icon-left">
+										<i class="entypo-window"></i>
+										Ver seguimiento
+										</a></th>
 
-						<p>Se llevará un registro de todos los avances que te entreguen para poder estar seguros de que existe un trabajo realizado por parte del desarrollador asi como un registro de todos los pagos efectuados</p>
+									</tr>
+									<tr class="odd gradeX">
+										<th>Proyecto C++</th>
+										<th>Alex Duran</th>			
+										<th>12/06/2017</th>
+										<th>27/06/2017</th>
+										<th>89%</th>
+										<th>$2300</th>
+										<th >
+										<a href="seg_trabajo.html" class="btn btn-info btn-sm btn-icon icon-left">
+										<i class="entypo-window"></i>
+										Ver seguimiento
+										</a></th>
+
+									</tr>
+									<tr class="odd gradeX">
+										<th>Proyecto C++</th>
+										<th>Alex Duran</th>			
+										<th>12/06/2017</th>
+										<th>27/06/2017</th>
+										<th>89%</th>
+										<th>$2300</th>
+										<th >
+										<a href="seg_trabajo.html" class="btn btn-info btn-sm btn-icon icon-left">
+										<i class="entypo-window"></i>
+										Ver seguimiento
+										</a></th>
+
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<th>Proyecto</th>
+										<th>Nombre</th>			
+										<th>Fecha inicio</th>
+										<th>Fecha fin</th>
+										<th>Valoracion</th>
+										<th>Costo</th>
+										<th>Seguimiento</th>		
+									</tr>
+								</tfoot>
+							</table>
+
+							<script type="text/javascript">
+								jQuery(document).ready(function($)
+								{
+									var table = $("#table-3").dataTable({
+										"sPaginationType": "bootstrap",
+										"aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+										"bStateSave": true
+									});
+
+									table.columnFilter({
+										"sPlaceHolder" : "head:after"
+									});
+								});
+							</script>
 					</div>
 					
 					<div class="tab-pane" id="profile-2">
 						<br>
 						
-						<p>Ve a la opcion de "Nueva publicación" en la barra lateral izquierda, al desplegarse la nueva pantalla completa cada uno de los campos requeridos</p>
-						
-						<p>MIIZI cuenta con un sistema para establecer un precio de acuerdo a lo que necesita tu proyecto el cual podras tomar en cuenta si no sabes cual sería el mejor valor para tu propuesta</p>
-						
-						<p>...</p>
+							<table class="table table-bordered datatable" id="table-4">
+								<thead>
+									<tr class="replace-inputs">
+										<th>Proyecto</th>
+										<th>Nombre</th>			
+										<th>Fecha inicio</th>
+										<th>Fecha fin</th>
+										<th>Valoracion</th>
+										<th>Costo</th>
+									</tr>
+									<tr>
+										<th>Proyecto</th>
+										<th>Nombre</th>			
+										<th>Fecha inicio</th>
+										<th>Fecha fin</th>
+										<th>Valoracion</th>
+										<th>Costo</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="odd gradeX">
+										<th>Proyecto C++</th>
+										<th>Alex Duran</th>			
+										<th>12/06/2017</th>
+										<th>27/06/2017</th>
+										<th>89%</th>
+										<th>$2300</th>
+
+									</tr>
+									<tr class="odd gradeX">
+										<th>Proyecto C++</th>
+										<th>Alex Duran</th>			
+										<th>12/06/2017</th>
+										<th>27/06/2017</th>
+										<th>89%</th>
+										<th>$2300</th>
+
+									</tr>
+									<tr class="odd gradeX">
+										<th>Proyecto C++</th>
+										<th>Alex Duran</th>			
+										<th>12/06/2017</th>
+										<th>27/06/2017</th>
+										<th>89%</th>
+										<th>$2300</th>
+
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<th>Ganancias</th>
+										<th></th>			
+										<th></th>
+										<th></th>
+										<th></th>
+										<th>$6900</th>					
+									</tr>
+								</tfoot>
+							</table>
+
+							<script type="text/javascript">
+								jQuery(document).ready(function($)
+								{
+									var table = $("#table-4").dataTable({
+										"sPaginationType": "bootstrap",
+										"aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+										"bStateSave": true
+									});
+
+									table.columnFilter({
+										"sPlaceHolder" : "head:after"
+									});
+								});
+							</script>
 					</div>
 
-					<div class="tab-pane" id="profile-3">
-						<br>
-		
-						<p>Aqui una pequeña guia de cuales son los tipos de proyecto que puedes publicar en MIIZI</p>
-						
-						<p>a)...</p>
-						<p>b)...</p>
-						<p>c)...</p>
-						<p>d)...</p>
-						<p>e)...</p>
-						<p>f)...</p>
-						<p>g)...</p>
-
-					</div>
 				</div>
 				
 			</div>
@@ -534,133 +604,6 @@
 	
 	
 </div>
-
-
-
-
-
-<div class="row">
-	<div class="col-md-6">
-		
-		<div class="panel panel-success" data-collapsed="1">
-			
-			<!-- panel head -->
-			<div class="panel-heading">
-				<div class="panel-title">Publicación destacada</div>
-				
-				<div class="panel-options">
-					
-					<a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
-					<a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
-					<a href="#" data-rel="close"><i class="entypo-cancel"></i></a>
-				</div>
-			</div>
-			
-			<!-- panel body -->
-			<div class="panel-body">
-				
-				<p>Proyecto: Pagina web Empresa</p>
-				<p>Requerimientos: HTML, JSON, Java</p>
-				<P>Duracion: 36 semanas</P>
-				<p>Ofrecen: $100000</p>
-				<a href="#">Contactar</a>
-				
-			</div>
-		</div>
-	</div>
-
-	<div class="col-md-6">
-		
-		<div class="panel panel-success" data-collapsed="1">
-			
-			<!-- panel head -->
-			<div class="panel-heading">
-				<div class="panel-title">Publicación Destacada</div>
-				
-				<div class="panel-options">
-					
-					<a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
-					<a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
-					<a href="#" data-rel="close"><i class="entypo-cancel"></i></a>
-				</div>
-			</div>
-			
-			<!-- panel body -->
-			<div class="panel-body">
-				
-				<p>Proyecto: Arbol de procesos</p>
-				<p>Requerimientos: C</p>
-				<P>Duracion: 3 semanas</P>
-				<p>Ofrecen: $2000</p>
-				<a href="#">Contactar</a>
-				
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="row">
-	<div class="col-md-12">
-		
-		<div class="panel panel-warning" data-collapsed="1">
-			
-			<!-- panel head -->
-			<div class="panel-heading">
-				<div class="panel-title">Alerta</div>
-				
-				<div class="panel-options">
-					
-					<a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
-					<a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
-					<a href="#" data-rel="close"><i class="entypo-cancel"></i></a>
-				</div>
-			</div>
-			
-			<!-- panel body -->
-			<div class="panel-body">
-				
-				<p>Actualiza tu curriculum</p>
-				
-			</div>
-			
-		</div>
-		
-	</div>
-	
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -790,12 +733,19 @@
 
 
 	<!-- Bottom Scripts -->
-	<script src="assets/js/gsap/main-gsap.js"></script>
+<script src="assets/js/gsap/main-gsap.js"></script>
 	<script src="assets/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js"></script>
 	<script src="assets/js/bootstrap.js"></script>
 	<script src="assets/js/joinable.js"></script>
 	<script src="assets/js/resizeable.js"></script>
 	<script src="assets/js/neon-api.js"></script>
+	<script src="assets/js/jquery.dataTables.min.js"></script>
+	<script src="assets/js/datatables/TableTools.min.js"></script>
+	<script src="assets/js/dataTables.bootstrap.js"></script>
+	<script src="assets/js/datatables/jquery.dataTables.columnFilter.js"></script>
+	<script src="assets/js/datatables/lodash.min.js"></script>
+	<script src="assets/js/datatables/responsive/js/datatables.responsive.js"></script>
+	<script src="assets/js/select2/select2.min.js"></script>
 	<script src="assets/js/neon-chat.js"></script>
 	<script src="assets/js/neon-custom.js"></script>
 	<script src="assets/js/neon-demo.js"></script>
