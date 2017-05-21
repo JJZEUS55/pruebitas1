@@ -61,21 +61,27 @@ var neonLogin = neonLogin || {};
 											
 					// Send data to the server
 					$.ajax({
-						url: baseurl + 'data/sample-login-form.php',
+						url: 'ServLogin',
 						method: 'POST',
-						dataType: 'json',
-						data: {
-							username: $("input#username").val(),
+                                                data: $("#form_login").serialize(),
+						//dataType: 'json',
+						/*data: {
+							username: $("input#username").val(),                                                        
 							password: $("input#password").val(),
-						},
+						},*/
+                                                
 						error: function()
 						{
-							alert("An error occoured!");
+                                                    alert($("input#username").val()),
+                                                    alert("A ocurrido un error!");
 						},
 						success: function(response)
 						{
 							// Login status [success|invalid]
-							var login_status = response.login_status;
+                                                        var $repuesta= $(response);
+							var login_status = $repuesta.filter("#status").text();
+                                                        
+                                                        //alert("Va shida la cosa" + $repuesta.filter("#status").text());
 															
 							// Form is fully completed, we update the percentage
 							neonLogin.setPercentage(100);
@@ -85,23 +91,23 @@ var neonLogin = neonLogin || {};
 							setTimeout(function()
 							{
 								// If login is invalid, we store the 
-								if(login_status == 'invalid')
+								if(login_status === 'invalid')
 								{
 									$(".login-page").removeClass('logging-in');
 									neonLogin.resetProgressBar(true);
 								}
 								else
-								if(login_status == 'success')
+								if(login_status === 'success')
 								{
 									// Redirect to login page
 									setTimeout(function()
 									{
-										var redirect_url = baseurl;
+										var redirect_url = "";
 										
-										if(response.redirect_url && response.redirect_url.length)
-										{
-											redirect_url = response.redirect_url;
-										}
+										//if(response.redirect_url && response.redirect_url.length)
+										//{
+											redirect_url = $repuesta.filter("#redirec").text();
+										//}
 										
 										window.location.href = redirect_url;
 									}, 400);
