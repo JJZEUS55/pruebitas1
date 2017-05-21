@@ -15,27 +15,22 @@ public class ServLogin extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        String usr=request.getParameter("username");
+        String pass=request.getParameter("password");
+        
+        
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
-            out.println("<head>");
+            out.println("<head>");  
+                       
             
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            out.println("<title>Servlet ServLogin</title>");            
+            out.println("<title>Servlet Login no visible</title>");            
             out.println("</head>");
             out.println("<body>");
-            if(true)
+            
+            if("log".equals(usr))
             out.println("<div id='status'>success</div>");
             else
             out.println("<div id='status'>invalid</div>");

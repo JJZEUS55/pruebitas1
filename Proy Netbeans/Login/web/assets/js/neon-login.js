@@ -60,10 +60,12 @@ var neonLogin = neonLogin || {};
 					neonLogin.setPercentage(40 + random_pct);
 											
 					// Send data to the server
+                                        //alert($("#form_login").serialize());
 					$.ajax({
 						url: 'ServLogin',
 						method: 'POST',
                                                 data: $("#form_login").serialize(),
+                                                
 						//dataType: 'json',
 						/*data: {
 							username: $("input#username").val(),                                                        
@@ -78,6 +80,7 @@ var neonLogin = neonLogin || {};
 						success: function(response)
 						{
 							// Login status [success|invalid]
+                                                        
                                                         var $repuesta= $(response);
 							var login_status = $repuesta.filter("#status").text();
                                                         
