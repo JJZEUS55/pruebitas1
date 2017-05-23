@@ -8,7 +8,7 @@
 	<meta name="description" content="Neon Admin Panel" />
 	<meta name="author" content="" />
 	
-	<title>Neon | Horizontal Menu Boxed</title>
+	<title>MIZZI | Registro</title>
 	
 
 	<link rel="stylesheet" href="assets/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css">
@@ -19,7 +19,7 @@
 	<link rel="stylesheet" href="assets/css/neon-theme.css">
 	<link rel="stylesheet" href="assets/css/neon-forms.css">
 	<link rel="stylesheet" href="assets/css/custom.css">
-
+    <script src="validacion.js"></script>
 	<script src="assets/js/jquery-1.11.0.min.js"></script>
 
 	<!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -61,7 +61,7 @@
 		
 	</header>	
 	<div class="main-content">
-	
+	<form id="Registrar">
 	<div class="panel panel-info" data-collapsed="0">
 			
 			<!-- panel head -->
@@ -165,7 +165,7 @@
 				<br/><br/><br/><br/>
 				<div class="form-group" >
 					<div class="col-sm-offset-4">
-							<button type="submit" class="btn btn-success" style="font-size: 20px">Registrarse</button>
+							<button type="submit" onclick="validacion()" form="Registrar" class="btn btn-success" style="font-size: 20px">Registrarse</button>
 						</div>
 				</div>
 				
@@ -182,7 +182,7 @@
 	
 	
 		
-				
+    </form>
 	</div>
 <!-- Footer -->
 <footer class="main">
