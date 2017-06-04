@@ -5,10 +5,6 @@
         <servlet-class>Login.ServLogin</servlet-class>
     </servlet>
     <servlet>
-<<<<<<< HEAD
-        <servlet-name>ServRegistro</servlet-name>
-        <servlet-class>Login.ServRegistro</servlet-class>
-=======
         <servlet-name>InicioCliente</servlet-name>
         <servlet-class>Cliente.InicioCliente</servlet-class>
     </servlet>
@@ -19,7 +15,6 @@
     <servlet>
         <servlet-name>InicioDesarrollador</servlet-name>
         <servlet-class>Desarrollador.InicioDesarrollador</servlet-class>
->>>>>>> 7fb67e36425ecc39041a574f2d9691fd19ab8ca9
     </servlet>
     <servlet>
         <servlet-name>NuevaP_Cliente</servlet-name>
@@ -46,10 +41,6 @@
         <url-pattern>/ServLogin</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-<<<<<<< HEAD
-        <servlet-name>ServRegistro</servlet-name>
-        <url-pattern>/ServRegistro</url-pattern>
-=======
         <servlet-name>InicioCliente</servlet-name>
         <url-pattern>/InicioCliente</url-pattern>
     </servlet-mapping>
@@ -60,7 +51,6 @@
     <servlet-mapping>
         <servlet-name>InicioDesarrollador</servlet-name>
         <url-pattern>/InicioDesarrollador</url-pattern>
->>>>>>> 7fb67e36425ecc39041a574f2d9691fd19ab8ca9
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>NuevaP_Cliente</servlet-name>
