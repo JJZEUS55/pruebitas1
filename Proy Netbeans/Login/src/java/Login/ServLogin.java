@@ -1,6 +1,7 @@
 
 package Login;
 
+import Operaciones_BD.ConsultasBD;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -10,13 +11,17 @@ import javax.servlet.http.HttpServletResponse;
 
 
 public class ServLogin extends HttpServlet {
-
+    private static final String PagInicioAdministrador="index.html";
+    private static final String PagInicioCliente="index.html";
+    private static final String PagInicioDearollador="index.html";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String usr=request.getParameter("username");
         String pass=request.getParameter("password");
+        
+        ConsultasBD consultor= new ConsultasBD();
         
         
         try (PrintWriter out = response.getWriter()) {
@@ -30,11 +35,29 @@ public class ServLogin extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             
-            if("log".equals(usr))
-            out.println("<div id='status'>success</div>");
-            else
-            out.println("<div id='status'>invalid</div>");
-            out.println("<div id='redirec'>index.html</div>");
+            //if("log".equals(usr)&&"log".equals(pass))
+            switch(consultor.Login(usr, pass))
+            {
+                case 0:
+                    out.println("<div id='status'>invalid</div>");
+                    break;
+                case 1:
+                    out.println("<div id='status'>success</div>");
+                    out.println("<div id='redirec'>"+PagInicioDearollador+"</div>");
+                    break;
+                case 2:
+                    out.println("<div id='status'>success</div>");
+                    out.println("<div id='redirec'>"+PagInicioCliente+"</div>");
+                    break;   
+                case 3:
+                    out.println("<div id='status'>success</div>");
+                    out.println("<div id='redirec'>"+PagInicioAdministrador+"</div>");
+                    break;   
+            }
+            
+            //else
+            
+            
             
             
             out.println("<h1>Servlet ServLogin at " + request.getContextPath() + "</h1>");
