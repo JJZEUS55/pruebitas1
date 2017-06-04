@@ -10,6 +10,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -83,6 +85,47 @@ public class ConsultasBD {
             e.printStackTrace();
         }
         return 0;
+    }
+    
+    public String NuevoUser
+    (String Usuario,String Pass,String Tipo, String Nombre, String ApellidoP,String ApellidoM,String Genero,
+            String Correo,String Telefono, int reputacion,String FechaNacimiento,int experiencia)
+    {
+        try {
+            /*
+            INSERT INTO USUARIO VALUES(4,'George55', '123', 'Administrador');
+            INSERT INTO DESARROLLADOR VALUES(1, 'Angel', 'Chavez', 'Chavez', 'Masculino', '1996-04-05', 1,'avener12@live.com.mx','58987522',10);
+            INSERT INTO CLIENTE VALUES(3,'Alan', 'Garcia', 'Davila', 'Masculino', '1995-12-05', 1,'nalan@gmail.com','48984522');
+            */
+            ResultSet resultado=consult.executeQuery("SELECT * FROM usuario WHERE Usuario='"+Usuario+"'" );
+            if(resultado.absolute(1))
+                return "Usuario_Existente";
+            if(Tipo!="Desarrollador" || Tipo!="Cliente")
+                return "Tipo No valido";
+            consult.executeUpdate("INSERT INTO USUARIO (Usuario,Password,Tipo) VALUES('"+Usuario+"', '"+Pass+"', '"+Tipo +"')");
+            resultado=consult.executeQuery("SELECT * FROM usuario WHERE Usuario='"+Usuario+"'" );
+            String ID=resultado.getString("Id_Usuario");
+            if(Tipo.equals("Desarrolador"))
+            {
+                consult.executeUpdate("INSERT INTO DESARROLLADOR VALUES("+ID+", '"+Nombre+"', '"+ApellidoP+"',"
+                        + " '"+ApellidoM+"', '"+Genero+"',"
+                        + " '"+FechaNacimiento +"', "+reputacion+",'"+Correo +"','"+Telefono +"')");
+                //return ""        
+            }
+                
+            else
+                //consult.executeUpdate("INSERT INTO DESARROLLADOR VALUES(1, 'Angel', 'Chavez', 'Chavez', 'Masculino', '1996-04-05', 1,'avener12@live.com.mx','58987522',10)");
+                consult.executeUpdate("INSERT INTO CLIENTE VALUES("+ID+", '"+Nombre+"', '"+ApellidoP+"',"
+                        + " '"+ApellidoM+"', '"+Genero+"',"
+                        + " '"+FechaNacimiento +"', "+reputacion+",'"+Correo +"','"+Telefono +"')");
+                
+            
+            return "Hecho";    
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return "Error!";
     }
     
 }
