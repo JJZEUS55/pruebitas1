@@ -6,7 +6,7 @@
 
 var neonLogin = neonLogin || {};
 
-;(function($, window, undefined)
+(function($, window, undefined)
 {
 	"use strict";
 	

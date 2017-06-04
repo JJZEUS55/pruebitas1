@@ -4,9 +4,17 @@
         <servlet-name>ServLogin</servlet-name>
         <servlet-class>Login.ServLogin</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServRegistro</servlet-name>
+        <servlet-class>Login.ServRegistro</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServLogin</servlet-name>
         <url-pattern>/ServLogin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServRegistro</servlet-name>
+        <url-pattern>/ServRegistro</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
