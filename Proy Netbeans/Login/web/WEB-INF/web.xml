@@ -16,6 +16,26 @@
         <servlet-name>InicioDesarrollador</servlet-name>
         <servlet-class>Desarrollador.InicioDesarrollador</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>NuevaP_Cliente</servlet-name>
+        <servlet-class>Cliente.NuevaP_Cliente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PublicacionesC</servlet-name>
+        <servlet-class>Cliente.PublicacionesC</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditarPublicacion</servlet-name>
+        <servlet-class>Cliente.EditarPublicacion</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Publicaciones</servlet-name>
+        <servlet-class>Desarrollador.Publicaciones</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Clientes</servlet-name>
+        <servlet-class>Desarrollador.Clientes</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServLogin</servlet-name>
         <url-pattern>/ServLogin</url-pattern>
@@ -31,6 +51,26 @@
     <servlet-mapping>
         <servlet-name>InicioDesarrollador</servlet-name>
         <url-pattern>/InicioDesarrollador</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NuevaP_Cliente</servlet-name>
+        <url-pattern>/NuevaP_Cliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PublicacionesC</servlet-name>
+        <url-pattern>/PublicacionesC</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditarPublicacion</servlet-name>
+        <url-pattern>/EditarPublicacion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Publicaciones</servlet-name>
+        <url-pattern>/Publicaciones</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Clientes</servlet-name>
+        <url-pattern>/Clientes</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
