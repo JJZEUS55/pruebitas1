@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Login;
+package Admin;
 
-import Operaciones_BD.ConsultasBD;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -15,9 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Jorge
+ * @author Alan
  */
-public class ServRegistro extends HttpServlet {
+public class InicioAdmin extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,30 +30,15 @@ public class ServRegistro extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        ConsultasBD consultor= new ConsultasBD();
-        String Usuario=request.getParameter("");
-        String Pass=request.getParameter("");
-        String Tipo=request.getParameter(""); 
-        String Nombre=request.getParameter(""); 
-        String ApellidoP=request.getParameter("");
-        String ApellidoM=request.getParameter("");
-        String Genero=request.getParameter("");
-        String Correo=request.getParameter("");
-        String Telefono=request.getParameter(""); 
-        //int reputacion=request.getParameter("");
-        String FechaNacimiento=request.getParameter("");
-        //int experiencia=request.getParameter("");
-        
-        
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ServRegistro</title>");            
+            out.println("<title>Servlet InicioAdmin</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ServRegistro at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet InicioAdmin at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
