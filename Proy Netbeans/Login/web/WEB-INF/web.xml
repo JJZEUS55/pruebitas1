@@ -36,6 +36,14 @@
         <servlet-name>Clientes</servlet-name>
         <servlet-class>Desarrollador.Clientes</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServRegistroUser</servlet-name>
+        <servlet-class>Login.ServRegistroUser</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServModificarUser</servlet-name>
+        <servlet-class>Login.ServModificarUser</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServLogin</servlet-name>
         <url-pattern>/ServLogin</url-pattern>
@@ -71,6 +79,14 @@
     <servlet-mapping>
         <servlet-name>Clientes</servlet-name>
         <url-pattern>/Clientes</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServRegistroUser</servlet-name>
+        <url-pattern>/ServRegistroUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServModificarUser</servlet-name>
+        <url-pattern>/ServModificarUser</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
