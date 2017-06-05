@@ -54,10 +54,12 @@ function validacion()
         alert('[ERROR] las contraseñas no coinciden');
         return false;
     }
-    window.location ="ServRegistroUser?"+$("#Registrar").serialize();
+    //window.location ="ServRegistroUser?"+$("#Registrar").serialize();
    // alert("Hola");
-   /*
+   ///*
     alert($("#Registrar").serialize());
+    setTimeout(function()
+    {
     $.ajax({
         url: 'ServRegistroUser',
         method: 'POST',
@@ -72,6 +74,7 @@ function validacion()
         success: function(response)
         {
                 // Login status [success|invalid]
+                alert("Algo");
                 alert(response);
                 var $repuesta= $(response);
                 
@@ -79,5 +82,7 @@ function validacion()
                 
         }
     });
-    */
+    
+    }, 650);
+  //  */
 }

@@ -57,17 +57,17 @@ public class ServRegistroUser extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             
-            String Status=consultor.NuevoUser(Usuario, Pass, Tipo, Nombre, ApellidoP, ApellidoM, Genero, Correo, Telefono, 0, FechaNacimiento, 0);
+            int Status=consultor.NuevoUser(Usuario, Pass, Tipo, Nombre, ApellidoP, ApellidoM, Genero, Correo, Telefono, 0, FechaNacimiento, 0);
             out.println("<h1> "+ Status +"  </h1>");
             switch(Status)
             {
-                case "Hecho":
+                case 1:
                     //System.out.println("Login.ServRegistroUser.processRequest()");
                     out.println("<div id='status'>Hecho </div>");
                     out.println("<a href='inicio_sesion.html'>Iniciar sesion</a>");
                     break;
-                case "Usuario_Existente":
-                    response.sendRedirect("NuevoRegistro.html?stat='YaExiste'");
+                case 2:
+                    
                     break;
             }
             //if(Status.equals("Hecho"))

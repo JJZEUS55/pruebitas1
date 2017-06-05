@@ -36,7 +36,7 @@ public class ConsultasBD {
            conexion = DriverManager.getConnection("jdbc:mysql://localhost/"+NombreBaseDatos+"?user="+UsuarioBD+"&password="+PASS+"");
            try {
                 consult = conexion.createStatement();
-                System.out.println("Operaciones_BD.ConsultasBD.<init>()");
+                //System.out.println("Operaciones_BD.ConsultasBD.<init>()");
             } 
             catch (SQLException e) 
             {
@@ -87,10 +87,12 @@ public class ConsultasBD {
         return 0;
     }
     
-    public String NuevoUser
+    public int NuevoUser
     (String Usuario,String Pass,String Tipo, String Nombre, String ApellidoP,String ApellidoM,String Genero,
             String Correo,String Telefono, int reputacion,String FechaNacimiento,int experiencia)
-    {   String Mes=FechaNacimiento.substring(0, 2);
+    {   
+        //return 1;
+        String Mes=FechaNacimiento.substring(0, 2);
         String Dia=FechaNacimiento.substring(3, 5);
         String Año=FechaNacimiento.substring(6,10);
         System.out.println("Inicio de Inserccion");
@@ -103,16 +105,16 @@ public class ConsultasBD {
             ResultSet resultado=consult.executeQuery("SELECT * FROM usuario WHERE Usuario='"+Usuario+"'" );
             if(resultado.absolute(1)){
                 System.out.println("usuario Existente");
-                return "Usuario_Existente";
+                return 0;
             }
             if(!Tipo.equals("Desarrollador") && Tipo!="Cliente"){
                 System.out.println("Tipo no valido"+Tipo);
-                return "Tipo No valido";
+                return -2;
             }
-            consult.executeUpdate("INSERT INTO USUARIO (Usuario,Password,Tipo) VALUES('"+Usuario+"', '"+Pass+"', '"+Tipo +"')");
+            consult.executeUpdate("INSERT INTO USUARIO (Usuario,Password,Tipo,Estado) VALUES('"+Usuario+"', '"+Pass+"', '"+Tipo +"',2)");//2 para marcar no validado
             resultado=consult.executeQuery("SELECT * FROM usuario WHERE Usuario='"+Usuario+"'" );
             if(!resultado.absolute(1))
-                return "Error?";
+                return -1;
             
             String ID=resultado.getString(1);
             System.out.println("Operaciones_BD.ConsultasBD.NuevoUser() "+ID);
@@ -124,7 +126,8 @@ public class ConsultasBD {
                 consult.executeUpdate("INSERT INTO DESARROLLADOR VALUES('"+ID+"', '"+Nombre+"', '"+ApellidoP+"',"
                         + " '"+ApellidoM+"', '"+Genero+"',"
                         + " '"+Año+"-"+Mes +"-"+Dia+"', '"+"0"+"','"+Correo +"','"+Telefono +"','"+reputacion+"')");
-                return "Hecho";      
+                System.out.println("it works!");
+                return 1;      
             }
                 
             else{
@@ -135,12 +138,12 @@ public class ConsultasBD {
                         + " '"+FechaNacimiento +"', '"+reputacion+"','"+Correo +"','"+Telefono+"')");
             }  
             
-            return "Hecho";    
+            return 1;    
             
         } catch (SQLException ex) {
             Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return "Error!";
+        return -1;
     }
     
 }
