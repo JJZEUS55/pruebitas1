@@ -106,12 +106,7 @@ var neonLogin = neonLogin || {};
 									setTimeout(function()
 									{
 										var redirect_url = "";
-										
-										//if(response.redirect_url && response.redirect_url.length)
-										//{
-											redirect_url = $repuesta.filter("#redirec").text();
-										//}
-										
+										redirect_url = $repuesta.filter("#redirec").text();																				
 										window.location.href = redirect_url;
 									}, 400);
 								}

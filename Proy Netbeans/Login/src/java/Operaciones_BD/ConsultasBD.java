@@ -105,8 +105,14 @@ public class ConsultasBD {
             ResultSet resultado=consult.executeQuery("SELECT * FROM usuario WHERE Usuario='"+Usuario+"'" );
             if(resultado.absolute(1)){
                 System.out.println("usuario Existente");
-                return 0;
+                return 10;
             }
+            /*
+            resultado=consult.executeQuery("SELECT * FROM DESARROLLADOR WHERE Usuario='"+Usuario+"'" );
+            if(resultado.absolute(1)){
+                System.out.println("Correo Existente");
+                return 11;
+            }*/
             if(!Tipo.equals("Desarrollador") && Tipo!="Cliente"){
                 System.out.println("Tipo no valido"+Tipo);
                 return -2;

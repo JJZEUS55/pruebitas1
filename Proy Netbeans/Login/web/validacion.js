@@ -74,9 +74,19 @@ function validacion()
         success: function(response)
         {
                 // Login status [success|invalid]
-                alert("Algo");
+                //alert("Algo");
                 alert(response);
                 var $repuesta= $(response);
+                var status = $repuesta.filter("#status").text();
+                if(status==="Hecho"){
+                    alert("registro Exitoso");
+                    window.location.href="inicio_sesion.html"
+                    //return;
+                }
+                if(status==="UsuarioExistente"){
+                    alert("Usuario Ya Existe");
+                }
+                
                 
 
                 
