@@ -91,6 +91,7 @@ public class ConsultasBD {
     (String Usuario,String Pass,String Tipo, String Nombre, String ApellidoP,String ApellidoM,String Genero,
             String Correo,String Telefono, int reputacion,String FechaNacimiento,int experiencia)
     {
+        System.out.println("Inicio de Inserccion");
         try {
             /*
             INSERT INTO USUARIO VALUES(4,'George55', '123', 'Administrador');
@@ -98,10 +99,14 @@ public class ConsultasBD {
             INSERT INTO CLIENTE VALUES(3,'Alan', 'Garcia', 'Davila', 'Masculino', '1995-12-05', 1,'nalan@gmail.com','48984522');
             */
             ResultSet resultado=consult.executeQuery("SELECT * FROM usuario WHERE Usuario='"+Usuario+"'" );
-            if(resultado.absolute(1))
+            if(resultado.absolute(1)){
+                System.out.println("usuario Existente");
                 return "Usuario_Existente";
-            if(Tipo!="Desarrollador" || Tipo!="Cliente")
+            }
+            if(!Tipo.equals("Desarrollador") && Tipo!="Cliente"){
+                System.out.println("Tipo no valido"+Tipo);
                 return "Tipo No valido";
+            }
             consult.executeUpdate("INSERT INTO USUARIO (Usuario,Password,Tipo) VALUES('"+Usuario+"', '"+Pass+"', '"+Tipo +"')");
             resultado=consult.executeQuery("SELECT * FROM usuario WHERE Usuario='"+Usuario+"'" );
             String ID=resultado.getString("Id_Usuario");

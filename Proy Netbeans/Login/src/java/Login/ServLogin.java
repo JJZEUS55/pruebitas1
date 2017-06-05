@@ -8,13 +8,16 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 public class ServLogin extends HttpServlet {
-    private static final String PagInicioAdministrador="index.html";
-    private static final String PagInicioCliente="index.html";
-    private static final String PagInicioDearollador="index.html";
-
+    private static final String PagInicioAdministrador="InicioAdmin";
+    private static final String PagInicioCliente="InicioCliente";
+    private static final String PagInicioDearollador="InicioDesarrollador";
+    
+    
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -22,7 +25,7 @@ public class ServLogin extends HttpServlet {
         String pass=request.getParameter("password");
         
         ConsultasBD consultor= new ConsultasBD();
-        
+        HttpSession sesion=request.getSession();
         
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -44,14 +47,21 @@ public class ServLogin extends HttpServlet {
                 case 1:
                     out.println("<div id='status'>success</div>");
                     out.println("<div id='redirec'>"+PagInicioDearollador+"</div>");
+                    
+                    sesion.setAttribute("Usuario", usr);
+                    sesion.setAttribute("Tipo", "Des");
                     break;
                 case 2:
                     out.println("<div id='status'>success</div>");
                     out.println("<div id='redirec'>"+PagInicioCliente+"</div>");
+                    sesion.setAttribute("Usuario", usr);
+                    sesion.setAttribute("Tipo", "Cli");
                     break;   
                 case 3:
                     out.println("<div id='status'>success</div>");
                     out.println("<div id='redirec'>"+PagInicioAdministrador+"</div>");
+                    sesion.setAttribute("Usuario", usr);
+                    sesion.setAttribute("Tipo", "Adm");
                     break;   
             }
             

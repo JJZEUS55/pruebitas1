@@ -5,6 +5,7 @@
  */
 package Login;
 
+import Operaciones_BD.ConsultasBD;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -29,6 +30,22 @@ public class ServRegistroUser extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String Usuario=request.getParameter("Usuario_P");
+        String Pass=request.getParameter("Pass_P");
+        String Tipo=request.getParameter("Tipo"); 
+        String Nombre=request.getParameter("Name_P"); 
+        String ApellidoP=request.getParameter("Apellido_P");
+        String ApellidoM=request.getParameter("Apellido_M");
+        String Genero=request.getParameter("Genero");
+        String Correo=request.getParameter("Correo_P");
+        String Telefono=request.getParameter("Telefono"); 
+        //int reputacion=request.getParameter("");
+        String FechaNacimiento=request.getParameter("date");
+        //int experiencia=request.getParameter("")  
+        
+        ConsultasBD consultor= new ConsultasBD();
+        String Status=consultor.NuevoUser(Usuario, Pass, Tipo, Nombre, ApellidoP, ApellidoM, Genero, Correo, Telefono, 0, FechaNacimiento, 0);
+        
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -38,7 +55,7 @@ public class ServRegistroUser extends HttpServlet {
             out.println("<title>Servlet ServRegistroUser</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ServRegistroUser at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ServRegistroUser at " + Status + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

@@ -3,7 +3,7 @@ function validacion()
 {
 
     valor = document.getElementById("Name_P").value;
-    if( valor == null || valor.length ==0 )
+    if( valor === null || valor.length ===0 )
     {
         alert('[ERROR] Nombre no puede estar vacio');
         return false;
@@ -11,7 +11,7 @@ function validacion()
     }
     
     valor = document.getElementById("Apellido_P").value;
-    if( valor == null || valor.length ==0 )
+    if( valor === null || valor.length ===0 )
     {
         alert('[ERROR] Apellido no puede estar vacio');
         return false;
@@ -39,7 +39,7 @@ function validacion()
     valor = document.getElementById("Pass_P").value;
     if( valor == null || valor.length ==0 )
     {
-        alert('[ERROR] Usuario no puede estar vacio');
+        alert('[ERROR] Contraseña no puede estar vacio');
         return false;
     }
     if( valor.length < 8 )
@@ -54,9 +54,10 @@ function validacion()
         alert('[ERROR] las contraseñas no coinciden');
         return false;
     }
-    
+   // alert("Hola");
+    alert($("#Registrar").serialize());
     $.ajax({
-        url: 'Registrar',
+        url: 'ServRegistroUser',
         method: 'POST',
         data: $("#Registrar").serialize(),
 
@@ -68,25 +69,19 @@ function validacion()
 
         error: function()
         {
-            alert($("input#username").val()),
+            //alert($("input#username").val()),
             alert("A ocurrido un error!");
         },
         success: function(response)
         {
                 // Login status [success|invalid]
-
+                alert(response);
                 var $repuesta= $(response);
                 var login_status = $repuesta.filter("#status").text();
 
                 //alert("Va shida la cosa" + $repuesta.filter("#status").text());
 
-                // Form is fully completed, we update the percentage
-                neonLogin.setPercentage(100);
-
-
-                // We will give some time for the animation to finish, then execute the following procedures	
-                setTimeout(function()
-                {
+                
                         // If login is invalid, we store the 
                         if(login_status === 'invalid')
                         {
@@ -110,7 +105,7 @@ function validacion()
                                 }, 400);
                         }
 
-                }, 1000);
+                
         }
     });
 }
