@@ -107,13 +107,13 @@ public class Publicaciones extends HttpServlet {
 "				</form>\n" +
 "			</li>\n" +
 "			<li>\n" +
-"				<a href=\"TrabajosInt.html\">\n" +
+"				<a href=\"TrabajosInt\">\n" +
 "					<i class=\"entypo-gauge\"></i>\n" +
 "					<span>Trabajos que te pueden interesar</span>\n" +
 "				</a>\n" +
 "			</li>\n" +
 "			<li  class=\"active opened active\">\n" +
-"				<a href=\"Publicaciones.html\">\n" +
+"				<a href=\"Publicaciones\">\n" +
 "					<i class=\"entypo-layout\"></i>\n" +
 "					<span>Publicaciones</span>\n" +
 "				</a>\n" +

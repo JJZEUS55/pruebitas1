@@ -112,32 +112,105 @@ INSERT INTO USUARIO VALUES(3,'AlanSLC', '123','Cliente',1);
 INSERT INTO USUARIO VALUES(4,'George55', '123', 'Administrador',1);
 
 
+INSERT INTO USUARIO VALUES(5,'Yos1', '123','Desarrollador',1);
+INSERT INTO USUARIO VALUES(6,'SaulSS', '123','Desarrollador',1);
+INSERT INTO USUARIO VALUES(7,'JoseM', '123','Cliente',1);
+INSERT INTO USUARIO VALUES(8,'SantaC', '123', 'Administrador',1);
+INSERT INTO USUARIO VALUES(9,'MarieF', '123','Desarrollador',1);
+INSERT INTO USUARIO VALUES(10,'Johnny', '123','Desarrollador',1);
+INSERT INTO USUARIO VALUES(11,'MRAS', '123','Cliente',1);
+INSERT INTO USUARIO VALUES(12,'Gabrielle5', '123', 'Administrador',1);
+INSERT INTO USUARIO VALUES(13,'Dani35', '123','Desarrollador',1);
+INSERT INTO USUARIO VALUES(14,'Claus', '123','Desarrollador',1);
+INSERT INTO USUARIO VALUES(15,'Aveun', '123','Cliente',1);
+INSERT INTO USUARIO VALUES(16,'Sp4zie', '123', 'Administrador',1);
+INSERT INTO USUARIO VALUES(17,'Avener', '123','Cliente',1);
+INSERT INTO USUARIO VALUES(18,'Ludwing', '123','Cliente',1);
+INSERT INTO USUARIO VALUES(19,'Kousei', '123','Cliente',1);
+
+
 
 INSERT INTO DESARROLLADOR VALUES(1, 'Angel', 'Chavez', 'Chavez', 'Masculino', '1996-04-05', 1,'avener12@live.com.mx','58987522',10);
 INSERT INTO DESARROLLADOR VALUES(2, 'Jorge', 'Romero', 'Santana', 'Masculino', '1996-12-25', 3,'cocinafacil@hotmail.com','55559575',8);
+
 
 INSERT INTO CLIENTE VALUES(3,'Alan', 'Garcia', 'Davila', 'Masculino', '1995-12-05', 1,'nalan@gmail.com','48984522');
 
 INSERT INTO ADMINISTRADOR VALUES(4,'Jorge', 'Paredes', 'Bermudez', 'Masculino', '1996-12-05', 'zeus55@gmail.com','01444522');
 
-INSERT INTO ESPECIALIDAD VALUES(1,'Bases de datos SQL');
+INSERT INTO DESARROLLADOR VALUES(5, 'Yoseline', 'Rodriguez', 'Sanchez', 'Femenino', '1986-11-14', 2,'cocinafacil@hotmail.com','55459575',7);
+INSERT INTO DESARROLLADOR VALUES(6, 'Saul', 'Quintana', 'Perez', 'Masculino', '1987-12-15', 5,'colabora@hotmail.com','555596575',4);
+INSERT INTO DESARROLLADOR VALUES(9, 'Adrian', 'Palacios', 'Chavez', 'Masculino', '1991-10-22', 8,'rpfacil@hotmail.com','55129575',6);
+INSERT INTO DESARROLLADOR VALUES(10, 'Oscar', 'Damazo', 'Mujica', 'Masculino', '1990-06-22', 10,'Progra12@hotmail.com','55580575',9);
+INSERT INTO DESARROLLADOR VALUES(13, 'Daniel', 'Davila', 'Garcia', 'Masculino', '1993-07-25', 15,'ofice@hotmail.com','08559575',10);
+INSERT INTO DESARROLLADOR VALUES(14, 'Andrea', 'Cruz', 'Carrizo', 'Femenino', '1989-08-15', 1,'DontStopMeNow@hotmail.com','55129575',5);
+
+
+INSERT INTO CLIENTE VALUES(7,'Ana', 'Torres', 'Rosales', 'Femenino', '1985-12-05', 10,'having@gmail.com','21984522');
+INSERT INTO CLIENTE VALUES(11,'Alejandro', 'Avalos', 'Zamora', 'Masculino', '1989-07-25', 10,'oggb@gmail.com','46984522');
+INSERT INTO CLIENTE VALUES(15,'Roberto', 'Rivera', 'Dominguez', 'Masculino', '1993-02-04', 5,'Time@gmail.com','89984522');
+INSERT INTO CLIENTE VALUES(17,'Nicolette', 'Jones', 'Casas', 'Femenino', '1975-12-05', 10,'youti@gmail.com','48884522');
+INSERT INTO CLIENTE VALUES(18,'Paolo', 'Aplin', 'Nuñez', 'Masculino', '1979-07-25', 10,'NaoCall@gmail.com','33984522');
+INSERT INTO CLIENTE VALUES(19,'Adair', 'Belmonte', 'Mendez', 'Masculino', '1983-02-04', 5,'officeMan@gmail.com','43254522');
+
+
+INSERT INTO ADMINISTRADOR VALUES(8,'Fernando', 'Juarez', 'Hernandez', 'Masculino', '1993-12-05', 'Fer.C@gmail.com','02342522');
+INSERT INTO ADMINISTRADOR VALUES(12,'Luis', 'Ortiz', 'Benitez', 'Masculino', '1991-11-05', 'LOB12@gmail.com','21444522');
+INSERT INTO ADMINISTRADOR VALUES(16,'Evelyn', 'Jasso', 'Reyna', 'Femenino', '1990-10-15', 'Evee@gmail.com','23444522');
+
+
+INSERT INTO ESPECIALIDAD VALUES(1,'MySQL');
 INSERT INTO ESPECIALIDAD VALUES(2,'HTML');
 INSERT INTO ESPECIALIDAD VALUES(3,'Java');
-INSERT INTO ESPECIALIDAD VALUES(4,'Lenguaje C');
+INSERT INTO ESPECIALIDAD VALUES(4,'C, C++');
 INSERT INTO ESPECIALIDAD VALUES(5,'PHP');
+INSERT INTO ESPECIALIDAD VALUES(6,'Python');
+INSERT INTO ESPECIALIDAD VALUES(7,'iOS');
+INSERT INTO ESPECIALIDAD VALUES(8,'Android');
+INSERT INTO ESPECIALIDAD VALUES(9,'Emsamblador');
+INSERT INTO ESPECIALIDAD VALUES(10,'Visual Basic');
+INSERT INTO ESPECIALIDAD VALUES(11,'Fortran');
+INSERT INTO ESPECIALIDAD VALUES(12,'Cobol');
 
 INSERT INTO DESARROLLADOR_ESPECIALIDAD VALUES(1,1);
 INSERT INTO DESARROLLADOR_ESPECIALIDAD VALUES(1,2);
 INSERT INTO DESARROLLADOR_ESPECIALIDAD VALUES(1,4);
 INSERT INTO DESARROLLADOR_ESPECIALIDAD VALUES(2,3);
 INSERT INTO DESARROLLADOR_ESPECIALIDAD VALUES(2,5);
+INSERT INTO DESARROLLADOR_ESPECIALIDAD VALUES(5,12);
+INSERT INTO DESARROLLADOR_ESPECIALIDAD VALUES(5,10);
+INSERT INTO DESARROLLADOR_ESPECIALIDAD VALUES(5,11);
+INSERT INTO DESARROLLADOR_ESPECIALIDAD VALUES(6,10);
+INSERT INTO DESARROLLADOR_ESPECIALIDAD VALUES(6,6);
+INSERT INTO DESARROLLADOR_ESPECIALIDAD VALUES(9,7);
+INSERT INTO DESARROLLADOR_ESPECIALIDAD VALUES(9,9);
+INSERT INTO DESARROLLADOR_ESPECIALIDAD VALUES(9,8);
+INSERT INTO DESARROLLADOR_ESPECIALIDAD VALUES(10,3);
+INSERT INTO DESARROLLADOR_ESPECIALIDAD VALUES(10,1);
+INSERT INTO DESARROLLADOR_ESPECIALIDAD VALUES(13,9);
+INSERT INTO DESARROLLADOR_ESPECIALIDAD VALUES(13,8);
+INSERT INTO DESARROLLADOR_ESPECIALIDAD VALUES(13,7);
+INSERT INTO DESARROLLADOR_ESPECIALIDAD VALUES(13,6);
+INSERT INTO DESARROLLADOR_ESPECIALIDAD VALUES(14,10);
 
 INSERT INTO PROYECTO VALUES(1, 3, 'Paginas x','HTML', 'Pagina de comercio de aparatos electronicos.',4,12000,'En espera de desarrollador');
-INSERT INTO PROYECTO VALUES(2, 3, 'Bases x','Bases de datos SQL', 'Base de datos de una empresa',4,16000,'En desarrollo');
-INSERT INTO PROYECTO VALUES(3, 3, 'Juego x','Java', 'Juego de gato',2,6000,'Terminado');
+INSERT INTO PROYECTO VALUES(2, 3, 'Bases x','MySQL', 'Base de datos de una empresa',4,16000,'En desarrollo');
+INSERT INTO PROYECTO VALUES(3, 7, 'Juego x','Java', 'Juego de gato',2,6000,'Terminado');
+INSERT INTO PROYECTO VALUES(4, 11, 'Computacion rapida','Ensamblador', 'Pagina de comercio de aparatos electronicos.',4,12000,'En espera de desarrollador');
+INSERT INTO PROYECTO VALUES(5, 15, 'SQL DATABASES','MySQL', 'Base de datos de una empresa',4,16000,'En desarrollo');
+INSERT INTO PROYECTO VALUES(6, 15, 'Analizar una Imagen','C,C++', 'Juego de gato',2,6000,'Terminado');
+INSERT INTO PROYECTO VALUES(7, 17, 'Interfaz de Banco','iOS', 'Pagina de comercio de aparatos electronicos.',4,12000,'En espera de desarrollador');
+INSERT INTO PROYECTO VALUES(8, 18, 'Sistema de casa inteligente','Android', 'Base de datos de una empresa',4,16000,'En desarrollo');
+INSERT INTO PROYECTO VALUES(9, 19, 'Ajedrez magico','Python', 'Juego de gato',2,6000,'Terminado');
 
 INSERT INTO CONTRATO VALUES(1,2,3,'2017-04-10','2017-04-24');
 INSERT INTO CONTRATO VALUES(2,1,2,'2017-05-10','2017-06-10');
+
+INSERT INTO CONTRATO VALUES(3,5,5,'2017-04-10','2017-04-24');
+INSERT INTO CONTRATO VALUES(4,6,6,'2017-04-10','2017-04-24');
+INSERT INTO CONTRATO VALUES(5,9,8,'2017-04-10','2017-04-24');
+INSERT INTO CONTRATO VALUES(6,10,9,'2017-04-10','2017-04-24');
+
 
 INSERT INTO AVANCE VALUES(1,1,'2017-04-15','Entrega de la interfaz grafica');
 INSERT INTO AVANCE VALUES(2,1,'2017-04-20','Gato funcional, correcciones pendientes');
