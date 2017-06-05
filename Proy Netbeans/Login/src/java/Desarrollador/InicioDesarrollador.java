@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Desarrollador;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +17,14 @@ public class InicioDesarrollador extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         BD_des objeto = new BD_des();
+        String Nombre;
+        String NumeroT;
+        String Correo;
+        String añosxp;
+        String x;
+        String rep;
+        int cantE;
+        ResultSet obj2;
         ResultSet info = objeto.ProgramadorDestacado();
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
@@ -487,9 +491,25 @@ public class InicioDesarrollador extends HttpServlet {
 "	\n" +
 "	\n" +
 "</div>\n");
-            for (int i = 0; i < 6; i++) 
+            
+            try {
+            
+            info.last();
+            int cantRep = info.getRow();
+            if(cantRep > 6)
+                cantRep = 6;
+            
+            for (int i = 1; i <= cantRep; i++) 
             {
-                if(i%2==0)
+                info.absolute(i);
+                Nombre = info.getString(2)+" ";
+                Nombre += info.getString(3)+" ";
+                Nombre += info.getString(4);
+                Correo = info.getString(8);
+                //NumeroT = info.getString(9);
+                añosxp = info.getString(7);
+                rep = info.getString(10);
+                if(i%2 == 1)
                 {
                     out.println("<div class=\"row\">\n" +
 "	<div class=\"col-md-6\">\n" +
@@ -511,14 +531,30 @@ public class InicioDesarrollador extends HttpServlet {
 "			<!-- panel body -->\n" +
 "			<div class=\"panel-body\">\n" +
 "				\n" +
-"				<p>Nombre: Ramirez Arce Edwin</p>\n" +
-"				<p>Especialidad: C, C++, C#</p>\n" +
-"				<P>Trabajos destacados: Proyecto1, proyecto2</P>\n" +
-"				<a href=\"#\">Contactar</a>\n" +
+"				<p>Nombre: "+Nombre+"</p>\n" +
+"				<p>Años de experiencia: "+añosxp+"</p>\n" +
+"                               <p>Reputacion: "+rep+"</p> \n"+
+"                               <p>Correo: "+Correo+"</p> \n"+
+"                               <p>Especialidades: \n");
+                                obj2 = objeto.ProgramadorEspecialidad(info.getString(1));
+                
+                                obj2.last();
+                                cantE = obj2.getRow();
+                                for (int j = 1; j <= cantE; j++) 
+                                {
+                                    obj2.absolute(j);
+                                    out.print(obj2.getString(1)+" ");
+                                }
+                                out.println("</p>");
+out.println("				<a href=\"#\">Contactar</a>\n" +
 "				\n" +
 "			</div>\n" +
 "		</div>\n" +
 "	</div>");
+                    if(i == cantRep)
+                    {
+                        out.print("</div>");
+                    }
                 }
                 else
                 {
@@ -541,16 +577,33 @@ public class InicioDesarrollador extends HttpServlet {
 "			<!-- panel body -->\n" +
 "			<div class=\"panel-body\">\n" +
 "				\n" +
-"				<p>Nombre: Romero Santana Jorge de Jesus</p>\n" +
-"				<p>Especialidad: HTML, C, C++, C#</p>\n" +
-"				<P>Trabajos destacados: Proyecto1, proyecto2</P>\n" +
-"				<a href=\"#\">Contactar</a>\n" +
+"				<p>Nombre: "+Nombre+"</p>\n" +
+"				<p>Años de experiencia: "+añosxp+"</p>\n" +
+"                               <p>Reputacion: "+rep+"</p> \n"+
+"                               <p>Correo: "+Correo+"</p> \n"+
+"                               <p>Especialidades: \n");
+                                obj2 = objeto.ProgramadorEspecialidad(info.getString(1));
+                
+                                obj2.last();
+                                cantE = obj2.getRow();
+                                for (int j = 1; j <= cantE; j++) 
+                                {
+                                    obj2.absolute(j);
+                                    out.print(obj2.getString(1)+" ");
+                                }
+                                out.println("</p>");
+out.println("				<a href=\"#\">Contactar</a>\n" +
+
 "				\n" +
 "			</div>\n" +
 "		</div>\n" +
 "	</div>\n" +
 "</div>");
                 }
+            }
+            }catch ( SQLException e )
+            {
+                
             }
             
             
@@ -565,7 +618,7 @@ out.println("\n" +
 "			\n" +
 "			<!-- panel head -->\n" +
 "			<div class=\"panel-heading\">\n" +
-"				<div class=\"panel-title\">Alerta</div>\n" +
+"				<div class=\"panel-title\">Alertas</div>\n" +
 "				\n" +
 "				<div class=\"panel-options\">\n" +
 "					\n" +
@@ -578,7 +631,7 @@ out.println("\n" +
 "			<!-- panel body -->\n" +
 "			<div class=\"panel-body\">\n" +
 "				\n" +
-"				<p>Problema detectado en sus pagos</p>\n" +
+"				<p>No tiene alertas en este momento</p>\n" +
 "				\n" +
 "			</div>\n" +
 "			\n" +

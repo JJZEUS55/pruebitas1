@@ -44,8 +44,37 @@ public class BD_des {
     
     public ResultSet ProgramadorDestacado()
     {
-         try{
+        try{
             ResultSet resultado = consult.executeQuery("SELECT * FROM Desarrollador WHERE Reputacion > 9");
+            System.out.println("Consulata realizada!!!");
+            return resultado;
+         } 
+         catch(SQLException e)
+         {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
+    public ResultSet ProgramadorEspecialidad(String num)
+    {   try{
+            
+            ResultSet resultado = consult.executeQuery("select especialidad.Especialidad from desarrollador_especialidad,especialidad where (Id_Desarrollador="+num+" && desarrollador_especialidad.Id_Especialidad=especialidad.Id_Especialidad);");
+            System.out.println("Consulata realizada Esp!!!"+num);
+            return resultado;
+         } 
+         catch(SQLException e)
+         {
+            e.printStackTrace();
+        }
+        return null;
+        
+    }
+    
+    public ResultSet Proyectos()
+    {
+        try{
+            ResultSet resultado = consult.executeQuery("SELECT * FROM proyecto");
             System.out.println("Consulata realizada!!!");
             return resultado;
          } 
