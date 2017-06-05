@@ -44,7 +44,8 @@ public class ServRegistroUser extends HttpServlet {
         //int experiencia=request.getParameter("")  
         
         ConsultasBD consultor= new ConsultasBD();
-        String Status=consultor.NuevoUser(Usuario, Pass, Tipo, Nombre, ApellidoP, ApellidoM, Genero, Correo, Telefono, 0, FechaNacimiento, 0);
+        
+        
         
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
@@ -55,7 +56,23 @@ public class ServRegistroUser extends HttpServlet {
             out.println("<title>Servlet ServRegistroUser</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ServRegistroUser at " + Status + "</h1>");
+            
+            String Status=consultor.NuevoUser(Usuario, Pass, Tipo, Nombre, ApellidoP, ApellidoM, Genero, Correo, Telefono, 0, FechaNacimiento, 0);
+            out.println("<h1> "+ Status +"  </h1>");
+            switch(Status)
+            {
+                case "Hecho":
+                    //System.out.println("Login.ServRegistroUser.processRequest()");
+                    out.println("<div id='status'>Hecho </div>");
+                    out.println("<a href='inicio_sesion.html'>Iniciar sesion</a>");
+                    break;
+                case "Usuario_Existente":
+                    response.sendRedirect("NuevoRegistro.html?stat='YaExiste'");
+                    break;
+            }
+            //if(Status.equals("Hecho"))
+                
+            
             out.println("</body>");
             out.println("</html>");
         }

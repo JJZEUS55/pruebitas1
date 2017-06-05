@@ -54,18 +54,15 @@ function validacion()
         alert('[ERROR] las contraseñas no coinciden');
         return false;
     }
+    window.location ="ServRegistroUser?"+$("#Registrar").serialize();
    // alert("Hola");
+   /*
     alert($("#Registrar").serialize());
     $.ajax({
         url: 'ServRegistroUser',
         method: 'POST',
         data: $("#Registrar").serialize(),
 
-        //dataType: 'json',
-        /*data: {
-                username: $("input#username").val(),                                                        
-                password: $("input#password").val(),
-        },*/
 
         error: function()
         {
@@ -77,35 +74,10 @@ function validacion()
                 // Login status [success|invalid]
                 alert(response);
                 var $repuesta= $(response);
-                var login_status = $repuesta.filter("#status").text();
-
-                //alert("Va shida la cosa" + $repuesta.filter("#status").text());
-
                 
-                        // If login is invalid, we store the 
-                        if(login_status === 'invalid')
-                        {
-                                $(".login-page").removeClass('logging-in');
-                                neonLogin.resetProgressBar(true);
-                        }
-                        else
-                        if(login_status === 'success')
-                        {
-                                // Redirect to login page
-                                setTimeout(function()
-                                {
-                                        var redirect_url = "";
-
-                                        //if(response.redirect_url && response.redirect_url.length)
-                                        //{
-                                                redirect_url = $repuesta.filter("#redirec").text();
-                                        //}
-
-                                        window.location.href = redirect_url;
-                                }, 400);
-                        }
 
                 
         }
     });
+    */
 }

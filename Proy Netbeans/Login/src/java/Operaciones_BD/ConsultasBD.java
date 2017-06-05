@@ -90,7 +90,9 @@ public class ConsultasBD {
     public String NuevoUser
     (String Usuario,String Pass,String Tipo, String Nombre, String ApellidoP,String ApellidoM,String Genero,
             String Correo,String Telefono, int reputacion,String FechaNacimiento,int experiencia)
-    {
+    {   String Mes=FechaNacimiento.substring(0, 2);
+        String Dia=FechaNacimiento.substring(3, 5);
+        String Año=FechaNacimiento.substring(6,10);
         System.out.println("Inicio de Inserccion");
         try {
             /*
@@ -109,21 +111,29 @@ public class ConsultasBD {
             }
             consult.executeUpdate("INSERT INTO USUARIO (Usuario,Password,Tipo) VALUES('"+Usuario+"', '"+Pass+"', '"+Tipo +"')");
             resultado=consult.executeQuery("SELECT * FROM usuario WHERE Usuario='"+Usuario+"'" );
-            String ID=resultado.getString("Id_Usuario");
-            if(Tipo.equals("Desarrolador"))
+            if(!resultado.absolute(1))
+                return "Error?";
+            
+            String ID=resultado.getString(1);
+            System.out.println("Operaciones_BD.ConsultasBD.NuevoUser() "+ID);
+            if(Tipo.equals("Desarrollador"))
             {
-                consult.executeUpdate("INSERT INTO DESARROLLADOR VALUES("+ID+", '"+Nombre+"', '"+ApellidoP+"',"
+                System.out.println("INSERT INTO DESARROLLADOR VALUES('"+ID+"', '"+Nombre+"', '"+ApellidoP+"',"
                         + " '"+ApellidoM+"', '"+Genero+"',"
-                        + " '"+FechaNacimiento +"', "+reputacion+",'"+Correo +"','"+Telefono +"')");
-                //return ""        
+                        + " '"+Año+"-"+Mes +"-"+Dia+"', '"+"0"+"','"+Correo +"','"+Telefono +"','"+reputacion+"')");
+                consult.executeUpdate("INSERT INTO DESARROLLADOR VALUES('"+ID+"', '"+Nombre+"', '"+ApellidoP+"',"
+                        + " '"+ApellidoM+"', '"+Genero+"',"
+                        + " '"+Año+"-"+Mes +"-"+Dia+"', '"+"0"+"','"+Correo +"','"+Telefono +"','"+reputacion+"')");
+                return "Hecho";      
             }
                 
-            else
+            else{
                 //consult.executeUpdate("INSERT INTO DESARROLLADOR VALUES(1, 'Angel', 'Chavez', 'Chavez', 'Masculino', '1996-04-05', 1,'avener12@live.com.mx','58987522',10)");
-                consult.executeUpdate("INSERT INTO CLIENTE VALUES("+ID+", '"+Nombre+"', '"+ApellidoP+"',"
+                //INSERT INTO CLIENTE VALUES(3,'Alan', 'Garcia', 'Davila', 'Masculino', '1995-12-05', 1,'nalan@gmail.com','48984522');
+                consult.executeUpdate("INSERT INTO CLIENTE VALUES('"+ID+"', '"+Nombre+"', '"+ApellidoP+"',"
                         + " '"+ApellidoM+"', '"+Genero+"',"
-                        + " '"+FechaNacimiento +"', "+reputacion+",'"+Correo +"','"+Telefono +"')");
-                
+                        + " '"+FechaNacimiento +"', '"+reputacion+"','"+Correo +"','"+Telefono+"')");
+            }  
             
             return "Hecho";    
             
