@@ -1,5 +1,5 @@
 package Desarrollador;
-
+import Login.ValidarLogin;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
@@ -16,14 +16,31 @@ import javax.servlet.http.HttpServletResponse;
 public class InicioDesarrollador extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //ValidarLogin.validar(request, response, "Des");
         BD_des objeto = new BD_des();
-        String Nombre;
-        String NumeroT;
+        String Nombre = "";
+        String ProyectoA = "Ninguno";
         String Correo;
         String añosxp;
-        String x;
-        String rep;
+        String x="";
+        String rep ="0";
         int cantE;
+        ResultSet datosUs = objeto.infoDes("Yos1");
+        try
+        {
+            datosUs.absolute(1);
+            Nombre = datosUs.getString(7)+" ";
+            Nombre += datosUs.getString(8)+" ";
+            Nombre += datosUs.getString(9);
+            rep = datosUs.getString(15);
+            rep = String.valueOf(Integer.parseInt(rep)*10);
+            x=datosUs.getString(1);
+            datosUs = objeto.ProyectoActual(x);
+            datosUs.absolute(1);
+            ProyectoA = datosUs.getString(1);
+            
+        } catch(SQLException e) {}
+        
         ResultSet obj2;
         ResultSet info = objeto.ProgramadorDestacado();
         response.setContentType("text/html;charset=UTF-8");
@@ -39,7 +56,7 @@ public class InicioDesarrollador extends HttpServlet {
 "	<meta name=\"description\" content=\"Neon Admin Panel\" />\n" +
 "	<meta name=\"author\" content=\"\" />\n" +
 "	\n" +
-"	<title>MIZZI | Inicio</title>\n" +
+"	<title>MIZZI | nombre</title>\n" +
 "	\n" +
 "\n" +
 "	<link rel=\"stylesheet\" href=\"assets/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css\">\n" +
@@ -68,7 +85,7 @@ public class InicioDesarrollador extends HttpServlet {
 "			\n" +
 "			<!-- logo -->\n" +
 "			<div class=\"logo\">\n" +
-"				<a href=\"ClienteInicio.html\">\n" +
+"				<a href=\"InicioDesarrollador.html\">\n" +
 "					<h1 style=\"color: aliceblue \"class=\"text-uppercase text-center\"><strong>MIZZI</strong></h1>\n" +
 "				</a>\n" +
 "			</div>\n" +
@@ -105,27 +122,33 @@ public class InicioDesarrollador extends HttpServlet {
 "				</form>\n" +
 "			</li>\n" +
 "			<li>\n" +
-"				<a href=\"ClienteNuevaP.html\">\n" +
+"				<a href=\"TrabajosInt.html\">\n" +
 "					<i class=\"entypo-gauge\"></i>\n" +
-"					<span>Nueva publicacion</span>\n" +
+"					<span>Trabajos que te pueden interesar</span>\n" +
 "				</a>\n" +
 "			</li>\n" +
 "			<li>\n" +
-"				<a href=\"ContratosR.html\">\n" +
+"				<a href=\"Publicaciones.html\">\n" +
 "					<i class=\"entypo-layout\"></i>\n" +
-"					<span>Contratos realizados</span>\n" +
+"					<span>Publicaciones</span>\n" +
 "				</a>\n" +
 "			</li>\n" +
 "			<li>\n" +
-"				<a href=\"Desarrolladores.html\" target=\"_blank\">\n" +
+"				<a href=\"clientes.html\">\n" +
 "					<i class=\"entypo-monitor\"></i>\n" +
-"					<span>Desarrolladores</span>\n" +
+"					<span>Clientes</span>\n" +
 "				</a>\n" +
 "			</li>\n" +
 "			<li>\n" +
-"				<a href=\"Seguimiento.html\">\n" +
+"				<a href=\"seg_trabajo.html\">\n" +
 "					<i class=\"entypo-newspaper\"></i>\n" +
-"					<span>Proyectos en progreso</span>\n" +
+"					<span>Seguimiento de trabajo</span>\n" +
+"				</a>\n" +
+"			</li>\n" +
+"			<li>\n" +
+"				<a href=\"cobros.html\">\n" +
+"					<i class=\"entypo-attach\"></i>\n" +
+"					<span>Cobros realizados</span>\n" +
 "				</a>\n" +
 "			</li>\n" +
 "		</ul>				\n" +
@@ -141,7 +164,7 @@ public class InicioDesarrollador extends HttpServlet {
 "			<li class=\"profile-info dropdown\">				\n" +
 "				<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\n" +
 "					<img src=\"assets/images/thumb-1@2x.png\" alt=\"\" class=\"img-circle\" width=\"44\" />\n" +
-"					Nombre Usuario\n" +
+"					"+Nombre+"\n" +
 "				</a>\n" +
 "				<ul class=\"dropdown-menu\">\n" +
 "					<li class=\"caret\"></li>\n" +
@@ -418,10 +441,78 @@ public class InicioDesarrollador extends HttpServlet {
 "</div>\n" +
 "\n" +
 "<hr />\n" +
+"			\n" +
 "\n" +
+"<div class=\"row\">\n" +
+"	<div class=\"col-md-3\">\n" +
+"		<div class=\"tile-progress tile-blue\">\n" +
 "			\n" +
+"			<div class=\"tile-header\">\n" +
+"				<h3>Reputacion</h3>\n" +
+"				<span>MIZZI</span>\n" +
+"			</div>\n" +
 "			\n" +
-"<h1>Información destacada</h1>\n" +
+"			<div class=\"tile-progressbar\">\n" +
+"				<span data-fill=\""+rep+"%\"></span>\n" +
+"			</div>\n" +
+"			\n" +
+"			<div class=\"tile-footer\">\n" +
+"				<h4>\n" +
+"					<span class=\"pct-counter\">0</span>% \n" +
+"				</h4>\n" +
+"				\n" +
+"				<span>MIZZI</span>\n" +
+"			</div>\n" +
+"		</div>\n" +
+"	\n" +
+"	</div>\n" +
+"	<div class=\"col-md-3\">\n" +
+"		\n" +
+"		<div class=\"tile-stats tile-blue\">\n" +
+"			<div class=\"icon\"><i class=\"entypo-gauge\"></i></div>\n" +
+"			<div class=\"num\">4</div>\n" +
+"			\n" +
+"			<h3>Proyectos Terminados</h3>\n" +
+"			<br>\n" +
+"			<br>\n" +
+"			<br>\n" +
+"		</div>\n" +
+"\n" +
+"	</div>\n" +
+"	<div class=\"col-md-3\">\n" +
+"\n" +
+"		<div class=\"tile-title tile-aqua\">\n" +
+"			\n" +
+"			<div class=\"icon\">\n" +
+"				<i class=\"glyphicon glyphicon-random\"></i>\n" +
+"			</div>\n" +
+"			\n" +
+"			<div class=\"title\">\n" +
+"				<h3>"+ProyectoA+"</h3>\n" +
+"				<p>Proyecto en curso</p>\n" +
+"			</div>\n" +
+"		</div>\n" +
+"		\n" +
+"		\n" +
+"	</div>\n" +
+"	<div class=\"col-md-3\">\n" +
+"		<div class=\"tile-stats tile-aqua\">\n" +
+"			<div class=\"icon\"><i class=\"entypo-gauge\"></i></div>\n" +
+"			<div class=\"num\">Sin Fecha</div>\n" +
+"			\n" +
+"			<h3>Siguiente entrega</h3>\n" +
+"			<p>-----F</p>\n" +
+"			<br>\n" +
+"			<br>\n" +
+"		</div>\n" +
+"\n" +
+"	</div>\n" +
+"</div>\n" +
+"\n" +
+"\n" +
+"\n" +
+"\n" +
+"\n" +
 "\n" +
 "<br />\n" +
 "\n" +
@@ -490,25 +581,21 @@ public class InicioDesarrollador extends HttpServlet {
 "	</div>\n" +
 "	\n" +
 "	\n" +
-"</div>\n");
-            
-            try {
-            
-            info.last();
-            int cantRep = info.getRow();
-            if(cantRep > 6)
-                cantRep = 6;
-            
-            for (int i = 1; i <= cantRep; i++) 
+"</div>\n" +
+"\n" +
+"\n" +
+"\n" +
+"\n" +
+"\n"); 
+
+
+
+try {                        
+            for (int i = 1; i <= 4; i++) 
             {
-                info.absolute(i);
-                Nombre = info.getString(2)+" ";
-                Nombre += info.getString(3)+" ";
-                Nombre += info.getString(4);
-                Correo = info.getString(8);
-                //NumeroT = info.getString(9);
-                añosxp = info.getString(7);
-                rep = info.getString(10);
+                datosUs = objeto.Publicaciones();
+                datosUs.absolute(i);
+                System.out.println("Antes de iniciar"+i);
                 if(i%2 == 1)
                 {
                     out.println("<div class=\"row\">\n" +
@@ -518,7 +605,7 @@ public class InicioDesarrollador extends HttpServlet {
 "			\n" +
 "			<!-- panel head -->\n" +
 "			<div class=\"panel-heading\">\n" +
-"				<div class=\"panel-title\">Programador Destacado</div>\n" +
+"				<div class=\"panel-title\">Publicacion destacada</div>\n" +
 "				\n" +
 "				<div class=\"panel-options\">\n" +
 "					\n" +
@@ -531,30 +618,17 @@ public class InicioDesarrollador extends HttpServlet {
 "			<!-- panel body -->\n" +
 "			<div class=\"panel-body\">\n" +
 "				\n" +
-"				<p>Nombre: "+Nombre+"</p>\n" +
-"				<p>Años de experiencia: "+añosxp+"</p>\n" +
-"                               <p>Reputacion: "+rep+"</p> \n"+
-"                               <p>Correo: "+Correo+"</p> \n"+
-"                               <p>Especialidades: \n");
-                                obj2 = objeto.ProgramadorEspecialidad(info.getString(1));
-                
-                                obj2.last();
-                                cantE = obj2.getRow();
-                                for (int j = 1; j <= cantE; j++) 
-                                {
-                                    obj2.absolute(j);
-                                    out.print(obj2.getString(1)+" ");
-                                }
-                                out.println("</p>");
-out.println("				<a href=\"#\">Contactar</a>\n" +
+"				<p>Proyecto: "+datosUs.getString(3)+"</p>\n" +
+"				<p>Tipo: "+datosUs.getString(4)+"</p>\n" +
+"                               <p>Descripcion: "+datosUs.getString(5)+"</p> \n"+
+"                               <p>Duracion: "+datosUs.getString(6)+"</p> \n"+
+"                               <p>$$$$:"+datosUs.getString(7)+" </p>\n");
+                                out.println("				<a href=\"#\">Contactar</a>\n" +
 "				\n" +
 "			</div>\n" +
 "		</div>\n" +
 "	</div>");
-                    if(i == cantRep)
-                    {
-                        out.print("</div>");
-                    }
+                    
                 }
                 else
                 {
@@ -564,7 +638,7 @@ out.println("				<a href=\"#\">Contactar</a>\n" +
 "			\n" +
 "			<!-- panel head -->\n" +
 "			<div class=\"panel-heading\">\n" +
-"				<div class=\"panel-title\">Programador Destacado</div>\n" +
+"				<div class=\"panel-title\">Publicacion destacada</div>\n" +
 "				\n" +
 "				<div class=\"panel-options\">\n" +
 "					\n" +
@@ -577,21 +651,12 @@ out.println("				<a href=\"#\">Contactar</a>\n" +
 "			<!-- panel body -->\n" +
 "			<div class=\"panel-body\">\n" +
 "				\n" +
-"				<p>Nombre: "+Nombre+"</p>\n" +
-"				<p>Años de experiencia: "+añosxp+"</p>\n" +
-"                               <p>Reputacion: "+rep+"</p> \n"+
-"                               <p>Correo: "+Correo+"</p> \n"+
-"                               <p>Especialidades: \n");
-                                obj2 = objeto.ProgramadorEspecialidad(info.getString(1));
-                
-                                obj2.last();
-                                cantE = obj2.getRow();
-                                for (int j = 1; j <= cantE; j++) 
-                                {
-                                    obj2.absolute(j);
-                                    out.print(obj2.getString(1)+" ");
-                                }
-                                out.println("</p>");
+"				<p>Proyecto: "+datosUs.getString(3)+"</p>\n" +
+"				<p>Tipo: "+datosUs.getString(4)+"</p>\n" +
+"                               <p>Descripcion: "+datosUs.getString(5)+"</p> \n"+
+"                               <p>Duracion: "+datosUs.getString(6)+"</p> \n"+
+"                               <p>$$$$:"+datosUs.getString(7)+" </p>\n");
+                                
 out.println("				<a href=\"#\">Contactar</a>\n" +
 
 "				\n" +
@@ -605,12 +670,10 @@ out.println("				<a href=\"#\">Contactar</a>\n" +
             {
                 
             }
-            
+
             
             
 out.println("\n" +
-"\n" +
-"\n" +
 "<div class=\"row\">\n" +
 "	<div class=\"col-md-12\">\n" +
 "		\n" +
@@ -618,7 +681,7 @@ out.println("\n" +
 "			\n" +
 "			<!-- panel head -->\n" +
 "			<div class=\"panel-heading\">\n" +
-"				<div class=\"panel-title\">Alertas</div>\n" +
+"				<div class=\"panel-title\">Alerta</div>\n" +
 "				\n" +
 "				<div class=\"panel-options\">\n" +
 "					\n" +
@@ -631,7 +694,7 @@ out.println("\n" +
 "			<!-- panel body -->\n" +
 "			<div class=\"panel-body\">\n" +
 "				\n" +
-"				<p>No tiene alertas en este momento</p>\n" +
+"				<p>Actualiza tu curriculum</p>\n" +
 "				\n" +
 "			</div>\n" +
 "			\n" +
@@ -640,6 +703,8 @@ out.println("\n" +
 "	</div>\n" +
 "	\n" +
 "</div>\n" +
+"\n" +
+"\n" +
 "\n" +
 "\n" +
 "\n" +

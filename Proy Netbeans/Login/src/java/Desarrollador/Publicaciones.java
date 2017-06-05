@@ -469,7 +469,7 @@ out.println("<div class=\"row\">\n" +
                 for (int i = 1; i <= cant; i++) {
                     publicaciones.absolute(i);
                     out.println("  				<tr>\n" +
-"  					<td>"+publicaciones.getString(3)+"</td>\n" +
+"  					<td><a href=\"#\">"+publicaciones.getString(3)+"</td>\n" +
 "  					<td>"+publicaciones.getString(4)+"</td>\n" +
 "  					<td>"+publicaciones.getString(5)+"</td>\n" +
 "  					<td>"+publicaciones.getString(6)+" semanas</td>\n" +

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Desarrollador;
+package Cliente;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -69,67 +69,6 @@ public class BD_des {
         }
         return null;
         
-    }
-    
-    public ResultSet ProyectoActual(String num)
-    {   
-        try{
-            
-            ResultSet resultado = consult.executeQuery("select proyecto.Nombre,proyecto.Estado from desarrollador,contrato,proyecto where (desarrollador.Id_Desarrollador="+num+" && desarrollador.Id_Desarrollador=contrato.Id_Desarrollador && proyecto.Estado='En desarrollo' && contrato.Id_Proyecto=proyecto.Id_Proyecto);");
-            System.out.println("Consulata realizada Esp!!!"+num);
-            return resultado;
-         } 
-         catch(SQLException e)
-         {
-            e.printStackTrace();
-        }
-        return null;
-       
-    }
-    
-    public int ProyectosT()
-    {
-        try{
-            ResultSet resultado = consult.executeQuery("SELECT * FROM proyecto");
-            resultado.absolute(1);
-            int x = Integer.parseInt(resultado.getString(1));
-            System.out.println("Consulata realizada!!!");
-            return x;
-         } 
-         catch(SQLException e)
-         {
-            e.printStackTrace();
-        }
-        return 0;
-    }
-    
-    public ResultSet infoDes(String nombre)
-    {
-        try{
-            ResultSet resultado = consult.executeQuery("select * from usuario, desarrollador where (usuario.id_usuario = desarrollador.id_desarrollador && Usuario = \""+nombre+"\")");
-            System.out.println("Consulata realizada!!!");
-            return resultado;
-         } 
-         catch(SQLException e)
-         {
-            e.printStackTrace();
-        }
-        return null;
-        
-    }
-    
-    public ResultSet Publicaciones()
-    {
-        try{
-            ResultSet resultado = consult.executeQuery("select * from proyecto order by pago desc");
-            System.out.println("Consulata realizada!!!");
-            return resultado;
-         } 
-         catch(SQLException e)
-         {
-            e.printStackTrace();
-        }
-        return null;
     }
     
     public ResultSet Proyectos()
