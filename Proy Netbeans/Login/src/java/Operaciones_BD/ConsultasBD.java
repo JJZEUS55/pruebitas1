@@ -172,7 +172,17 @@ public class ConsultasBD {
             }
             EnvioCorreo mailSender;
             System.out.println("Operaciones_BD.EnvioCorreo.main()");
-            mailSender = new EnvioCorreo(Correo,"Verificacion de correo","Testing Code Body yess");
+            String ContenidoCorreo=
+                    "Gracias por unirte a Mizzi "+Nombre+"\n"+
+                    "Te confirmamos que ahora te encuentras registrado como:\n"+
+                    "Usuario: "+Usuario+"\n"+
+                    "Contraseña: "+Pass+"\n"+
+                    "\nEsperamos que tu experiencia con mizzi sea satisfactoria\n"+
+                    "\nAtt: Equipo Mizzi\n"+
+                    "\n No responda a este mensaje\n";
+                    
+            
+            mailSender = new EnvioCorreo(Correo,"Verificacion de correo",ContenidoCorreo);
             
             return 1;    
             
