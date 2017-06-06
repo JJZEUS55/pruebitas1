@@ -18,11 +18,11 @@ import javax.servlet.http.HttpSession;
 public class InicioCliente extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Desarrollador.BD_des objeto = new Desarrollador.BD_des();
-        //ValidarLogin.validar(request, response, "Des");
+        BD_des objeto = new BD_des();
+        ValidarLogin.validar(request, response, "Cli");
         HttpSession sesion=request.getSession();
         String user = (String)sesion.getAttribute("Usuario");
-        ResultSet datosUs = objeto.infoDes(user);
+        ResultSet datosUs = objeto.infoCliente(user);
         try
         {
             datosUs.absolute(1);
@@ -118,7 +118,7 @@ public class InicioCliente extends HttpServlet {
 "				</form>\n" +
 "			</li>\n" +
 "			<li>\n" +
-"				<a href=\"ClienteNuevaP.html\">\n" +
+"				<a href=\"NuevaP_Cliente\">\n" +
 "					<i class=\"entypo-gauge\"></i>\n" +
 "					<span>Nueva publicacion</span>\n" +
 "				</a>\n" +
@@ -154,7 +154,7 @@ public class InicioCliente extends HttpServlet {
 "			<li class=\"profile-info dropdown\">				\n" +
 "				<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\n" +
 "					<img src=\"assets/images/thumb-1@2x.png\" alt=\"\" class=\"img-circle\" width=\"44\" />\n" +
-"					Nombre Usuario\n" +
+"					"+user+"\n" +
 "				</a>\n" +
 "				<ul class=\"dropdown-menu\">\n" +
 "					<li class=\"caret\"></li>\n" +
@@ -420,7 +420,7 @@ public class InicioCliente extends HttpServlet {
 "			<li class=\"sep\"></li>\n" +
 "			\n" +
 "			<li>\n" +
-"				<a href=\"extra-login.html\">\n" +
+"				<a href=\"CerrarSesion\">\n" +
 "					Cerrar sesión <i class=\"entypo-logout right\"></i>\n" +
 "				</a>\n" +
 "			</li>\n" +

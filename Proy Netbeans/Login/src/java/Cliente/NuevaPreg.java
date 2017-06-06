@@ -31,6 +31,19 @@ public class NuevaPreg extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            String dato1 = request.getParameter("Name_P");
+            String dato2 = request.getParameter("Descripcion");
+            String dato3 = request.getParameter("cb1");
+            String dato4 = request.getParameter("Duracion");
+            String dato5 = request.getParameter("precio");
+            String dato6 = request.getParameter("date");
+            String dato7 = request.getParameter("id_des");
+            String dato8 = request.getParameter("cb2");
+            String cad = "INSERT INTO PROYECTO VALUES(default, '"+dato7+"', '"+dato1+"','"+dato3+"', '"+dato2+"','"+dato4+"','"+dato5+"','En espera de desarrollador')";
+            
+            BD_des objeto = new BD_des();
+            //objeto.insertPub(dato1, dato2, dato3, dato4, dato5, dato7);
+            objeto.insertPub2(cad);
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -38,9 +51,19 @@ public class NuevaPreg extends HttpServlet {
             out.println("<title>Servlet NuevaPreg</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet NuevaPreg at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet NuevaPreg at " + dato1+ "--------</h1>");
+            out.println("<h1>Servlet NuevaPreg at " + dato2+ "--------</h1>");
+            out.println("<h1>Servlet NuevaPreg at " + dato3+ "--------</h1>");
+            out.println("<h1>Servlet NuevaPreg at " + dato8+ "--------</h1>");
+            out.println("<h1>Servlet NuevaPreg at " + dato4+ "--------</h1>");
+            out.println("<h1>Servlet NuevaPreg at " + dato5+ "--------</h1>");
+            out.println("<h1>Servlet NuevaPreg at " + dato6+ "--------</h1>");
+            out.println("<h1>Servlet NuevaPreg at " + dato7+ "--------</h1>");
+            out.println("<h1>"+ cad +"</h1>");
+            
             out.println("</body>");
             out.println("</html>");
+            response.sendRedirect("InicioCliente");
         }
     }
 

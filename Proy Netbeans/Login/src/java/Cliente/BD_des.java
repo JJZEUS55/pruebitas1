@@ -71,6 +71,112 @@ public class BD_des {
         
     }
     
+    public ResultSet ProyectoActual(String num)
+    {   
+        try{
+            
+            ResultSet resultado = consult.executeQuery("select proyecto.Nombre,proyecto.Estado from desarrollador,contrato,proyecto where (desarrollador.Id_Desarrollador="+num+" && desarrollador.Id_Desarrollador=contrato.Id_Desarrollador && proyecto.Estado='En desarrollo' && contrato.Id_Proyecto=proyecto.Id_Proyecto);");
+            System.out.println("Consulata realizada Esp!!!"+num);
+            return resultado;
+         } 
+         catch(SQLException e)
+         {
+            e.printStackTrace();
+        }
+        return null;
+       
+    }
+    
+    public int ProyectosT()
+    {
+        try{
+            ResultSet resultado = consult.executeQuery("SELECT * FROM proyecto");
+            resultado.absolute(1);
+            int x = Integer.parseInt(resultado.getString(1));
+            System.out.println("Consulata realizada!!!");
+            return x;
+         } 
+         catch(SQLException e)
+         {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+    
+    public ResultSet infoCliente(String nombre)
+    {
+        try{
+            ResultSet resultado = consult.executeQuery("select * from usuario, cliente where (usuario.id_usuario = cliente.id_cliente && Usuario = \""+nombre+"\")");
+            System.out.println("Consulata realizada!!!");
+            return resultado;
+         } 
+         catch(SQLException e)
+         {
+            e.printStackTrace();
+        }
+        return null;
+        
+    }
+    
+    public ResultSet infoDes(String nombre)
+    {
+        try{
+            ResultSet resultado = consult.executeQuery("select * from usuario, desarrollador where (usuario.id_usuario = desarrollador.id_desarrollador && Usuario = \""+nombre+"\")");
+            System.out.println("Consulata realizada!!!");
+            return resultado;
+         } 
+         catch(SQLException e)
+         {
+            e.printStackTrace();
+        }
+        return null;
+        
+    }
+   
+    
+    public ResultSet Publicaciones()
+    {
+        try{
+            ResultSet resultado = consult.executeQuery("select * from proyecto order by pago desc");
+            System.out.println("Consulata realizada!!!");
+            return resultado;
+         } 
+         catch(SQLException e)
+         {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
+    public void insertPub(String nombreP, String tipo, String desc, String duracion, String pago, String id)
+    {
+        try{
+                                                      //INSERT INTO PROYECTO VALUES(8, 18, 'Sistema de casa inteligente','Android', 'Base de datos de una empresa',4,16000,'En desarrollo');
+            ResultSet resultado = consult.executeQuery("INSERT INTO PROYECTO VALUES(default, '"+id+"', '"+nombreP+"','"+tipo+"', '"+desc+"','"+duracion+"','"+pago+"','En espera de desarrollador')");
+            System.out.println("Insersion!!!");   
+         } 
+         catch(SQLException e)
+         {
+            e.printStackTrace();
+        }
+        
+    }
+    
+    public void insertPub2(String insert)
+    {
+        try{
+            //INSERT INTO PROYECTO VALUES(8, 18, 'Sistema de casa inteligente','Android', 'Base de datos de una empresa',4,16000,'En desarrollo');
+            consult.executeUpdate(insert);
+            System.out.println("Insersion!!!");   
+         } 
+         catch(SQLException e)
+         {
+            e.printStackTrace();
+        }
+        
+    }
+    
+    
     public ResultSet Proyectos()
     {
         try{
