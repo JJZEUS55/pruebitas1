@@ -88,6 +88,10 @@
         <servlet-name>Contratar</servlet-name>
         <servlet-class>Cliente.Contratar</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Solicitud</servlet-name>
+        <servlet-class>Desarrollador.Solicitud</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServLogin</servlet-name>
         <url-pattern>/ServLogin</url-pattern>
@@ -175,6 +179,10 @@
     <servlet-mapping>
         <servlet-name>Contratar</servlet-name>
         <url-pattern>/Contratar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Solicitud</servlet-name>
+        <url-pattern>/Solicitud</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
