@@ -5,12 +5,14 @@
  */
 package Login;
 
+import Operaciones_BD.ConsultasBD;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -21,8 +23,12 @@ public class FormModificarUser extends HttpServlet {
    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ValidarLogin.validar(request, response, "Any");
-        
+        HttpSession sesion= request.getSession();
+        ValidarLogin.validar(request, response, "any");
+        String user = (String)sesion.getAttribute("Usuario");
+        ConsultasBD consultor= new ConsultasBD();
+        String Datos[]=consultor.ConsultarDatosUser(user);
+        sesion.setAttribute("ID", Datos[0]);
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -49,7 +55,7 @@ out.println("	<link rel='stylesheet' href='assets/css/custom.css'>");
 out.println("        <script src='assets/js/jquery-1.11.0.min.js'></script>");
 out.println("        ");
 out.println("        ");
-out.println("        <script src='validacion.js'></script>");
+out.println("        <script src='validacion2.js'></script>");
 out.println("	");
 out.println("</head>");
 out.println("<body class='page-body' data-url='http://neon.dev'>");
@@ -94,7 +100,7 @@ out.println("                                <div class='form-group' style='font
 out.println("					<label for='field-1' class='col-sm-2' >Nombre</label>");
 out.println("						");
 out.println("					<div class='col-sm-5'>");
-out.println("						<input type='text' class='form-control' id='Name_P' name='Name_P' placeholder='Nombre'>");
+out.println("						<input type='text' class='form-control' id='Name_P' name='Name_P' placeholder='Nombre' value='"+Datos[6]+"'>");
 out.println("					</div>");
 out.println("				</div>");
 out.println("				");
@@ -103,7 +109,7 @@ out.println("				<div class='form-group' style='font-size: 20px'>");
 out.println("					<label for='field-1' class='col-sm-2'>Apellido Paterno</label>");
 out.println("						");
 out.println("					<div class='col-sm-5' style='font-size: 20px'>");
-out.println("						<input type='text' class='form-control' id='Apellido_P' name='Apellido_P' placeholder='Apellido'>");
+out.println("						<input type='text' class='form-control' id='Apellido_P' name='Apellido_P' placeholder='Apellido' value='"+Datos[7]+"'>");
 out.println("					</div>");
 out.println("				</div>");
 out.println("                                <br/><br/>");
@@ -111,7 +117,7 @@ out.println("				<div class='form-group' style='font-size: 20px'>");
 out.println("					<label for='field-1' class='col-sm-2'>Apellido Materno</label>");
 out.println("						");
 out.println("					<div class='col-sm-5' style='font-size: 20px'>");
-out.println("						<input type='text' class='form-control' id='Apellido_M' name='Apellido_M' placeholder='Apellido'>");
+out.println("						<input type='text' class='form-control' id='Apellido_M' name='Apellido_M' placeholder='Apellido' value='"+Datos[8]+"'>");
 out.println("					</div>");
 out.println("				</div>");
 out.println("				");
@@ -120,7 +126,7 @@ out.println("				<div class='form-group' style='font-size: 20px'>");
 out.println("					<label for='field-1' class='col-sm-2'>Correo</label>");
 out.println("						");
 out.println("					<div class='col-sm-5'>");
-out.println("						<input type='email' class='form-control' id='Correo_P' name='Correo_P' placeholder='Correo'>");
+out.println("						<input type='email' class='form-control' id='Correo_P' name='Correo_P' placeholder='Correo' value='"+Datos[12]+"'>");
 out.println("					</div>");
 out.println("				</div>");
 out.println("                                ");
@@ -129,16 +135,16 @@ out.println("				<div class='form-group' style='font-size: 20px'>");
 out.println("					<label for='field-1' class='col-sm-2'>Telefono</label>");
 out.println("						");
 out.println("					<div class='col-sm-5'>");
-out.println("                                            <input class='form-control' id='Correo_P' name='Telefono' placeholder='Correo'>");
+out.println("                                            <input class='form-control' id='Telefono' name='Telefono' placeholder='Telefono' value='"+Datos[13]+"'>");
 out.println("					</div>");
 out.println("				</div>");
 out.println("				");
 out.println("				<br/><br/>");
 out.println("				<div class='form-group' style='font-size: 20px'>");
-out.println("					<label for='field-1' class='col-sm-2'>Usuario</label>");
+out.println("					<label for='field-1' class='col-sm-2'>Contraseña vieja</label>");
 out.println("						");
 out.println("					<div class='col-sm-5'>");
-out.println("						<input type='text' class='form-control' id='Usuario_P'  name='Usuario_P' placeholder='Usuario'>");
+out.println("						<input type='password' class='form-control' id='oldpass'  name='oldpass' placeholder='Contraseña vieja'>");
 out.println("					</div>");
 out.println("				</div>");
 out.println("				");
@@ -190,6 +196,7 @@ out.println("							</select>");
 out.println("					</div>");
 out.println("				</div>");
 out.println("                                -->");
+/*
 out.println("                                <br><br>");
 out.println("                                <div class='form-group' style='font-size: 20px'>");
 out.println("						<label for='field-1' class='col-sm-2'>Fecha de nacimiento</label>");
@@ -198,7 +205,9 @@ out.println("						<div class='col-sm-3'>");
 out.println("                                                    <input type='text' name='date' class='form-control datepicker' data-start-view='2'>");
 out.println("						</div>");
 out.println("				</div>");
+*/
 out.println("                                ");
+/*
 out.println("                                <br><br>");
 out.println("                                <div class='form-group' style='font-size: 20px'>");
 out.println("					<label for='field-1' class='col-sm-2'>¿Sexo?</label>");
@@ -210,7 +219,9 @@ out.println("								<option>Feminino</option>						");
 out.println("						</select>");
 out.println("					</div>");
 out.println("				</div>");
+*/
 out.println("                                ");
+/*
 out.println("                                <br><br>");
 out.println("                                <div class='form-group' style='font-size: 20px'>");
 out.println("					<label for='field-1' class='col-sm-2'>¿Eres?</label>");
@@ -222,6 +233,7 @@ out.println("								<option>Cliente</option>						");
 out.println("						</select>");
 out.println("					</div>");
 out.println("				</div>");
+*/
 out.println("                                ");
 out.println("				<br/><br/><br/><br/>");
 out.println("					");

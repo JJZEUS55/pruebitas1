@@ -5,6 +5,7 @@
  */
 package Login;
 
+import Operaciones_BD.ConsultasBD;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -31,8 +32,28 @@ public class ServModificarUser extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //Confirmamos la sesion del usuario
-        ValidarLogin.validar(request, response, "Des"); //Des, Cli, Adm, any
+        ValidarLogin.validar(request, response, "any"); //Des, Cli, Adm, any
         
+        HttpSession sesion= request.getSession();
+        String Usuario = (String)sesion.getAttribute("Usuario");
+        String Tipo = (String)sesion.getAttribute("Tipo");
+        String ID = (String)sesion.getAttribute("ID");
+        //String Usuario=request.getParameter("Usuario_P");
+        //String Tipo=request.getParameter("Tipo"); 
+        
+        String Pass=request.getParameter("Pass_P");
+        String PassVieja=request.getParameter("oldpass");
+        String Nombre=request.getParameter("Name_P"); 
+        String ApellidoP=request.getParameter("Apellido_P");
+        String ApellidoM=request.getParameter("Apellido_M");
+        //String Genero=request.getParameter("Genero");
+        String Correo=request.getParameter("Correo_P");
+        String Telefono=request.getParameter("Telefono"); 
+        //int reputacion=request.getParameter("");
+        //String FechaNacimiento=request.getParameter("date");
+        //int experiencia=request.getParameter("")  
+        
+        ConsultasBD consultor= new ConsultasBD();
         
         
         response.setContentType("text/html;charset=UTF-8");
@@ -41,10 +62,27 @@ public class ServModificarUser extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ServModificarUser</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ServModificarUser at " + request.getContextPath() + "</h1>");
+            if(consultor.Login(Usuario, PassVieja)==0)
+            {
+                out.println("<div id='status'>invalid</div>");
+            }
+            else
+            {
+                out.println("<div id='status'>Valid</div>");
+                if(consultor.ActualizarDatos(ID, Tipo, Usuario, Pass, Nombre, ApellidoP, ApellidoM, Correo, Telefono)==1)
+                {
+                    out.println("<div id='status2'>Valid</div>");
+                }
+                else
+                {
+                    out.println("<div id='status2'>invalid</div>");
+                }
+            }
+            out.println("<title>Servlet ServModificarUser</title>");            
+            
+            out.println("<h1>Serv modificar invocado" + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
