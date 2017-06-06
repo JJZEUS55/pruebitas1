@@ -87,7 +87,7 @@ public class NuevaP_Cliente extends HttpServlet {
 "			\n" +
 "			<!-- logo -->\n" +
 "			<div class=\"logo\">\n" +
-"				<a href=\"ClienteInicio.html\">\n" +
+"				<a href=\"InicioCliente\">\n" +
 "					<h1 style=\"color: aliceblue \"class=\"text-uppercase text-center\"><strong>MIZZI</strong></h1>\n" +
 "				</a>\n" +
 "			</div>\n" +
@@ -124,7 +124,7 @@ public class NuevaP_Cliente extends HttpServlet {
 "				</form>\n" +
 "			</li>\n" +
 "			<li class=\"active opened active\">\n" +
-"				<a href=\"ClienteNuevaP.html\">\n" +
+"				<a href=\"NuevaP_Cliente\">\n" +
 "					<i class=\"entypo-gauge\"></i>\n" +
 "					<span>Nueva publicacion</span>\n" +
 "				</a>\n" +

@@ -42,6 +42,20 @@ public class BD_des {
         } catch(SQLException e) { System.out.println(e.toString()); } 
     }
     
+    public ResultSet Desarrolladores()
+    {
+        try{
+            ResultSet resultado = consult.executeQuery("SELECT * FROM Desarrollador");
+            System.out.println("Consulata realizada!!!");
+            return resultado;
+         } 
+         catch(SQLException e)
+         {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
     public ResultSet ProgramadorDestacado()
     {
         try{

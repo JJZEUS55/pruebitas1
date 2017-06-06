@@ -435,7 +435,7 @@ public class InicioDesarrollador extends HttpServlet {
 "			<li class=\"sep\"></li>\n" +
 "			\n" +
 "			<li>\n" +
-"				<a href=\"extra-login.html\">\n" +
+"				<a href=\"CerrarSesion\">\n" +
 "					Cerrar sesión <i class=\"entypo-logout right\"></i>\n" +
 "				</a>\n" +
 "			</li>\n" +
@@ -506,7 +506,7 @@ public class InicioDesarrollador extends HttpServlet {
 "			<div class=\"num\">Sin Fecha</div>\n" +
 "			\n" +
 "			<h3>Siguiente entrega</h3>\n" +
-"			<p>-----F</p>\n" +
+"			<p></p>\n" +
 "			<br>\n" +
 "			<br>\n" +
 "		</div>\n" +
