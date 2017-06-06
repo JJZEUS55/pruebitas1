@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -16,8 +17,12 @@ import javax.servlet.http.HttpServletResponse;
 public class InicioDesarrollador extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //ValidarLogin.validar(request, response, "Des");
         BD_des objeto = new BD_des();
+        ValidarLogin.validar(request, response, "Des");
+        HttpSession sesion=request.getSession();
+        String user = (String)sesion.getAttribute("Usuario");
+        ResultSet datosUs = objeto.infoDes(user);
+        
         String Nombre = "";
         String ProyectoA = "Ninguno";
         String Correo;
@@ -25,7 +30,7 @@ public class InicioDesarrollador extends HttpServlet {
         String x="";
         String rep ="0";
         int cantE;
-        ResultSet datosUs = objeto.infoDes("Yos1");
+        
         try
         {
             datosUs.absolute(1);
@@ -128,7 +133,7 @@ public class InicioDesarrollador extends HttpServlet {
 "				</a>\n" +
 "			</li>\n" +
 "			<li>\n" +
-"				<a href=\"Publicaciones.html\">\n" +
+"				<a href=\"Publicaciones\">\n" +
 "					<i class=\"entypo-layout\"></i>\n" +
 "					<span>Publicaciones</span>\n" +
 "				</a>\n" +

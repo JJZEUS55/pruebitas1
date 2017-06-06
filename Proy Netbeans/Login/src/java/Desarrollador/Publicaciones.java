@@ -1,5 +1,6 @@
 package Desarrollador;
 
+import Login.ValidarLogin;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
@@ -8,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -27,6 +29,18 @@ public class Publicaciones extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         BD_des objeto = new BD_des();
+        ValidarLogin.validar(request, response, "Des");
+        HttpSession sesion=request.getSession();
+        String user = (String)sesion.getAttribute("Usuario");
+        ResultSet datosUs = objeto.infoDes(user);
+        try
+        {
+            datosUs.absolute(1);
+            user = datosUs.getString(7)+" ";
+            user += datosUs.getString(8)+" ";
+            user += datosUs.getString(9);
+            
+        } catch(SQLException e) {}
         ResultSet publicaciones = objeto.Proyectos();
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
@@ -70,7 +84,7 @@ public class Publicaciones extends HttpServlet {
 "			\n" +
 "			<!-- logo -->\n" +
 "			<div class=\"logo\">\n" +
-"				<a href=\"InicioDesarrollador.html\">\n" +
+"				<a href=\"InicioDesarrollador\">\n" +
 "					<h1 style=\"color: aliceblue \"class=\"text-uppercase text-center\"><strong>MIZZI</strong></h1>\n" +
 "				</a>\n" +
 "			</div>\n" +
@@ -149,7 +163,7 @@ public class Publicaciones extends HttpServlet {
 "			<li class=\"profile-info dropdown\">				\n" +
 "				<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\n" +
 "					<img src=\"assets/images/thumb-1@2x.png\" alt=\"\" class=\"img-circle\" width=\"44\" />\n" +
-"					Nombre Usuario\n" +
+"					"+user+"\n" +
 "				</a>\n" +
 "				<ul class=\"dropdown-menu\">\n" +
 "					<li class=\"caret\"></li>\n" +

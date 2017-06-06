@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -17,9 +18,19 @@ import javax.servlet.http.HttpServletResponse;
 public class InicioCliente extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //String Nombre=ValidarLogin.validar(request, response, "Des");
-        BD_des objeto = new BD_des();
-        String Nombre="pepe";
+        Desarrollador.BD_des objeto = new Desarrollador.BD_des();
+        //ValidarLogin.validar(request, response, "Des");
+        HttpSession sesion=request.getSession();
+        String user = (String)sesion.getAttribute("Usuario");
+        ResultSet datosUs = objeto.infoDes(user);
+        try
+        {
+            datosUs.absolute(1);
+            user = datosUs.getString(7)+" ";
+            user += datosUs.getString(8)+" ";
+            user += datosUs.getString(9);
+            
+        } catch(SQLException e) {}
         String NumeroT;
         String Correo;
         String añosxp;
@@ -495,11 +506,12 @@ public class InicioCliente extends HttpServlet {
 "</div>\n");
             
             try {
-            
+            String Nombre="";
             info.last();
             int cantRep = info.getRow();
             if(cantRep > 6)
                 cantRep = 6;
+            System.out.println("carga"+cantRep);
             
             for (int i = 1; i <= cantRep; i++) 
             {
@@ -508,13 +520,10 @@ public class InicioCliente extends HttpServlet {
                 Nombre += info.getString(3)+" ";
                 Nombre += info.getString(4);
                 Correo = info.getString(8);
-                //NumeroT = info.getString(9);
                 añosxp = info.getString(7);
                 rep = info.getString(10);
-                if(i%2 == 1)
-                {
-                    out.println("<div class=\"row\">\n" +
-"	<div class=\"col-md-6\">\n" +
+                
+                out.println("<div class=\"row\">\n" +
 "		\n" +
 "		<div class=\"panel panel-success\" data-collapsed=\"1\">\n" +
 "			\n" +
@@ -553,60 +562,10 @@ out.println("				<a href=\"#\">Contactar</a>\n" +
 "			</div>\n" +
 "		</div>\n" +
 "	</div>");
-                    if(i == cantRep)
-                    {
-                        out.print("</div>");
-                    }
-                }
-                else
-                {
-                    out.println("<div class=\"col-md-6\">\n" +
-"		\n" +
-"		<div class=\"panel panel-success\" data-collapsed=\"1\">\n" +
-"			\n" +
-"			<!-- panel head -->\n" +
-"			<div class=\"panel-heading\">\n" +
-"				<div class=\"panel-title\">Programador Destacado</div>\n" +
-"				\n" +
-"				<div class=\"panel-options\">\n" +
-"					\n" +
-"					<a href=\"#\" data-rel=\"collapse\"><i class=\"entypo-down-open\"></i></a>\n" +
-"					<a href=\"#\" data-rel=\"reload\"><i class=\"entypo-arrows-ccw\"></i></a>\n" +
-"					<a href=\"#\" data-rel=\"close\"><i class=\"entypo-cancel\"></i></a>\n" +
-"				</div>\n" +
-"			</div>\n" +
-"			\n" +
-"			<!-- panel body -->\n" +
-"			<div class=\"panel-body\">\n" +
-"				\n" +
-"				<p>Nombre: "+Nombre+"</p>\n" +
-"				<p>Años de experiencia: "+añosxp+"</p>\n" +
-"                               <p>Reputacion: "+rep+"</p> \n"+
-"                               <p>Correo: "+Correo+"</p> \n"+
-"                               <p>Especialidades: \n");
-                                obj2 = objeto.ProgramadorEspecialidad(info.getString(1));
+                    
+           }
                 
-                                obj2.last();
-                                cantE = obj2.getRow();
-                                for (int j = 1; j <= cantE; j++) 
-                                {
-                                    obj2.absolute(j);
-                                    out.print(obj2.getString(1)+" ");
-                                }
-                                out.println("</p>");
-out.println("				<a href=\"#\">Contactar</a>\n" +
-
-"				\n" +
-"			</div>\n" +
-"		</div>\n" +
-"	</div>\n" +
-"</div>");
-                }
-            }
-            }catch ( SQLException e )
-            {
-                
-            }
+            } catch ( SQLException e ){ }
             
             
             

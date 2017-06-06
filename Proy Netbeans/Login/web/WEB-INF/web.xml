@@ -52,6 +52,10 @@
         <servlet-name>FormModificarUser</servlet-name>
         <servlet-class>Login.FormModificarUser</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>NuevaPreg</servlet-name>
+        <servlet-class>Cliente.NuevaPreg</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServLogin</servlet-name>
         <url-pattern>/ServLogin</url-pattern>
@@ -103,6 +107,10 @@
     <servlet-mapping>
         <servlet-name>FormModificarUser</servlet-name>
         <url-pattern>/FormModificarUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NuevaPreg</servlet-name>
+        <url-pattern>/NuevaPreg</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
