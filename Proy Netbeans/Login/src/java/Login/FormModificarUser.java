@@ -26,8 +26,13 @@ public class FormModificarUser extends HttpServlet {
         HttpSession sesion= request.getSession();
         ValidarLogin.validar(request, response, "any");
         String user = (String)sesion.getAttribute("Usuario");
+        String tipo = (String)sesion.getAttribute("Tipo");
         ConsultasBD consultor= new ConsultasBD();
-        String Datos[]=consultor.ConsultarDatosUser(user);
+        String Datos[];
+        if(tipo=="Des")
+            Datos=consultor.ConsultarDatosUser(user);
+        else
+           Datos=consultor.ConsultarDatosUser2(user); 
         sesion.setAttribute("ID", Datos[0]);
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {

@@ -133,19 +133,19 @@ public class Publicaciones extends HttpServlet {
 "				</a>\n" +
 "			</li>\n" +
 "			<li>\n" +
-"				<a href=\"clientes.html\">\n" +
+"				<a href=\"Clientes\">\n" +
 "					<i class=\"entypo-monitor\"></i>\n" +
 "					<span>Clientes</span>\n" +
 "				</a>\n" +
 "			</li>\n" +
 "			<li>\n" +
-"				<a href=\"seg_trabajo.html\">\n" +
+"				<a href=\"seg_trabajo\">\n" +
 "					<i class=\"entypo-newspaper\"></i>\n" +
 "					<span>Seguimiento de trabajo</span>\n" +
 "				</a>\n" +
 "			</li>\n" +
 "			<li>\n" +
-"				<a href=\"cobros.html\">\n" +
+"				<a href=\"cobros\">\n" +
 "					<i class=\"entypo-attach\"></i>\n" +
 "					<span>Cobros realizados</span>\n" +
 "				</a>\n" +
@@ -168,7 +168,7 @@ public class Publicaciones extends HttpServlet {
 "				<ul class=\"dropdown-menu\">\n" +
 "					<li class=\"caret\"></li>\n" +
 "					<li>\n" +
-"						<a href=\"extra-timeline.html\">\n" +
+"						<a href=\"FormModificarUser\">\n" +
 "							<i class=\"entypo-user\"></i>\n" +
 "							Editar Perfil\n" +
 "						</a>\n" +
@@ -429,7 +429,7 @@ public class Publicaciones extends HttpServlet {
 "			<li class=\"sep\"></li>\n" +
 "			\n" +
 "			<li>\n" +
-"				<a href=\"extra-login.html\">\n" +
+"				<a href=\"CerrarSesion\">\n" +
 "					Cerrar sesión <i class=\"entypo-logout right\"></i>\n" +
 "				</a>\n" +
 "			</li>\n" +
