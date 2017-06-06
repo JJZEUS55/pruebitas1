@@ -56,6 +56,26 @@
         <servlet-name>NuevaPreg</servlet-name>
         <servlet-class>Cliente.NuevaPreg</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Seguimiento</servlet-name>
+        <servlet-class>Cliente.Seguimiento</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TrabajosInt</servlet-name>
+        <servlet-class>Desarrollador.TrabajosInt</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>seg_trabajo</servlet-name>
+        <servlet-class>Desarrollador.seg_trabajo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>cobros</servlet-name>
+        <servlet-class>Desarrollador.cobros</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServMarcoGenerico</servlet-name>
+        <servlet-class>ServMarcoGenerico</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServLogin</servlet-name>
         <url-pattern>/ServLogin</url-pattern>
@@ -111,6 +131,26 @@
     <servlet-mapping>
         <servlet-name>NuevaPreg</servlet-name>
         <url-pattern>/NuevaPreg</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Seguimiento</servlet-name>
+        <url-pattern>/Seguimiento</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TrabajosInt</servlet-name>
+        <url-pattern>/TrabajosInt</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>seg_trabajo</servlet-name>
+        <url-pattern>/seg_trabajo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>cobros</servlet-name>
+        <url-pattern>/cobros</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServMarcoGenerico</servlet-name>
+        <url-pattern>/ServMarcoGenerico</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

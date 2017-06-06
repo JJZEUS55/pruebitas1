@@ -134,19 +134,19 @@ public class EditarPublicacion extends HttpServlet {
 "				</a>\n" +
 "			</li>\n" +
 "			<li>\n" +
-"				<a href=\"ContratosR.html\">\n" +
+"				<a href=\"PublicacionesC\">\n" +
 "					<i class=\"entypo-layout\"></i>\n" +
-"					<span>Contratos realizados</span>\n" +
+"					<span>Modificar Publicacion</span>\n" +
 "				</a>\n" +
 "			</li>\n" +
 "			<li>\n" +
-"				<a href=\"Desarrolladores.html\" target=\"_blank\">\n" +
+"				<a href=\"Desarrolladores\" target=\"_blank\">\n" +
 "					<i class=\"entypo-monitor\"></i>\n" +
 "					<span>Desarrolladores</span>\n" +
 "				</a>\n" +
 "			</li>\n" +
 "			<li>\n" +
-"				<a href=\"Seguimiento.html\">\n" +
+"				<a href=\"Seguimiento\">\n" +
 "					<i class=\"entypo-newspaper\"></i>\n" +
 "					<span>Proyectos en progreso</span>\n" +
 "				</a>\n" +
@@ -170,7 +170,7 @@ public class EditarPublicacion extends HttpServlet {
 "				<ul class=\"dropdown-menu\">\n" +
 "					<li class=\"caret\"></li>\n" +
 "					<li>\n" +
-"						<a href=\"extra-timeline.html\">\n" +
+"						<a href=\"FormModificarUser\">\n" +
 "							<i class=\"entypo-user\"></i>\n" +
 "							Editar Perfil\n" +
 "						</a>\n" +

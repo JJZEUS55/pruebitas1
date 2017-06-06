@@ -22,15 +22,7 @@ import javax.servlet.http.HttpSession;
  */
 public class PublicacionesC extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+ 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -93,7 +85,7 @@ public class PublicacionesC extends HttpServlet {
 "			\n" +
 "			<!-- logo -->\n" +
 "			<div class=\"logo\">\n" +
-"				<a href=\"index.html\">\n" +
+"				<a href=\"InicioCliente\">\n" +
 "					<h1 style=\"color: aliceblue \"class=\"text-uppercase text-center\"><strong>MIZZI</strong></h1>\n" +
 "				</a>\n" +
 "			</div>\n" +
@@ -130,7 +122,7 @@ public class PublicacionesC extends HttpServlet {
 "				</form>\n" +
 "			</li>\n" +
 "			<li>\n" +
-"				<a href=\"index.html\">\n" +
+"				<a href=\"NuevaP_Cliente\">\n" +
 "					<i class=\"entypo-gauge\"></i>\n" +
 "					<span>Nueva publicacion</span>\n" +
 "				</a>\n" +
@@ -142,37 +134,16 @@ public class PublicacionesC extends HttpServlet {
 "				</a>\n" +
 "			</li>\n" +
 "			<li>\n" +
-"				<a href=\"index.html\" target=\"_blank\">\n" +
+"				<a href=\"Desarrolladores\" target=\"_blank\">\n" +
 "					<i class=\"entypo-monitor\"></i>\n" +
 "					<span>Desarrolladores</span>\n" +
 "				</a>\n" +
 "			</li>\n" +
 "			<li class=\"active opened active\">\n" +
-"				<a href=\"ui-panels.html\">\n" +
+"				<a href=\"Seguimiento\">\n" +
 "					<i class=\"entypo-newspaper\"></i>\n" +
 "					<span>Proyectos en progreso</span>\n" +
 "				</a>\n" +
-"			</li>\n" +
-"			<li>\n" +
-"				<a href=\"mailbox.html\">\n" +
-"					<i class=\"entypo-mail\"></i>\n" +
-"					<span>Mensajes</span>\n" +
-"					<span class=\"badge badge-secondary\">8</span>\n" +
-"				</a>\n" +
-"				<ul>\n" +
-"					<li>\n" +
-"						<a href=\"mailbox.html\">\n" +
-"							<i class=\"entypo-inbox\"></i>\n" +
-"							<span>Inbox</span>\n" +
-"						</a>\n" +
-"					</li>\n" +
-"					<li>\n" +
-"						<a href=\"mailbox-compose.html\">\n" +
-"							<i class=\"entypo-pencil\"></i>\n" +
-"							<span>Escribir Mensaje</span>\n" +
-"						</a>\n" +
-"					</li>\n" +
-"				</ul>\n" +
 "			</li>\n" +
 "		</ul>				\n" +
 "	</div>	\n" +
@@ -192,7 +163,7 @@ public class PublicacionesC extends HttpServlet {
 "				<ul class=\"dropdown-menu\">\n" +
 "					<li class=\"caret\"></li>\n" +
 "					<li>\n" +
-"						<a href=\"extra-timeline.html\">\n" +
+"						<a href=\"FormModificarUser\">\n" +
 "							<i class=\"entypo-user\"></i>\n" +
 "							Editar Perfil\n" +
 "						</a>\n" +
@@ -453,7 +424,7 @@ public class PublicacionesC extends HttpServlet {
 "			<li class=\"sep\"></li>\n" +
 "			\n" +
 "			<li>\n" +
-"				<a href=\"extra-login.html\">\n" +
+"				<a href=\"CerrarSesion\">\n" +
 "					Cerrar sesión <i class=\"entypo-logout right\"></i>\n" +
 "				</a>\n" +
 "			</li>\n" +
@@ -501,6 +472,7 @@ out.println("<div class=\"row\">\n" +
 try{
     publicaciones.last();
     int cant = publicaciones.getRow();
+    System.out.println(cant);
     for (int i = 1; i <= cant; i++) {
         publicaciones.absolute(i);
         out.println("<tr>");
@@ -512,7 +484,7 @@ try{
         out.println("</tr>");
         
     }
-} catch (SQLException e) { }
+} catch (SQLException e) {System.out.println("PEeeeedos"); }
 out.println("  			</tbody>\n" +
 "		</table>\n" +
 "		<script type=\"text/javascript\">\n" +
@@ -694,13 +666,21 @@ out.println("\n" +
 "	<script src=\"assets/js/joinable.js\"></script>\n" +
 "	<script src=\"assets/js/resizeable.js\"></script>\n" +
 "	<script src=\"assets/js/neon-api.js\"></script>\n" +
+"	<script src=\"assets/js/jquery.dataTables.min.js\"></script>\n" +
+"	<script src=\"assets/js/datatables/TableTools.min.js\"></script>\n" +
+"	<script src=\"assets/js/dataTables.bootstrap.js\"></script>\n" +
+"	<script src=\"assets/js/datatables/jquery.dataTables.columnFilter.js\"></script>\n" +
+"	<script src=\"assets/js/datatables/lodash.min.js\"></script>\n" +
+"	<script src=\"assets/js/datatables/responsive/js/datatables.responsive.js\"></script>\n" +
+"	<script src=\"assets/js/select2/select2.min.js\"></script>\n" +
 "	<script src=\"assets/js/neon-chat.js\"></script>\n" +
 "	<script src=\"assets/js/neon-custom.js\"></script>\n" +
 "	<script src=\"assets/js/neon-demo.js\"></script>\n" +
-"\n" +
+"\n" +"\n" +
 "</body>\n" +
 "</html>");
         }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -139,13 +139,13 @@ public class Desarrolladores extends HttpServlet {
 "				</a>\n" +
 "			</li>\n" +
 "			<li class=\"active opened active\">\n" +
-"				<a href=\"Desarrolladores.html\" target=\"_blank\">\n" +
+"				<a href=\"Desarrolladores\" target=\"_blank\">\n" +
 "					<i class=\"entypo-monitor\"></i>\n" +
 "					<span>Desarrolladores</span>\n" +
 "				</a>\n" +
 "			</li>\n" +
 "			<li>\n" +
-"				<a href=\"Seguimiento.html\">\n" +
+"				<a href=\"Seguimiento\">\n" +
 "					<i class=\"entypo-newspaper\"></i>\n" +
 "					<span>Proyectos en progreso</span>\n" +
 "				</a>\n" +
@@ -169,7 +169,7 @@ public class Desarrolladores extends HttpServlet {
 "				<ul class=\"dropdown-menu\">\n" +
 "					<li class=\"caret\"></li>\n" +
 "					<li>\n" +
-"						<a href=\"extra-timeline.html\">\n" +
+"						<a href=\"FormModificarUser\">\n" +
 "							<i class=\"entypo-user\"></i>\n" +
 "							Editar Perfil\n" +
 "						</a>\n" +

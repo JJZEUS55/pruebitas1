@@ -108,6 +108,27 @@ public class ConsultasBD {
         }
         return null;
     }
+    public String[] ConsultarDatosUser2(String Nombre)
+    {
+        try {
+            //select * from usuario,desarrollador where usuario.Usuario='AngelC45'&& usuario.Id_Usuario=desarrollador.Id_Desarrollador
+            //15
+            System.out.println("select * from usuario,cliente where usuario.Usuario='"+Nombre+"'&& usuario.Id_Usuario=cliente.Id_Cliente");
+            ResultSet resultado=consult.executeQuery("select * from usuario,cliente where usuario.Usuario='"+Nombre+"'&& usuario.Id_Usuario=cliente.Id_Cliente");
+            if(!resultado.absolute(1))
+                return null;
+            String resultadoCons[]=new String[15];
+            for(int i =1;i<15;i++)
+            {
+                resultadoCons[i-1]=resultado.getString(i);
+                System.out.println(resultadoCons[i-1]);
+            }
+            return resultadoCons;
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
     
     public int NuevoUser
     (String Usuario,String Pass,String Tipo, String Nombre, String ApellidoP,String ApellidoM,String Genero,
@@ -226,7 +247,7 @@ public class ConsultasBD {
             try {
                 consult.executeUpdate("UPDATE CLIENTE SET Nombres='"+Nombre+"' "
                         + ", Ap_Paterno='"+ApellidoP+"', Ap_Materno='"+ApellidoM+"' "
-                        + ", Correo='"+Correo+"', Telefono='"+Telefono+"' WHERE Id_Desarrollador='"+ID+"'");
+                        + ", Correo='"+Correo+"', Telefono='"+Telefono+"' WHERE Id_Cliente='"+ID+"'");
                 return 1;
             } catch (SQLException ex) {
                 Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
