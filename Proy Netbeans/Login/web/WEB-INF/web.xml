@@ -48,6 +48,10 @@
         <servlet-name>CerrarSesion</servlet-name>
         <servlet-class>Login.CerrarSesion</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>FormModificarUser</servlet-name>
+        <servlet-class>Login.FormModificarUser</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServLogin</servlet-name>
         <url-pattern>/ServLogin</url-pattern>
@@ -95,6 +99,10 @@
     <servlet-mapping>
         <servlet-name>CerrarSesion</servlet-name>
         <url-pattern>/CerrarSesion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FormModificarUser</servlet-name>
+        <url-pattern>/FormModificarUser</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
