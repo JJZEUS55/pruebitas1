@@ -133,9 +133,9 @@ public class Desarrolladores extends HttpServlet {
 "				</a>\n" +
 "			</li>\n" +
 "			<li>\n" +
-"				<a href=\"ContratosR.html\">\n" +
+"				<a href=\"PublicacionesC\">\n" +
 "					<i class=\"entypo-layout\"></i>\n" +
-"					<span>Contratos realizados</span>\n" +
+"					<span>Modificar Publicacion</span>\n" +
 "				</a>\n" +
 "			</li>\n" +
 "			<li class=\"active opened active\">\n" +
@@ -164,7 +164,7 @@ public class Desarrolladores extends HttpServlet {
 "			<li class=\"profile-info dropdown\">				\n" +
 "				<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\n" +
 "					<img src=\"assets/images/thumb-1@2x.png\" alt=\"\" class=\"img-circle\" width=\"44\" />\n" +
-"					Nombre Usuario\n" +
+"					"+user+"\n" +
 "				</a>\n" +
 "				<ul class=\"dropdown-menu\">\n" +
 "					<li class=\"caret\"></li>\n" +
@@ -475,7 +475,7 @@ public class Desarrolladores extends HttpServlet {
                             for (int i = 1; i <= cantidad; i++) 
                             {
                                 datosDes.absolute(i);
-                                //out.println("<tr>");
+                                out.println("<tr>");
                                 out.println("<td>"+datosDes.getString(2)+" "+datosDes.getString(3)+" "+datosDes.getString(4)+"</td>");
                                 //out.println("<td>name</td>");
                                 out.println("<td>"+datosDes.getString(7)+"</td>");
