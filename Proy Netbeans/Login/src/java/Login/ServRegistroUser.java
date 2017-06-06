@@ -65,6 +65,10 @@ public class ServRegistroUser extends HttpServlet {
                     out.println("<div id='status'>UsuarioExistente</div>");
                     
                     break;
+                case 11:
+                    out.println("<div id='status'>CorreoExistente</div>");
+                    
+                    break;
                 case 1:
                     //System.out.println("Login.ServRegistroUser.processRequest()");
                     out.println("<div id='status'>Hecho</div>");

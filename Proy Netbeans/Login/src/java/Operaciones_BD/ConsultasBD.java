@@ -107,13 +107,18 @@ public class ConsultasBD {
                 System.out.println("usuario Existente");
                 return 10;
             }
-            /*
-            resultado=consult.executeQuery("SELECT * FROM DESARROLLADOR WHERE Usuario='"+Usuario+"'" );
+           // /*
+            resultado=consult.executeQuery("select * from usuario,desarrollador where desarrollador.Correo='"+Correo+"' && (usuario.Id_Usuario=desarrollador.Id_Desarrollador)" );
             if(resultado.absolute(1)){
                 System.out.println("Correo Existente");
                 return 11;
-            }*/
-            if(!Tipo.equals("Desarrollador") && Tipo!="Cliente"){
+            }//*/
+            resultado=consult.executeQuery("select * from usuario,cliente where cliente.Correo='"+Correo+"' && usuario.Id_Usuario=cliente.Id_Cliente" );
+            if(resultado.absolute(1)){
+                System.out.println("Correo Existente");
+                return 11;
+            }
+            if(!Tipo.equals("Desarrollador") && !Tipo.equals("Cliente")){
                 System.out.println("Tipo no valido"+Tipo);
                 return -2;
             }
@@ -133,7 +138,7 @@ public class ConsultasBD {
                         + " '"+ApellidoM+"', '"+Genero+"',"
                         + " '"+Año+"-"+Mes +"-"+Dia+"', '"+"0"+"','"+Correo +"','"+Telefono +"','"+reputacion+"')");
                 System.out.println("it works!");
-                return 1;      
+                //return 1;      
             }
                 
             else{
@@ -141,8 +146,11 @@ public class ConsultasBD {
                 //INSERT INTO CLIENTE VALUES(3,'Alan', 'Garcia', 'Davila', 'Masculino', '1995-12-05', 1,'nalan@gmail.com','48984522');
                 consult.executeUpdate("INSERT INTO CLIENTE VALUES('"+ID+"', '"+Nombre+"', '"+ApellidoP+"',"
                         + " '"+ApellidoM+"', '"+Genero+"',"
-                        + " '"+FechaNacimiento +"', '"+reputacion+"','"+Correo +"','"+Telefono+"')");
-            }  
+                        + " '"+Año+"-"+Mes +"-"+Dia+"', '"+reputacion+"','"+Correo +"','"+Telefono+"')");
+            }
+            EnvioCorreo mailSender;
+            System.out.println("Operaciones_BD.EnvioCorreo.main()");
+            mailSender = new EnvioCorreo(Correo,"Verificacion de correo","Testing Code Body yess");
             
             return 1;    
             

@@ -18,7 +18,7 @@ function validacion()
     }
     
     valor = document.getElementById("Correo_P").value;
-    if( !(/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)/.test(valor)) ) {
+    if( !(/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+/.test(valor)) ) {
         alert('[ERROR] Direccion de correo no valida');
         return false;
     }
@@ -84,6 +84,9 @@ function validacion()
                     //return;
                 }
                 if(status==="UsuarioExistente"){
+                    alert("Usuario Ya Existe");
+                }
+                if(status==="CorreoExistente"){
                     alert("Usuario Ya Existe");
                 }
                 

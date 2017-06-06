@@ -54,6 +54,7 @@ public EnvioCorreo(String receiverEmailID, String emailSubject, String emailBody
     msg.addRecipient(Message.RecipientType.TO,
     new InternetAddress(receiverEmailID));
     Transport transport = session.getTransport("smtps");
+    
     transport.connect(d_host, Integer.valueOf(d_port), d_uname, d_password);
             transport.sendMessage(msg, msg.getAllRecipients());
             transport.close();
