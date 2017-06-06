@@ -55,7 +55,20 @@ public class BD_des {
         }
         return null;
     }
-    
+
+    public ResultSet Publicaciones(String id_cliente)
+    {
+        try{
+            ResultSet resultado = consult.executeQuery("select * from proyecto, cliente where proyecto.Id_Cliente = cliente.Id_Cliente && cliente.Id_Cliente = '"+id_cliente+"'");
+            System.out.println("Consulata realizada!!!");
+            return resultado;
+         } 
+         catch(SQLException e)
+         {
+            e.printStackTrace();
+        }
+        return null;
+    }
     public ResultSet ProgramadorDestacado()
     {
         try{
@@ -204,4 +217,19 @@ public class BD_des {
         }
         return null;
     }
+    public ResultSet Publicacion(String id)
+    {
+        try{
+            ResultSet resultado = consult.executeQuery("SELECT * FROM proyecto WHERE id_proyecto ='"+id+"'");
+            System.out.println("Consulata realizada!!!");
+            return resultado;
+         } 
+         catch(SQLException e)
+         {
+            e.printStackTrace();
+        }
+        return null;
+    }
+            
+    
 }

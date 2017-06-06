@@ -124,9 +124,9 @@ public class InicioCliente extends HttpServlet {
 "				</a>\n" +
 "			</li>\n" +
 "			<li>\n" +
-"				<a href=\"ContratosR.html\">\n" +
+"				<a href=\"PublicacionesC\">\n" +
 "					<i class=\"entypo-layout\"></i>\n" +
-"					<span>Contratos realizados</span>\n" +
+"					<span>Modificar Publicacion</span>\n" +
 "				</a>\n" +
 "			</li>\n" +
 "			<li>\n" +
