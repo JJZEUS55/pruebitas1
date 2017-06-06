@@ -32,6 +32,7 @@ public class Publicaciones extends HttpServlet {
         ValidarLogin.validar(request, response, "Des");
         HttpSession sesion=request.getSession();
         String user = (String)sesion.getAttribute("Usuario");
+        String iduser="";
         ResultSet datosUs = objeto.infoDes(user);
         try
         {
@@ -39,6 +40,7 @@ public class Publicaciones extends HttpServlet {
             user = datosUs.getString(7)+" ";
             user += datosUs.getString(8)+" ";
             user += datosUs.getString(9);
+            iduser = datosUs.getString(1);
             
         } catch(SQLException e) {}
         ResultSet publicaciones = objeto.Proyectos();
@@ -483,7 +485,7 @@ out.println("<div class=\"row\">\n" +
                 for (int i = 1; i <= cant; i++) {
                     publicaciones.absolute(i);
                     out.println("  				<tr>\n" +
-"  					<td><a href=\"#\">"+publicaciones.getString(3)+"</td>\n" +
+"  					<td><a href=\"Solicitud?id="+5+"\">"+publicaciones.getString(3)+"</td>\n" +
 "  					<td>"+publicaciones.getString(4)+"</td>\n" +
 "  					<td>"+publicaciones.getString(5)+"</td>\n" +
 "  					<td>"+publicaciones.getString(6)+" semanas</td>\n" +
