@@ -84,6 +84,10 @@
         <servlet-name>Contrato_2</servlet-name>
         <servlet-class>Cliente.Contrato_2</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Contratar</servlet-name>
+        <servlet-class>Cliente.Contratar</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServLogin</servlet-name>
         <url-pattern>/ServLogin</url-pattern>
@@ -167,6 +171,10 @@
     <servlet-mapping>
         <servlet-name>Contrato_2</servlet-name>
         <url-pattern>/Contrato_2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Contratar</servlet-name>
+        <url-pattern>/Contratar</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -127,7 +127,7 @@ public class PublicacionesC extends HttpServlet {
 "					<span>Nueva publicacion</span>\n" +
 "				</a>\n" +
 "			</li>\n" +
-"			<li>\n" +
+"			<li class=\"active opened active\">\n" +
 "				<a href=\"PublicacionesC\">\n" +
 "					<i class=\"entypo-layout\"></i>\n" +
 "					<span>Modificar Publicacion</span>\n" +
@@ -139,7 +139,7 @@ public class PublicacionesC extends HttpServlet {
 "					<span>Desarrolladores</span>\n" +
 "				</a>\n" +
 "			</li>\n" +
-"			<li class=\"active opened active\">\n" +
+"			<li>\n" +
 "				<a href=\"Seguimiento\">\n" +
 "					<i class=\"entypo-newspaper\"></i>\n" +
 "					<span>Proyectos en progreso</span>\n" +
