@@ -156,8 +156,21 @@ public class BD_des {
          {
             e.printStackTrace();
         }
-        return null;
-        
+        return null;   
+    }
+    
+    public ResultSet DesarroladorporID(String id)
+    {
+        try{
+            ResultSet resultado = consult.executeQuery("select * from usuario, desarrollador where (usuario.id_usuario = desarrollador.id_desarrollador && usuario.id_usuario = \""+id+"\")");
+            System.out.println("Consulata realizada!!!");
+            return resultado;
+         } 
+         catch(SQLException e)
+         {
+            e.printStackTrace();
+        }
+        return null;   
     }
    
     
@@ -203,6 +216,19 @@ public class BD_des {
         
     }
     
+        public void insertContract(String insert)
+    {
+        try{
+            consult.executeUpdate(insert);
+            System.out.println("Insersion!!!");   
+         } 
+         catch(SQLException e)
+         {
+            e.printStackTrace();
+        }
+        
+    }
+    
     
     public ResultSet Proyectos()
     {
@@ -229,6 +255,19 @@ public class BD_des {
             e.printStackTrace();
         }
         return null;
+    }
+        public void estado_pub_Nuevo(String idpub, String NuevoEstado)
+    {
+        try{
+            consult.executeUpdate("UPDATE proyecto SET estado='"+NuevoEstado+"' WHERE id_proyecto='"+idpub+"'");
+            System.out.println("Update nuevo estado realizada!!!");
+            
+         } 
+         catch(SQLException e)
+         {
+            e.printStackTrace();
+        }
+        
     }
             
     

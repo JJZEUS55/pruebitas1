@@ -7,6 +7,7 @@ package Desarrollador;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.resource.cci.ResultSet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,6 +32,28 @@ public class Solicitud extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            String iduser = request.getParameter("id");
+            String idpub = request.getParameter("idpub");
+            BD_des objeto = new BD_des();
+            String estado = objeto.estado_pub(idpub);
+            String nuevoEst;
+            if(estado.equals("En espera de desarrollador"))
+            {
+                objeto.estado_pub_Nuevo(idpub, iduser);
+            }
+            if(!estado.equals("En espera de desarrollador") && !estado.equals("En desarrollo") && !estado.equals("Terminado"))
+            {
+                System.out.println("Interesados");
+                if(estado.contains(iduser))
+                    System.out.println("Usuario ya interesado no se puede registrar de nuevo");
+                else
+                {
+                    System.out.println("User nuevo en el proyecto");
+                    estado += ","+iduser+"";
+                    objeto.estado_pub_Nuevo(idpub, estado);
+                }  
+            }
+            response.sendRedirect("Publicaciones");
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -38,9 +61,10 @@ public class Solicitud extends HttpServlet {
             out.println("<title>Servlet Solicitud</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Solicitud at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet Solicitud at " + estado + "</h1>");
             out.println("</body>");
             out.println("</html>");
+            
         }
     }
 

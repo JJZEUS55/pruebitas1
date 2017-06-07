@@ -36,19 +36,22 @@ public class Seguimiento extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             BD_des objeto = new BD_des();
+            BD_des objeto2 = new BD_des();
         ValidarLogin.validar(request, response, "Cli");
         HttpSession sesion=request.getSession();
         String user = (String)sesion.getAttribute("Usuario");
         ResultSet datosUs = objeto.infoCliente(user);
+        String id = "";
         try
         {
             datosUs.absolute(1);
             user = datosUs.getString(7)+" ";
             user += datosUs.getString(8)+" ";
             user += datosUs.getString(9);
-            
+            id = datosUs.getString(1);
         } catch(SQLException e) {}
-        
+        ResultSet info = objeto.Publicaciones(id);
+        ResultSet desarrollador;
             /* TODO output your page here. You may use following sample code. */
 out.println("<!DOCTYPE html>");
 out.println("<html lang='en'>");
@@ -433,221 +436,123 @@ out.println("			");
 out.println("			");
 out.println("<h1>Proyectos en progreso</h1>");
 out.println("<br />");
-out.println("	<div class='panel panel-gradient' data-collapsed='0'>");
-out.println("		<!-- panel head -->");
-out.println("		<div class='panel-heading'>");
-out.println("			<div class='panel-title'>Proyecto1</div>");
-out.println("		");
-out.println("			<div class='panel-options'>");
-out.println("				");
-out.println("				<a href='#' data-rel='collapse'><i class='entypo-down-open'></i></a>");
-out.println("				");
-out.println("			</div>");
-out.println("		</div>");
-out.println("		");
-out.println("		<!-- panel body -->");
-out.println("		<div class='panel-body'>");
-out.println("			<h4>Progreso</h4>");
-out.println("			<div class='row'>");
-out.println("					");
-out.println("				<div class='col-md-12'>");
-out.println("					");
-out.println("					<div class='progress'>");
-out.println("						<div class='progress-bar progress-bar-success' role='progressbar' aria-valuenow='70' aria-valuemin='0' aria-valuemax='100' style='width: 70%'>");
-out.println("							<span class='sr-only'>35% Complete (success)</span>");
-out.println("						</div>");
-out.println("					</div>");
-out.println("				");
-out.println("				</div>");
-out.println("						");
-out.println("			</div>");
-out.println("			<div class='row'>");
-out.println("				<div class='col-md-3'>Desarrollador:</div>");
-out.println("				<div class='col-md-3'>Chavez Chavez Angel Alexis</div>	");
-out.println("			</div>");
-out.println("			<div class='row'>");
-out.println("				<div class='col-md-3'>Siguiente entrega programada para:</div>");
-out.println("				<div class='col-md-3'>26/06/17</div>	");
-out.println("			</div>");
-out.println("			<br/><br/>");
-out.println("			<div class='row'>");
-out.println("				<div class='col-md-12'><h4>Historial de avances</h4></div>");
-out.println("			</div>");
-out.println("			<div class='row'>	");
-out.println("				<table class='table table-bordered responsive' id='table-3'>");
-out.println("					<thead>");
-out.println("						<tr>");
-out.println("							<th>Fecha</th>");
-out.println("							<th>Comentario</th>");
-out.println("							<th>Documento</th>");
-out.println("						</tr>");
-out.println("					</thead>");
-out.println("					<tbody>");
-out.println("						<tr>");
-out.println("							<td>2/02/17</td>");
-out.println("							<td>Primer vistazo a la pagina</td>");
-out.println("							<td>x</td>");
-out.println("						</tr>");
-out.println("						<tr>");
-out.println("							<td>25/02/17</td>");
-out.println("							<td>Funciones</td>");
-out.println("							<td>x</td>");
-out.println("						</tr>");
-out.println("						<tr>");
-out.println("							<td>18/03/17</td>");
-out.println("							<td>Funciones 2</td>");
-out.println("							<td>x</td>");
-out.println("						</tr>");
-out.println("					</tbody>	");
-out.println("				</table>	");
-out.println("			</div>");
-out.println("			");
-out.println("		</div>");
-out.println("	</div>");
-out.println("	<div class='panel panel-gradient' data-collapsed='0'>");
-out.println("		<!-- panel head -->");
-out.println("		<div class='panel-heading'>");
-out.println("			<div class='panel-title'>Proyecto2</div>");
-out.println("		");
-out.println("			<div class='panel-options'>");
-out.println("				");
-out.println("				<a href='#' data-rel='collapse'><i class='entypo-down-open'></i></a>");
-out.println("				");
-out.println("			</div>");
-out.println("		</div>");
-out.println("		");
-out.println("		<!-- panel body -->");
-out.println("		<div class='panel-body'>");
-out.println("			<h4>Progreso</h4>");
-out.println("			<div class='row'>");
-out.println("					");
-out.println("				<div class='col-md-12'>");
-out.println("					");
-out.println("					<div class='progress'>");
-out.println("						<div class='progress-bar progress-bar-success' role='progressbar' aria-valuenow='70' aria-valuemin='0' aria-valuemax='100' style='width: 90%'>");
-out.println("							<span class='sr-only'>35% Complete (success)</span>");
-out.println("						</div>");
-out.println("					</div>");
-out.println("				");
-out.println("				</div>");
-out.println("						");
-out.println("			</div>");
-out.println("			<div class='row'>");
-out.println("				<div class='col-md-3'>Desarrollador:</div>");
-out.println("				<div class='col-md-3'>Chavez Chavez Angel Alexis</div>	");
-out.println("			</div>");
-out.println("			<div class='row'>");
-out.println("				<div class='col-md-3'>Siguiente entrega programada para:</div>");
-out.println("				<div class='col-md-3'>26/06/17</div>	");
-out.println("			</div>");
-out.println("			<br/><br/>");
-out.println("			<div class='row'>");
-out.println("				<div class='col-md-12'><h4>Historial de avances</h4></div>");
-out.println("			</div>");
-out.println("			<div class='row'>	");
-out.println("				<table class='table table-bordered responsive' id='table-3'>");
-out.println("					<thead>");
-out.println("						<tr>");
-out.println("							<th>Fecha</th>");
-out.println("							<th>Comentario</th>");
-out.println("							<th>Documento</th>");
-out.println("						</tr>");
-out.println("					</thead>");
-out.println("					<tbody>");
-out.println("						<tr>");
-out.println("							<td>2/02/17</td>");
-out.println("							<td>Primer vistazo a la pagina</td>");
-out.println("							<td>x</td>");
-out.println("						</tr>");
-out.println("						<tr>");
-out.println("							<td>25/02/17</td>");
-out.println("							<td>Funciones</td>");
-out.println("							<td>x</td>");
-out.println("						</tr>");
-out.println("						<tr>");
-out.println("							<td>18/03/17</td>");
-out.println("							<td>Funciones 2</td>");
-out.println("							<td>x</td>");
-out.println("						</tr>");
-out.println("					</tbody>	");
-out.println("				</table>	");
-out.println("			</div>");
-out.println("			");
-out.println("			");
-out.println("		</div>");
-out.println("	</div>");
-out.println("	<div class='panel panel-gradient' data-collapsed='0'>");
-out.println("		<!-- panel head -->");
-out.println("		<div class='panel-heading'>");
-out.println("			<div class='panel-title'>Proyecto3</div>");
-out.println("		");
-out.println("			<div class='panel-options'>");
-out.println("				");
-out.println("				<a href='#' data-rel='collapse'><i class='entypo-down-open'></i></a>");
-out.println("				");
-out.println("			</div>");
-out.println("		</div>");
-out.println("		");
-out.println("		<!-- panel body -->");
-out.println("		<div class='panel-body'>");
-out.println("			<h4>Progreso</h4>");
-out.println("			<div class='row'>");
-out.println("					");
-out.println("				<div class='col-md-12'>");
-out.println("					");
-out.println("					<div class='progress'>");
-out.println("						<div class='progress-bar progress-bar-success' role='progressbar' aria-valuenow='70' aria-valuemin='0' aria-valuemax='100' style='width: 20%'>");
-out.println("							<span class='sr-only'>35% Complete (success)</span>");
-out.println("						</div>");
-out.println("					</div>");
-out.println("				");
-out.println("				</div>");
-out.println("						");
-out.println("			</div>");
-out.println("			<div class='row'>");
-out.println("				<div class='col-md-3'>Desarrollador:</div>");
-out.println("				<div class='col-md-3'>Chavez Chavez Angel Alexis</div>	");
-out.println("			</div>");
-out.println("			<div class='row'>");
-out.println("				<div class='col-md-3'>Siguiente entrega programada para:</div>");
-out.println("				<div class='col-md-3'>26/06/17</div>	");
-out.println("			</div>");
-out.println("			<br/><br/>");
-out.println("			<div class='row'>");
-out.println("				<div class='col-md-12'><h4>Historial de avances</h4></div>");
-out.println("			</div>");
-out.println("			<div class='row'>	");
-out.println("				<table class='table table-bordered responsive' id='table-3'>");
-out.println("					<thead>");
-out.println("						<tr>");
-out.println("							<th>Fecha</th>");
-out.println("							<th>Comentario</th>");
-out.println("							<th>Documento</th>");
-out.println("						</tr>");
-out.println("					</thead>");
-out.println("					<tbody>");
-out.println("						<tr>");
-out.println("							<td>2/02/17</td>");
-out.println("							<td>Primer vistazo a la pagina</td>");
-out.println("							<td>x</td>");
-out.println("						</tr>");
-out.println("						<tr>");
-out.println("							<td>25/02/17</td>");
-out.println("							<td>Funciones</td>");
-out.println("							<td>x</td>");
-out.println("						</tr>");
-out.println("						<tr>");
-out.println("							<td>18/03/17</td>");
-out.println("							<td>Funciones 2</td>");
-out.println("							<td>x</td>");
-out.println("						</tr>");
-out.println("					</tbody>	");
-out.println("				</table>	");
-out.println("			</div>");
-out.println("			");
-out.println("			");
-out.println("		</div>");
-out.println("	</div>");
+
+try {
+    info.last();
+    
+    int cant = info.getRow();
+    System.out.println("Cantidad"+cant);
+    String text = "	<div class='panel panel-gradient' data-collapsed='0'>";
+    String data = "";
+    for (int i = 1; i <= cant; i++) {
+        
+        info.absolute(i);
+        //System.out.println("Iteracion "+i);
+        if(info.getString(8).equals("Terminado"))
+            text = "	<div class='panel panel-dark' data-collapsed='1'>";
+        else if (info.getString(8).equals("En desarrollo"))
+            text = "	<div class='panel panel-primary' data-collapsed='0'>";
+        else
+            text = "	<div class='panel panel-gray' data-collapsed='0'>";
+        //System.out.println("llegue "+i);
+        out.println(text);
+        out.println("		<!-- panel head -->");
+        out.println("		<div class='panel-heading'>");
+        out.println("			<div class='panel-title'>"+info.getString(3)+"</div>");
+        out.println("		");
+        out.println("			<div class='panel-options'>");
+        out.println("				");
+        out.println("				<a href='#' data-rel='collapse'><i class='entypo-down-open'></i></a>");
+        out.println("				");
+        out.println("			</div>");
+        out.println("		</div>");
+        out.println("		");
+        out.println("		<!-- panel body -->");
+        out.println("		<div class='panel-body'>");
+
+        out.println("			<div class='row'>");
+        out.println("				<div class='col-md-3'>Descripcion:</div>");
+        out.println("				<div class='col-md-3'>"+info.getString(5)+"</div>	");
+        out.println("			</div>");
+        
+        out.println("			<br>");
+        out.println("			<div class='row'>");
+        out.println("				<div class='col-md-3'>Pago: </div>");
+        out.println("				<div class='col-md-3'>"+info.getString(7)+"</div>	");
+        out.println("			</div>");
+        
+        if(info.getString(8).equals("Terminado"))
+        {
+            text = "	<div class='panel panel-dark' data-collapsed='1'>";
+        }
+        else if (info.getString(8).equals("En desarrollo"))
+        {
+            text = "	<div class='panel panel-primary' data-collapsed='0'>";
+        }
+        else
+        {
+            out.println("			<br><br><br>");
+            out.println("			<div class='row'>");
+            out.println("			<center><p> Interesados </p></center>");
+            out.println("			</div>");
+            if(info.getString(8).equals("En espera de desarrollador"))
+            {
+                out.println("			<div class='row'>");
+                out.println("			<center><p> No hay programadores interesados en tu proyecto de momento </p></center>");
+                out.println("			</div>");
+            }
+            else
+            {
+                String algo [] = info.getString(8).split(",");
+                out.println("				<table class='table table-bordered responsive' id='table-3'>");
+                out.println("					<thead>");
+                out.println("						<tr>");
+                out.println("							<th>Nombre</th>");
+                out.println("							<th>Experiencia</th>");
+                out.println("							<th>Contrato</th>");
+                out.println("						</tr>");
+                out.println("					</thead>");
+                out.println("					<tbody>");
+                for (int j = 0; j < algo.length; j++) 
+                {
+                    //System.out.println("Lenght"+algo.length+"Algo"+algo[j]+" J "+j);
+                    desarrollador = objeto2.DesarroladorporID(algo[j]);
+                    desarrollador.absolute(1);
+                    out.println("						<tr>");
+                    out.println("							<td>"+desarrollador.getString(7)+" "+desarrollador.getString(8)+" "+desarrollador.getString(9)+"</td>");
+                    //out.println("							<td>Relleno</td>");
+                    
+                    out.println("							<td>"+desarrollador.getString(12)+"</td>");
+                    //out.println("							<td>Relleno</td>");
+                    
+                    out.println("							<td><a href='Contrato?IDproyecto="+info.getString(1)+"&IDuser="+desarrollador.getString(1)+"'>Contratar</a></td>");
+                    out.println("						</tr>");
+                    desarrollador.close();
+                }
+                out.println("					</tbody>	");
+                out.println("				</table>	");
+            }
+        }
+
+        //contenido
+        
+
+        out.println("			");
+        out.println("		</div>");
+        out.println("	</div>");
+    }
+} catch (SQLException e) { e.printStackTrace(); }
+
+
+
+
+
+
+
+
+
+
+
 out.println("<footer class='main'>");
 out.println("		");
 out.println("	&copy; 2017 <strong>MIZZI</strong>");

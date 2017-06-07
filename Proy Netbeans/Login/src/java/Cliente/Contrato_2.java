@@ -18,19 +18,28 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class Contrato_2 extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            BD_des objeto = new BD_des();
+            String idproy = request.getParameter("id_proy");
+            String iddes = request.getParameter("id_des");
+            String Fecha1 = request.getParameter("date1");
+            String Fecha2 = request.getParameter("date2");
+            
+            String [] FechaC1 = Fecha1.split("/");
+            Fecha1 = FechaC1[2]+"-"+FechaC1[0]+"-"+FechaC1[1];
+            
+            String [] FechaC2 = Fecha2.split("/");
+            Fecha2 = FechaC2[2]+"-"+FechaC2[0]+"-"+FechaC2[1];
+            
+            
+            String cad = "INSERT INTO contrato VALUES (default,'"+iddes+"','"+idproy+"','"+Fecha1+"','"+Fecha2+"')";
+            objeto.estado_pub_Nuevo(idproy, "En desarrollo");
+            objeto.insertContract(cad);
+            response.sendRedirect("Seguimiento");
+            //INSERT INTO CONTRATO VALUES(1,2,3,'2017-04-10','2017-04-24');
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -38,7 +47,7 @@ public class Contrato_2 extends HttpServlet {
             out.println("<title>Servlet Contrato_2</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Contrato_2 at " + request.getContextPath() + "</h1>");
+            out.println("<h1>"+cad+"</h1>");
             out.println("</body>");
             out.println("</html>");
         }

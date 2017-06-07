@@ -41,6 +41,7 @@ public class Publicaciones extends HttpServlet {
             user += datosUs.getString(8)+" ";
             user += datosUs.getString(9);
             iduser = datosUs.getString(1);
+            System.out.println("id:"+iduser);
             
         } catch(SQLException e) {}
         ResultSet publicaciones = objeto.Proyectos();
@@ -482,10 +483,14 @@ out.println("<div class=\"row\">\n" +
                 publicaciones.last();
                 //System.out.println("publucaciones"+publicaciones.getRow());
                 int cant = publicaciones.getRow();
-                for (int i = 1; i <= cant; i++) {
+                for (int i = 1; i <= cant; i++) {                
                     publicaciones.absolute(i);
+                    if(publicaciones.getString(8).equals("En desarrollo") || publicaciones.getString(8).equals("Terminado"))
+                    {
+                        continue;
+                    }
                     out.println("  				<tr>\n" +
-"  					<td><a href=\"Solicitud?id="+5+"\">"+publicaciones.getString(3)+"</td>\n" +
+"  					<td><a href=\"Solicitud?id="+iduser+"&idpub="+publicaciones.getString(1)+"\">"+publicaciones.getString(3)+"</td>\n" +
 "  					<td>"+publicaciones.getString(4)+"</td>\n" +
 "  					<td>"+publicaciones.getString(5)+"</td>\n" +
 "  					<td>"+publicaciones.getString(6)+" semanas</td>\n" +

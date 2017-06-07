@@ -145,4 +145,34 @@ public class BD_des {
         }
         return null;
     }
+    
+    public String estado_pub(String idpub)
+    {
+        try{
+           ResultSet res = consult.executeQuery("select * from proyecto where id_proyecto='"+idpub+"'");
+           System.out.println("Consulata realizada idpub!!!");
+           res.absolute(1);
+           String resultado = res.getString(8);
+           return resultado;
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
+    public void estado_pub_Nuevo(String idpub, String NuevoEstado)
+    {
+        try{
+            consult.executeUpdate("UPDATE proyecto SET estado='"+NuevoEstado+"' WHERE id_proyecto='"+idpub+"'");
+            System.out.println("Update nuevo estado realizada!!!");
+            
+         } 
+         catch(SQLException e)
+         {
+            e.printStackTrace();
+        }
+        
+    }
 }
