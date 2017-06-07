@@ -9,7 +9,7 @@
 
 function AgregarMarco ()
 {
-    DivPrimeraParte=document.getElementById("PrimeraParte");
+    //DivPrimeraParte=;
     datos="";
     setTimeout(function()
     {
@@ -28,21 +28,23 @@ function AgregarMarco ()
         {
                 // Login status [success|invalid]
                 //alert("Algo");
-                alert(response);
+                //alert(response);
                 var $repuesta= $(response);
-                DivPrimeraParte
-                var status = $repuesta.filter("#status").text();
-                if(status==="Hecho"){
-                    alert("registro Exitoso");
-                   
-                    //return;
-                }
-                if(status==="UsuarioExistente"){
-                    alert("Usuario Ya Existe");
-                }
-                if(status==="CorreoExistente"){
-                    alert("Usuario Ya Existe");
-                }
+                //$repuesta.
+                //alert($repuesta.filter("#PrimeraParte").text());
+                var $PrimPart = $repuesta.filter("#PrimeraParte");
+                $("#PrimeraParte").append($PrimPart);
+                
+            var $SegPart = $repuesta.filter("#SegundaParte");
+                $("#SegundaParte").append($SegPart);
+                //status.trim();
+                //alert($status.f);
+                //DivPrimeraParte.innerHTML(status);
+                var $SegPart = $repuesta.filter("#TercerParte");
+                $("#TercerParte").append($SegPart);   
+             var $SegPart = $repuesta.filter("#CuartaParte");
+                $("#CuartaParte").append($SegPart);   
+                
                 
                 
 

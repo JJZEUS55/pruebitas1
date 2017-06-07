@@ -1,12 +1,8 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+
 <html>
-    <!DOCTYPE html>
-<html lang="en">
+   
+
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -34,11 +30,269 @@ and open the template in the editor.
 	
 	
 </head>
-
+    <body onload="AgregarMarco()">
     <body class="page-body" data-url="http://neon.dev">
-        <button onclick="AgregarMarco()">oko</button>
+        <button onclick="AgregarMarco()">oko</button>  
+        <div class="page-container">
+        
         <div id="PrimeraParte">
+          
+        </div>
+        <div class="main-content">
+            <div id="SegundaParte">
+            </div>
+            <div id="contenido">
+                <div class="row">
+	
+	<div class="col-md-12">
+	
+		<div class="panel minimal minimal-gray">
+			
+			<div class="panel-heading">
+				<div class="panel-title"><h2>Cobros realizados</h2></div>
+				<div class="panel-options">
+					
+					<ul class="nav nav-tabs bordered">
+						<li class="active"><a href="#profile-1" data-toggle="tab">Cobros  de trabajos actuales</a></li>
+						<li><a href="#profile-2" data-toggle="tab">Cobros de trabajos terminados</a></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="panel-body">
+				
+				<div class="tab-content">
+					<div class="tab-pane active" id="profile-1">
+						<h3>Trabajos actuales</h3>
+						<br>
+		
+							<table class="table table-bordered datatable" id="table-3">
+								<thead>
+									<tr class="replace-inputs">
+										<th>Proyecto</th>
+										<th>Cliente</th>			
+										<th>Fecha inicio</th>
+										<th>Fecha fin</th>
+										<th>Valoracion de trabajo</th>
+										<th>Costo</th>
+										<th>Seguimiento</th>
+									</tr>
+									<tr>
+										<th>Proyecto</th>
+										<th>Cliente</th>			
+										<th>Fecha inicio</th>
+										<th>Fecha fin</th>
+										<th>Valoracion de trabajo</th>
+										<th>Costo</th>
+										<th>Seguimiento</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="odd gradeX">
+										<th>Proyecto C++</th>
+										<th>Alex Duran</th>			
+										<th>12/06/2017</th>
+										<th>27/06/2017</th>
+										<th>89%</th>
+										<th>$2300</th>
+										<th >
+										<a href="seg_trabajo.html" class="btn btn-info btn-sm btn-icon icon-left">
+										<i class="entypo-window"></i>
+										Ver seguimiento
+										</a></th>
+
+									</tr>
+									<tr class="odd gradeX">
+										<th>Proyecto C++</th>
+										<th>Alex Duran</th>			
+										<th>12/06/2017</th>
+										<th>27/06/2017</th>
+										<th>89%</th>
+										<th>$2300</th>
+										<th>
+										<a href="seg_trabajo.html" class="btn btn-info btn-sm btn-icon icon-left">
+										<i class="entypo-window"></i>
+										Ver seguimiento
+										</a></th>
+
+									</tr>
+									<tr class="odd gradeX">
+										<th>Proyecto C++</th>
+										<th>Alex Duran</th>			
+										<th>12/06/2017</th>
+										<th>27/06/2017</th>
+										<th>89%</th>
+										<th>$2300</th>
+										<th>
+										<a href="seg_trabajo.html" class="btn btn-info btn-sm btn-icon icon-left">
+										<i class="entypo-window"></i>
+										Ver seguimiento
+										</a></th>
+
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<th>Ganancias</th>
+									  <th></th>			
+									  <th></th>
+									  <th></th>
+									  <th></th>
+										<th>$6900</th>	
+										<th>Seguimiento</th>
+									</tr>
+								</tfoot>
+							</table>
+
+					  <script type="text/javascript">
+								jQuery(document).ready(function($)
+								{
+									var table = $("#table-3").dataTable({
+										"sPaginationType": "bootstrap",
+										"aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+										"bStateSave": true
+									});
+
+									table.columnFilter({
+										"sPlaceHolder" : "head:after"
+									});
+								});
+							</script>
+					</div>
+					
+					<div class="tab-pane" id="profile-2">
+						<h3>Trabajos terminados</h3>
+						<br>
+						<table class="table table-bordered datatable" id="table-4">
+								<thead>
+									<tr class="replace-inputs">
+										<th>Proyecto</th>
+										<th>Cliente</th>			
+										<th>Fecha inicio</th>
+										<th>Fecha fin</th>
+										<th>Valoracion de trabajo</th>
+										<th>Costo</th>
+									</tr>
+									<tr>
+										<th>Proyecto</th>
+										<th>Cliente</th>			
+										<th>Fecha inicio</th>
+										<th>Fecha fin</th>
+										<th>Valoracion de trabajo</th>
+										<th>Costo</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="odd gradeX">
+										<th>Proyecto C++</th>
+										<th>Alex Duran</th>			
+										<th>12/06/2017</th>
+										<th>27/06/2017</th>
+										<th>89%</th>
+										<th>$2300</th>
+
+									</tr>
+									<tr class="odd gradeX">
+										<th>Proyecto C++</th>
+										<th>Alex Duran</th>			
+										<th>12/06/2017</th>
+										<th>27/06/2017</th>
+										<th>89%</th>
+										<th>$2300</th>
+
+									</tr>
+									<tr class="odd gradeX">
+										<th>Proyecto C++</th>
+										<th>Alex Duran</th>			
+										<th>12/06/2017</th>
+										<th>27/06/2017</th>
+										<th>89%</th>
+										<th>$2300</th>
+
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<th>Ganancias</th>
+										<th></th>			
+										<th></th>
+										<th></th>
+										<th></th>
+										<th>$6900</th>	
+									</tr>
+								</tfoot>
+							</table>
+
+							<script type="text/javascript">
+								jQuery(document).ready(function($)
+								{
+									var table = $("#table-4").dataTable({
+										"sPaginationType": "bootstrap",
+										"aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+										"bStateSave": true
+									});
+
+									table.columnFilter({
+										"sPlaceHolder" : "head:after"
+									});
+								});
+							</script>
+				</div>
+					
+					
+
+				</div>
+				
+				
+				
+			</div>
+			
+		</div>
+		
+	</div>
+	
+	
+</div>
+
+            </div>
+        
+        
+        <div id="TercerParte">
             
         </div>
+        </div>
+        
+        <div id="CuartaParte">
+            
+        </div>
+        
+        </div>
+        
+        
+        
+        	<!-- Bottom Scripts -->
+        <script src="assets/js/gsap/main-gsap.js"></script>
+	<script src="assets/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js"></script>
+	<script src="assets/js/bootstrap.js"></script>
+	<script src="assets/js/joinable.js"></script>
+	<script src="assets/js/resizeable.js"></script>
+	<script src="assets/js/neon-api.js"></script>
+	<script src="assets/js/jquery.dataTables.min.js"></script>
+	<script src="assets/js/datatables/TableTools.min.js"></script>
+	<script src="assets/js/dataTables.bootstrap.js"></script>
+	<script src="assets/js/datatables/jquery.dataTables.columnFilter.js"></script>
+	<script src="assets/js/datatables/lodash.min.js"></script>
+	<script src="assets/js/datatables/responsive/js/datatables.responsive.js"></script>
+	<script src="assets/js/select2/select2.min.js"></script>
+	<script src="assets/js/neon-chat.js"></script>
+	<script src="assets/js/neon-custom.js"></script>
+	<script src="assets/js/neon-demo.js"></script>
+        
+        
+        
     </body>
 </html>
+
+
+
+
