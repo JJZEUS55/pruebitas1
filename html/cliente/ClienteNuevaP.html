@@ -28,6 +28,133 @@
 </head>
 <body class="page-body" data-url="http://neon.dev">
 
+<script language="javascript" type="text/javascript">
+	//var vprecio = 0;
+	function FobtenPreciouno(){
+		var vprecio = 0;
+		var vnumcheck = 0;
+		var jhtml = document.getElementById("cbhtml");
+		var jsql = document.getElementById("cbsql");
+		var jC = document.getElementById("cbC");
+		var jjava = document.getElementById("cbjava");
+		var jphyton = document.getElementById("cbphyton");
+		var jvisual = document.getElementById("cbvisual");
+		var jensamblador = document.getElementById("cbensamblador");
+		var jandroid = document.getElementById("cbandroid");
+		var jios = document.getElementById("cbios");
+		var jprecio = document.getElementById("etprecio");
+		
+		if(jhtml.checked) {    	
+			vprecio = vprecio + 30;
+			vnumcheck++;
+		} 
+		if(jsql.checked) {
+    		vprecio = vprecio + 50;
+			vnumcheck++;
+		}
+		if(jC.checked) {
+    		vprecio = vprecio + 60;
+			vnumcheck++;
+		}
+		if(jjava.checked) {
+    		vprecio = vprecio + 40;
+			vnumcheck++;
+		}
+		if(jphyton.checked) {
+    		vprecio = vprecio + 60;
+			vnumcheck++;
+		}
+		if(jvisual.checked) {
+    		vprecio = vprecio + 45;
+			vnumcheck++;
+		}
+		if(jensamblador.checked) {
+    		vprecio = vprecio + 100;
+			vnumcheck++;
+		}
+		if(jandroid.checked) {
+    		vprecio = vprecio + 50;
+			vnumcheck++;
+		}
+		if(jios.checked) {
+    		vprecio = vprecio + 50;
+			vnumcheck++;
+		}
+		
+		if(vnumcheck >= 3){
+			vprecio = vprecio + 200;
+			
+		}
+		
+		//alert("Suma: " + vprecio + "\nSeleccionados: " + vnumcheck);
+		//jprecio.value = "$" + vprecio + ".00";
+		alert("Voy a pasar " + vprecio);
+		
+		return vprecio;		
+			
+		}
+	
+	function FobtenPreciodos(){
+		var vprecio = FobtenPreciouno();
+		var numche = 0;
+		var jdweb = document.getElementById("cbdweb");
+		var jdbd = document.getElementById("cbdbd");
+		var jdjava = document.getElementById("cbdjava");
+		var jdC = document.getElementById("cbdC");
+		var jdmodelado = document.getElementById("cbdmodelado");
+		var jdandroid = document.getElementById("cbdandroid");
+		var jdensamblador = document.getElementById("cbdensamblador");
+		var jdmedvis = document.getElementById("cbdmedvis");
+		var jdphyton = document.getElementById("cbdphyton");
+		var jprecio = document.getElementById("etprecio");
+		
+		if(jdweb.checked){
+			vprecio = vprecio + 200;
+			numche++;
+		}
+		if(jdbd.checked){
+			vprecio = vprecio + 120;
+			numche++;
+		}
+		if(jdjava.checked){
+			vprecio = vprecio + 120;
+			numche++;
+		}
+		if(jdC.checked){
+			vprecio = vprecio + 70;
+			numche++;
+		}
+		if(jdmodelado.checked){
+			vprecio = vprecio + 60;
+			numche++;
+		}
+		if(jdandroid.checked){
+			vprecio = vprecio + 70;
+			numche++;
+		}
+		if(jdensamblador.checked){
+			vprecio = vprecio + 120;
+			numche++;
+		}
+		if(jdmedvis.checked){
+			vprecio = vprecio + 60;
+			numche++;
+		}
+		if(jdphyton.checked){
+			vprecio = vprecio + 70;
+			numche++;
+		}
+		if(numche >=3){
+				vprecio = vprecio + 300;
+		}
+		alert("Esto ya es el precio 2");
+		jprecio.value = "$" + vprecio + ".00";
+	}
+	
+	
+	
+</script>
+
 <div class="page-container"><!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->	
 	
 	<div class="sidebar-menu">
@@ -447,31 +574,31 @@
 					<div class="col-sm-3">
 						<div class="checkbox">
 							<label>
-								<input type="checkbox" name="cb1" value="HTML">HTML
+								<input id="cbhtml" type="checkbox" name="cb1" value="HTML">HTML
 							</label>
 						</div>
 						
 						<div class="checkbox">
 							<label>
-								<input type="checkbox" name="cb1" value="MySQL">MySQL
+								<input id="cbsql" type="checkbox" name="cb1" value="MySQL">MySQL
 							</label>
 						</div>
 
 						<div class="checkbox">
 							<label>
-								<input type="checkbox" name="cb1" value="C,C++">C, C++
+								<input id="cbC" type="checkbox" name="cb1" value="C,C++">C, C++
 							</label>
 						</div>
 
 						<div class="checkbox">
 							<label>
-								<input type="checkbox" name="cb1" value="Java">Java
+								<input id="cbjava" type="checkbox" name="cb1" value="Java">Java
 							</label>
 						</div>
 
 						<div class="checkbox">
 							<label>
-								<input type="checkbox" name="cb1" value="Phyton">Phyton
+								<input id="cbphyton" type="checkbox" name="cb1" value="Phyton">Phyton
 							</label>
 						</div>
 
@@ -480,25 +607,25 @@
 					<div class="col-sm-3">
 						<div class="checkbox">
 							<label>
-								<input type="checkbox" name="cb1" value="Visual Basic">Visual Basic
+								<input id="cbvisual" type="checkbox" name="cb1" value="Visual Basic">Visual Basic
 							</label>
 						</div>
 						
 						<div class="checkbox">
 							<label>
-								<input type="checkbox" name="cb1" value="Ensamblador"> Ensamblador
+								<input id="cbensamblador" type="checkbox" name="cb1" value="Ensamblador"> Ensamblador
 							</label>
 						</div>
 
 						<div class="checkbox">
 							<label>
-								<input type="checkbox" name="cb1" value="Android">Android
+								<input id="cbandroid" type="checkbox" name="cb1" value="Android">Android
 							</label>
 						</div>
 
 						<div class="checkbox">
 							<label>
-								<input type="checkbox" name="cb1" value="iOS">iOS
+								<input id="cbios" type="checkbox" name="cb1" value="iOS">iOS
 							</label>
 						</div>
 
@@ -510,6 +637,8 @@
 
 					</div>
 				</div>
+				
+
 
 			
 			
@@ -547,31 +676,31 @@
 					<div class="col-sm-3">
 						<div class="checkbox">
 							<label>
-								<input type="checkbox" name="cb2" value="Desarrollo Web">Desarrollo WEB
+								<input type="checkbox" id="cbdweb" name="cb2" value="Desarrollo Web">Desarrollo WEB
 							</label>
 						</div>
 						
 						<div class="checkbox">
 							<label>
-								<input type="checkbox" name="cb2" value="Base de datos">Base de Datos
+								<input type="checkbox" id="cbdbd" name="cb2" value="Base de datos">Base de Datos
 							</label>
 						</div>
 
 						<div class="checkbox">
 							<label>
-								<input type="checkbox" name="cb2" value="Java">Programacion en Java
+								<input type="checkbox" id="cbdjava" name="cb2" value="Java">Programacion en Java
 							</label>
 						</div>
 
 						<div class="checkbox">
 							<label>
-								<input type="checkbox" name="cb2" value="C">Programacion en C
+								<input type="checkbox" id="cbdC" name="cb2" value="C">Programacion en C
 							</label>
 						</div>
 
 						<div class="checkbox">
 							<label>
-								<input type="checkbox" name="cb2" value="Modelado">Modelado
+								<input type="checkbox" id="cbdmodelado" name="cb2" value="Modelado">Modelado
 							</label>
 						</div>
 
@@ -580,25 +709,25 @@
 					<div class="col-sm-3">
 						<div class="checkbox">
 							<label>
-								<input type="checkbox" name="cb2" value="Android">Android
+								<input type="checkbox" id="cbdandroid" name="cb2" value="Android">Android
 							</label>
 						</div>
 						
 						<div class="checkbox">
 							<label>
-								<input type="checkbox" name="cb2" value="Ensamblador">Programacion en ensamblador
+								<input type="checkbox" id="cbdensamblador" name="cb2" value="Ensamblador">Programacion en ensamblador
 							</label>
 						</div>
 
 						<div class="checkbox">
 							<label>
-								<input type="checkbox" name="cb2" value="Medios Audiovisuales">Medios audiovisuales
+								<input type="checkbox" id="cbdmedvis" name="cb2" value="Medios Audiovisuales">Medios audiovisuales
 							</label>
 						</div>
 
 						<div class="checkbox">
 							<label>
-								<input type="checkbox" name="cb2" value="Phyton">Programacion en Phyton
+								<input type="checkbox" id="cbdphyton" name="cb2" value="Phyton">Programacion en Phyton
 							</label>
 						</div>
 
@@ -643,13 +772,13 @@
 		
 		<!-- panel body -->
 		<div class="panel-body">
-			<center><button type="button" class="btn btn-primary">Aproximar precio</button></center>
+			<center><button type="button" onClick="FobtenPreciodos()"  class="btn btn-primary">Aproximar precio</button></center>
 			
 				<div class="form-group">
 					<label for="field-1" class="col-sm-3 control-label">Precio</label>
 						
 					<div class="col-sm-5">
-						<input type="text" class="form-control" id="precio" placeholder="Precio" name="precio">
+						<input type="text" class="form-control" id="etprecio" placeholder="Precio" name="precio">
 					</div>
 				</div>
 			
@@ -848,3 +977,4 @@
 
 </body>
 </html>
+
