@@ -34,19 +34,20 @@ public class NuevaP_Cliente extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-        BD_des objeto = new BD_des();
-        HttpSession sesion=request.getSession();
-        String user = (String)sesion.getAttribute("Usuario");
-        ResultSet datosUs = objeto.infoCliente(user);
+//        BD_des objeto = new BD_des();
+//        HttpSession sesion=request.getSession();
+//        String user = (String)sesion.getAttribute("Usuario");
+//        ResultSet datosUs = objeto.infoCliente(user);
         String id = "";
-        try
-        {
-            datosUs.absolute(1);
-            user = datosUs.getString(7)+" ";
-            user += datosUs.getString(8)+" ";
-            user += datosUs.getString(9);
-            id = datosUs.getString(1);
-        } catch(SQLException e) {}
+        String user= "";
+//        try
+//        {
+//            datosUs.absolute(1);
+//            user = datosUs.getString(7)+" ";
+//            user += datosUs.getString(8)+" ";
+//            user += datosUs.getString(9);
+//            id = datosUs.getString(1);
+//        } catch(SQLException e) {}
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>\n" +
 "<html lang=\"en\">\n" +
@@ -78,6 +79,128 @@ public class NuevaP_Cliente extends HttpServlet {
 "</head>\n" +
 "<body class=\"page-body\" data-url=\"http://neon.dev\">\n" +
 "\n" +
+"<script language=\"javascript\" type=\"text/javascript\">\n" +
+"	function FobtenPreciouno(){\n" +
+"		var vprecio = 0;\n" +
+"		var vnumcheck = 0;\n" +
+"		var jhtml = document.getElementById(\"cbhtml\");\n" +
+"		var jsql = document.getElementById(\"cbsql\");\n" +
+"		var jC = document.getElementById(\"cbC\");\n" +
+"		var jjava = document.getElementById(\"cbjava\");\n" +
+"		var jphyton = document.getElementById(\"cbphyton\");\n" +
+"		var jvisual = document.getElementById(\"cbvisual\");\n" +
+"		var jensamblador = document.getElementById(\"cbensamblador\");\n" +
+"		var jandroid = document.getElementById(\"cbandroid\");\n" +
+"		var jios = document.getElementById(\"cbios\");\n" +
+"		var jprecio = document.getElementById(\"etprecio\");\n" +
+"		\n" +
+"		if(jhtml.checked) {    	\n" +
+"			vprecio = vprecio + 30;\n" +
+"			vnumcheck++;\n" +
+"		} \n" +
+"		if(jsql.checked) {\n" +
+"    		vprecio = vprecio + 50;\n" +
+"			vnumcheck++;\n" +
+"		}\n" +
+"		if(jC.checked) {\n" +
+"    		vprecio = vprecio + 60;\n" +
+"			vnumcheck++;\n" +
+"		}\n" +
+"		if(jjava.checked) {\n" +
+"    		vprecio = vprecio + 30;\n" +
+"			vnumcheck++;\n" +
+"		}\n" +
+"		if(jphyton.checked) {\n" +
+"    		vprecio = vprecio + 60;\n" +
+"			vnumcheck++;\n" +
+"		}\n" +
+"		if(jvisual.checked) {\n" +
+"    		vprecio = vprecio + 45;\n" +
+"			vnumcheck++;\n" +
+"		}\n" +
+"		if(jensamblador.checked) {\n" +
+"    		vprecio = vprecio + 100;\n" +
+"			vnumcheck++;\n" +
+"		}\n" +
+"		if(jandroid.checked) {\n" +
+"    		vprecio = vprecio + 50;\n" +
+"			vnumcheck++;\n" +
+"		}\n" +
+"		if(jios.checked) {\n" +
+"    		vprecio = vprecio + 50;\n" +
+"			vnumcheck++;\n" +
+"		}\n" +
+"		\n" +
+"		if(vnumcheck >= 3){\n" +
+"			vprecio = vprecio + 200;\n" +
+"			\n" +
+"		}\n" +
+"		\n" +
+"		//alert(\"Suma: \" + vprecio + \"\\nSeleccionados: \" + vnumcheck);\n" +
+"		//jprecio.value = \"$\" + vprecio + \".00\";\n" +
+"		\n" +
+"		return vprecio;		\n" +
+"			\n" +
+"		}\n" +
+"	\n" +
+"	function FobtenPreciodos(){\n" +
+"		var vprecio = FobtenPreciouno();\n" +
+"		var numche = 0;\n" +
+"		var jdweb = document.getElementById(\"cbhtml\");\n" +
+"		var jdbd = document.getElementById(\"cbhtml\");\n" +
+"		var jdjava = document.getElementById(\"cbhtml\");\n" +
+"		var jdC = document.getElementById(\"cbhtml\");\n" +
+"		var jdmodelado = document.getElementById(\"cbhtml\");\n" +
+"		var jdandroid = document.getElementById(\"cbhtml\");\n" +
+"		var jdensamblador = document.getElementById(\"cbhtml\");\n" +
+"		var jdmedvis = document.getElementById(\"cbhtml\");\n" +
+"		var jdphyton = document.getElementById(\"cbhtml\");\n" +
+"		var jprecio = document.getElementById(\"etprecio\");\n" +
+"		\n" +
+"		if(jdweb.checked){\n" +
+"			vprecio = vprecio + 120;\n" +
+"			numche++;\n" +
+"		}\n" +
+"		if(jdbd.checked){\n" +
+"			vprecio = vprecio + 120;\n" +
+"			numche++;\n" +
+"		}\n" +
+"		if(jdjava.checked){\n" +
+"			vprecio = vprecio + 120;\n" +
+"			numche++;\n" +
+"		}\n" +
+"		if(jdC.checked){\n" +
+"			vprecio = vprecio + 120;\n" +
+"			numche++;\n" +
+"		}\n" +
+"		if(jdmodelado.checked){\n" +
+"			vprecio = vprecio + 120;\n" +
+"			numche++;\n" +
+"		}\n" +
+"		if(jdandroid.checked){\n" +
+"			vprecio = vprecio + 120;\n" +
+"			numche++;\n" +
+"		}\n" +
+"		if(jdensamblador.checked){\n" +
+"			vprecio = vprecio + 120;\n" +
+"			numche++;\n" +
+"		}\n" +
+"		if(jdmedvis.checked){\n" +
+"			vprecio = vprecio + 120;\n" +
+"			numche++;\n" +
+"		}\n" +
+"		if(jdphyton.checked){\n" +
+"			vprecio = vprecio + 120;\n" +
+"			numche++;\n" +
+"		}\n" +
+"		alert(\"Esto ya es el precio 2\");\n" +
+"		jprecio.value = \"$\" + vprecio + \".00\";\n" +
+"	}\n" +
+"	\n" +
+"	\n" +
+"	\n" +
+"</script>\n" +
+"\n" +
 "<div class=\"page-container\"><!-- add class \"sidebar-collapsed\" to close sidebar by default, \"chat-visible\" to make chat appear always -->	\n" +
 "	\n" +
 "	<div class=\"sidebar-menu\">\n" +
@@ -87,7 +210,7 @@ public class NuevaP_Cliente extends HttpServlet {
 "			\n" +
 "			<!-- logo -->\n" +
 "			<div class=\"logo\">\n" +
-"				<a href=\"InicioCliente\">\n" +
+"				<a href=\"ClienteInicio.html\">\n" +
 "					<h1 style=\"color: aliceblue \"class=\"text-uppercase text-center\"><strong>MIZZI</strong></h1>\n" +
 "				</a>\n" +
 "			</div>\n" +
@@ -124,25 +247,25 @@ public class NuevaP_Cliente extends HttpServlet {
 "				</form>\n" +
 "			</li>\n" +
 "			<li class=\"active opened active\">\n" +
-"				<a href=\"NuevaP_Cliente\">\n" +
+"				<a href=\"ClienteNuevaP.html\">\n" +
 "					<i class=\"entypo-gauge\"></i>\n" +
 "					<span>Nueva publicacion</span>\n" +
 "				</a>\n" +
 "			</li>\n" +
 "			<li>\n" +
-"				<a href=\"PublicacionesC\">\n" +
+"				<a href=\"ContratosR.html\">\n" +
 "					<i class=\"entypo-layout\"></i>\n" +
-"					<span>Modificar Publicacion</span>\n" +
+"					<span>Contratos realizados</span>\n" +
 "				</a>\n" +
 "			</li>\n" +
 "			<li>\n" +
-"				<a href=\"Desarrolladores\" target=\"_blank\">\n" +
+"				<a href=\"Desarrolladores.html\" target=\"_blank\">\n" +
 "					<i class=\"entypo-monitor\"></i>\n" +
 "					<span>Desarrolladores</span>\n" +
 "				</a>\n" +
 "			</li>\n" +
 "			<li>\n" +
-"				<a href=\"Seguimiento\">\n" +
+"				<a href=\"Seguimiento.html\">\n" +
 "					<i class=\"entypo-newspaper\"></i>\n" +
 "					<span>Proyectos en progreso</span>\n" +
 "				</a>\n" +
@@ -161,12 +284,12 @@ public class NuevaP_Cliente extends HttpServlet {
 "			<li class=\"profile-info dropdown\">				\n" +
 "				<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\n" +
 "					<img src=\"assets/images/thumb-1@2x.png\" alt=\"\" class=\"img-circle\" width=\"44\" />\n" +
-"					"+user+"\n" +
+"					Nombre Usuario\n" +
 "				</a>\n" +
 "				<ul class=\"dropdown-menu\">\n" +
 "					<li class=\"caret\"></li>\n" +
 "					<li>\n" +
-"						<a href=\"FormModificarUser\">\n" +
+"						<a href=\"extra-timeline.html\">\n" +
 "							<i class=\"entypo-user\"></i>\n" +
 "							Editar Perfil\n" +
 "						</a>\n" +
@@ -427,7 +550,7 @@ public class NuevaP_Cliente extends HttpServlet {
 "			<li class=\"sep\"></li>\n" +
 "			\n" +
 "			<li>\n" +
-"				<a href=\"CerrarSesion\">\n" +
+"				<a href=\"extra-login.html\">\n" +
 "					Cerrar sesión <i class=\"entypo-logout right\"></i>\n" +
 "				</a>\n" +
 "			</li>\n" +
@@ -459,8 +582,7 @@ public class NuevaP_Cliente extends HttpServlet {
 "\n" +
 "<div class=\"container\">\n" +
 "    \n" +
-"    <form role=\"form\" class=\"form-horizontal form-groups-bordered\" id=\"nuevaP\" action=\"NuevaPreg\" method=\"get\">\n  " +
-"                                                               <input type=\"hidden\" name=\"id_des\" value=\""+id+"\"> \n" +
+"    <form role=\"form\" class=\"form-horizontal form-groups-bordered\" id=\"nuevaP\" method=\"get\">\n" +
 "	<div class=\"panel panel-gradient\" data-collapsed=\"0\">\n" +
 "		<!-- panel head -->\n" +
 "		<div class=\"panel-heading\">\n" +
@@ -482,7 +604,6 @@ public class NuevaP_Cliente extends HttpServlet {
 "						\n" +
 "					<div class=\"col-sm-5\">\n" +
 "						<input type=\"text\" class=\"form-control\" name=\"Name_P\" placeholder=\"Nombre\">\n" +
-
 "					</div>\n" +
 "				</div>\n" +
 "\n" +
@@ -499,31 +620,31 @@ public class NuevaP_Cliente extends HttpServlet {
 "					<div class=\"col-sm-3\">\n" +
 "						<div class=\"checkbox\">\n" +
 "							<label>\n" +
-"								<input type=\"checkbox\" name=\"cb1\" value=\"HTML\">HTML\n" +
+"								<input id=\"cbhtml\" type=\"checkbox\" name=\"cb1\" value=\"HTML\">HTML\n" +
 "							</label>\n" +
 "						</div>\n" +
 "						\n" +
 "						<div class=\"checkbox\">\n" +
 "							<label>\n" +
-"								<input type=\"checkbox\" name=\"cb1\" value=\"MySQL\">MySQL\n" +
+"								<input id=\"cbsql\" type=\"checkbox\" name=\"cb1\" value=\"MySQL\">MySQL\n" +
 "							</label>\n" +
 "						</div>\n" +
 "\n" +
 "						<div class=\"checkbox\">\n" +
 "							<label>\n" +
-"								<input type=\"checkbox\" name=\"cb1\" value=\"C,C++\">C, C++\n" +
+"								<input id=\"cbC\" type=\"checkbox\" name=\"cb1\" value=\"C,C++\">C, C++\n" +
 "							</label>\n" +
 "						</div>\n" +
 "\n" +
 "						<div class=\"checkbox\">\n" +
 "							<label>\n" +
-"								<input type=\"checkbox\" name=\"cb1\" value=\"Java\">Java\n" +
+"								<input id=\"cbjava\" type=\"checkbox\" name=\"cb1\" value=\"Java\">Java\n" +
 "							</label>\n" +
 "						</div>\n" +
 "\n" +
 "						<div class=\"checkbox\">\n" +
 "							<label>\n" +
-"								<input type=\"checkbox\" name=\"cb1\" value=\"Phyton\">Phyton\n" +
+"								<input id=\"cbphyton\" type=\"checkbox\" name=\"cb1\" value=\"Phyton\">Phyton\n" +
 "							</label>\n" +
 "						</div>\n" +
 "\n" +
@@ -532,25 +653,25 @@ public class NuevaP_Cliente extends HttpServlet {
 "					<div class=\"col-sm-3\">\n" +
 "						<div class=\"checkbox\">\n" +
 "							<label>\n" +
-"								<input type=\"checkbox\" name=\"cb1\" value=\"Visual Basic\">Visual Basic\n" +
+"								<input id=\"cbvisual\" type=\"checkbox\" name=\"cb1\" value=\"Visual Basic\">Visual Basic\n" +
 "							</label>\n" +
 "						</div>\n" +
 "						\n" +
 "						<div class=\"checkbox\">\n" +
 "							<label>\n" +
-"								<input type=\"checkbox\" name=\"cb1\" value=\"Ensamblador\"> Ensamblador\n" +
+"								<input id=\"cbensamblador\" type=\"checkbox\" name=\"cb1\" value=\"Ensamblador\"> Ensamblador\n" +
 "							</label>\n" +
 "						</div>\n" +
 "\n" +
 "						<div class=\"checkbox\">\n" +
 "							<label>\n" +
-"								<input type=\"checkbox\" name=\"cb1\" value=\"Android\">Android\n" +
+"								<input id=\"cbandroid\" type=\"checkbox\" name=\"cb1\" value=\"Android\">Android\n" +
 "							</label>\n" +
 "						</div>\n" +
 "\n" +
 "						<div class=\"checkbox\">\n" +
 "							<label>\n" +
-"								<input type=\"checkbox\" name=\"cb1\" value=\"iOS\">iOS\n" +
+"								<input id=\"cbios\" type=\"checkbox\" name=\"cb1\" value=\"iOS\">iOS\n" +
 "							</label>\n" +
 "						</div>\n" +
 "\n" +
@@ -562,6 +683,8 @@ public class NuevaP_Cliente extends HttpServlet {
 "\n" +
 "					</div>\n" +
 "				</div>\n" +
+"				\n" +
+"\n" +
 "\n" +
 "			\n" +
 "			\n" +
@@ -656,7 +779,6 @@ public class NuevaP_Cliente extends HttpServlet {
 "\n" +
 "						<div class=\"checkbox\">\n" +
 "							<label>\n" +
-
 "								<input type=\"checkbox\" name=\"cb2\" value=\"Otro\">Otro\n" +
 "							</label>\n" +
 "						</div>\n" +
@@ -664,13 +786,15 @@ public class NuevaP_Cliente extends HttpServlet {
 "					</div>\n" +
 "				</div>\n" +
 "				<div class=\"form-group\">\n" +
-"					<div class=\"form-group\">\n" +
-"						<label for=\"field-1\" class=\"col-sm-3 control-label\">Fecha de entrega</label>\n" +
-"						\n" +
-"						<div class=\"col-sm-3\">\n" +
-"                                                    <input type=\"text\" name=\"date\" class=\"form-control datepicker\" data-start-view=\"2\">\n" +
+"					<label class=\"col-sm-3 control-label\">Rango aproximado de inicio a fin</label>\n" +
+"					\n" +
+"					<div class=\"col-sm-5\">\n" +
+"						<div class=\"daterange daterange-inline\" data-format=\"MMMM D, YYYY\" data-start-date=\"June 13, 2017\" data-end-date=\"June 27, 2017\" name=\"fecha\">\n" +
+"							<i class=\"entypo-calendar\"></i>\n" +
+"							<span>June 13, 2017 - June 27, 2017</span>\n" +
 "						</div>\n" +
-"				</div>\n" +
+"						\n" +
+"					</div>\n" +
 "				</div>\n" +
 "   \n" +
 "\n" +
@@ -694,13 +818,13 @@ public class NuevaP_Cliente extends HttpServlet {
 "		\n" +
 "		<!-- panel body -->\n" +
 "		<div class=\"panel-body\">\n" +
-"			<center><button type=\"button\" class=\"btn btn-primary\">Aproximar precio</button></center>\n" +
+"			<center><button type=\"button\" onClick=\"FobtenPreciodos()\"  class=\"btn btn-primary\">Aproximar precio</button></center>\n" +
 "			\n" +
 "				<div class=\"form-group\">\n" +
 "					<label for=\"field-1\" class=\"col-sm-3 control-label\">Precio</label>\n" +
 "						\n" +
 "					<div class=\"col-sm-5\">\n" +
-"						<input type=\"text\" class=\"form-control\" id=\"precio\" placeholder=\"Precio\" name=\"precio\">\n" +
+"						<input type=\"text\" class=\"form-control\" id=\"etprecio\" placeholder=\"Precio\" name=\"precio\">\n" +
 "					</div>\n" +
 "				</div>\n" +
 "			\n" +
@@ -898,7 +1022,8 @@ public class NuevaP_Cliente extends HttpServlet {
 "\n" +
 "\n" +
 "</body>\n" +
-"</html>");
+"</html>\n" +
+"");
             
         }
     }
