@@ -28,7 +28,7 @@ function AgregarMarco ()
         {
                 // Login status [success|invalid]
                 //alert("Algo");
-                //alert(response);
+                alert(response);
                 var $repuesta= $(response);
                 //$repuesta.
                 //alert($repuesta.filter("#PrimeraParte").text());
