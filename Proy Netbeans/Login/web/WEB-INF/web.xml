@@ -92,6 +92,10 @@
         <servlet-name>Solicitud</servlet-name>
         <servlet-class>Desarrollador.Solicitud</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServChat</servlet-name>
+        <servlet-class>Operaciones_BD.ServChat</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServLogin</servlet-name>
         <url-pattern>/ServLogin</url-pattern>
@@ -183,6 +187,10 @@
     <servlet-mapping>
         <servlet-name>Solicitud</servlet-name>
         <url-pattern>/Solicitud</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServChat</servlet-name>
+        <url-pattern>/ServChat</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
