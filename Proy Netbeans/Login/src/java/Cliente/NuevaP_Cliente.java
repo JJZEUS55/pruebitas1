@@ -34,20 +34,19 @@ public class NuevaP_Cliente extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-//        BD_des objeto = new BD_des();
-//        HttpSession sesion=request.getSession();
-//        String user = (String)sesion.getAttribute("Usuario");
-//        ResultSet datosUs = objeto.infoCliente(user);
+        BD_des objeto = new BD_des();
+        HttpSession sesion=request.getSession();
+        String user = (String)sesion.getAttribute("Usuario");
+        ResultSet datosUs = objeto.infoCliente(user);
         String id = "";
-        String user= "";
-//        try
-//        {
-//            datosUs.absolute(1);
-//            user = datosUs.getString(7)+" ";
-//            user += datosUs.getString(8)+" ";
-//            user += datosUs.getString(9);
-//            id = datosUs.getString(1);
-//        } catch(SQLException e) {}
+        try
+        {
+            datosUs.absolute(1);
+            user = datosUs.getString(7)+" ";
+            user += datosUs.getString(8)+" ";
+            user += datosUs.getString(9);
+            id = datosUs.getString(1);
+        } catch(SQLException e) {}
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>\n" +
 "<html lang=\"en\">\n" +
@@ -78,8 +77,9 @@ public class NuevaP_Cliente extends HttpServlet {
 "	\n" +
 "</head>\n" +
 "<body class=\"page-body\" data-url=\"http://neon.dev\">\n" +
-"\n" +
+"\n" + 
 "<script language=\"javascript\" type=\"text/javascript\">\n" +
+"	//var vprecio = 0;\n" +
 "	function FobtenPreciouno(){\n" +
 "		var vprecio = 0;\n" +
 "		var vnumcheck = 0;\n" +
@@ -107,7 +107,7 @@ public class NuevaP_Cliente extends HttpServlet {
 "			vnumcheck++;\n" +
 "		}\n" +
 "		if(jjava.checked) {\n" +
-"    		vprecio = vprecio + 30;\n" +
+"    		vprecio = vprecio + 40;\n" +
 "			vnumcheck++;\n" +
 "		}\n" +
 "		if(jphyton.checked) {\n" +
@@ -138,6 +138,7 @@ public class NuevaP_Cliente extends HttpServlet {
 "		\n" +
 "		//alert(\"Suma: \" + vprecio + \"\\nSeleccionados: \" + vnumcheck);\n" +
 "		//jprecio.value = \"$\" + vprecio + \".00\";\n" +
+"		alert(\"Voy a pasar \" + vprecio);\n" +
 "		\n" +
 "		return vprecio;		\n" +
 "			\n" +
@@ -146,19 +147,19 @@ public class NuevaP_Cliente extends HttpServlet {
 "	function FobtenPreciodos(){\n" +
 "		var vprecio = FobtenPreciouno();\n" +
 "		var numche = 0;\n" +
-"		var jdweb = document.getElementById(\"cbhtml\");\n" +
-"		var jdbd = document.getElementById(\"cbhtml\");\n" +
-"		var jdjava = document.getElementById(\"cbhtml\");\n" +
-"		var jdC = document.getElementById(\"cbhtml\");\n" +
-"		var jdmodelado = document.getElementById(\"cbhtml\");\n" +
-"		var jdandroid = document.getElementById(\"cbhtml\");\n" +
-"		var jdensamblador = document.getElementById(\"cbhtml\");\n" +
-"		var jdmedvis = document.getElementById(\"cbhtml\");\n" +
-"		var jdphyton = document.getElementById(\"cbhtml\");\n" +
-"		var jprecio = document.getElementById(\"etprecio\");\n" +
+"		var jdweb = document.getElementById(\"cbdweb\");\n" +
+"		var jdbd = document.getElementById(\"cbdbd\");\n" +
+"		var jdjava = document.getElementById(\"cbdjava\");\n" +
+"		var jdC = document.getElementById(\"cbdC\");\n" +
+"		var jdmodelado = document.getElementById(\"cbdmodelado\");\n" +
+"		var jdandroid = document.getElementById(\"cbdandroid\");\n" +
+"		var jdensamblador = document.getElementById(\"cbdensamblador\");\n" +
+"		var jdmedvis = document.getElementById(\"cbdmedvis\");\n" +
+"		var jdphyton = document.getElementById(\"cbdphyton\");\n" +
+"		var jprecio = document.getElementById(\"precio\");\n" +
 "		\n" +
 "		if(jdweb.checked){\n" +
-"			vprecio = vprecio + 120;\n" +
+"			vprecio = vprecio + 200;\n" +
 "			numche++;\n" +
 "		}\n" +
 "		if(jdbd.checked){\n" +
@@ -170,15 +171,15 @@ public class NuevaP_Cliente extends HttpServlet {
 "			numche++;\n" +
 "		}\n" +
 "		if(jdC.checked){\n" +
-"			vprecio = vprecio + 120;\n" +
+"			vprecio = vprecio + 70;\n" +
 "			numche++;\n" +
 "		}\n" +
 "		if(jdmodelado.checked){\n" +
-"			vprecio = vprecio + 120;\n" +
+"			vprecio = vprecio + 60;\n" +
 "			numche++;\n" +
 "		}\n" +
 "		if(jdandroid.checked){\n" +
-"			vprecio = vprecio + 120;\n" +
+"			vprecio = vprecio + 70;\n" +
 "			numche++;\n" +
 "		}\n" +
 "		if(jdensamblador.checked){\n" +
@@ -186,12 +187,15 @@ public class NuevaP_Cliente extends HttpServlet {
 "			numche++;\n" +
 "		}\n" +
 "		if(jdmedvis.checked){\n" +
-"			vprecio = vprecio + 120;\n" +
+"			vprecio = vprecio + 60;\n" +
 "			numche++;\n" +
 "		}\n" +
 "		if(jdphyton.checked){\n" +
-"			vprecio = vprecio + 120;\n" +
+"			vprecio = vprecio + 70;\n" +
 "			numche++;\n" +
+"		}\n" +
+"		if(numche >=3){\n" +
+"				vprecio = vprecio + 300;\n" +
 "		}\n" +
 "		alert(\"Esto ya es el precio 2\");\n" +
 "		jprecio.value = \"$\" + vprecio + \".00\";\n" +
@@ -199,8 +203,7 @@ public class NuevaP_Cliente extends HttpServlet {
 "	\n" +
 "	\n" +
 "	\n" +
-"</script>\n" +
-"\n" +
+"</script>"+ //meter el script              
 "<div class=\"page-container\"><!-- add class \"sidebar-collapsed\" to close sidebar by default, \"chat-visible\" to make chat appear always -->	\n" +
 "	\n" +
 "	<div class=\"sidebar-menu\">\n" +
@@ -210,7 +213,7 @@ public class NuevaP_Cliente extends HttpServlet {
 "			\n" +
 "			<!-- logo -->\n" +
 "			<div class=\"logo\">\n" +
-"				<a href=\"ClienteInicio.html\">\n" +
+"				<a href=\"InicioCliente\">\n" +
 "					<h1 style=\"color: aliceblue \"class=\"text-uppercase text-center\"><strong>MIZZI</strong></h1>\n" +
 "				</a>\n" +
 "			</div>\n" +
@@ -247,25 +250,25 @@ public class NuevaP_Cliente extends HttpServlet {
 "				</form>\n" +
 "			</li>\n" +
 "			<li class=\"active opened active\">\n" +
-"				<a href=\"ClienteNuevaP.html\">\n" +
+"				<a href=\"NuevaP_Cliente\">\n" +
 "					<i class=\"entypo-gauge\"></i>\n" +
 "					<span>Nueva publicacion</span>\n" +
 "				</a>\n" +
 "			</li>\n" +
 "			<li>\n" +
-"				<a href=\"ContratosR.html\">\n" +
+"				<a href=\"PublicacionesC\">\n" +
 "					<i class=\"entypo-layout\"></i>\n" +
-"					<span>Contratos realizados</span>\n" +
+"					<span>Modificar Publicacion</span>\n" +
 "				</a>\n" +
 "			</li>\n" +
 "			<li>\n" +
-"				<a href=\"Desarrolladores.html\" target=\"_blank\">\n" +
+"				<a href=\"Desarrolladores\" target=\"_blank\">\n" +
 "					<i class=\"entypo-monitor\"></i>\n" +
 "					<span>Desarrolladores</span>\n" +
 "				</a>\n" +
 "			</li>\n" +
 "			<li>\n" +
-"				<a href=\"Seguimiento.html\">\n" +
+"				<a href=\"Seguimiento\">\n" +
 "					<i class=\"entypo-newspaper\"></i>\n" +
 "					<span>Proyectos en progreso</span>\n" +
 "				</a>\n" +
@@ -284,12 +287,12 @@ public class NuevaP_Cliente extends HttpServlet {
 "			<li class=\"profile-info dropdown\">				\n" +
 "				<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\n" +
 "					<img src=\"assets/images/thumb-1@2x.png\" alt=\"\" class=\"img-circle\" width=\"44\" />\n" +
-"					Nombre Usuario\n" +
+"					"+user+"\n" +
 "				</a>\n" +
 "				<ul class=\"dropdown-menu\">\n" +
 "					<li class=\"caret\"></li>\n" +
 "					<li>\n" +
-"						<a href=\"extra-timeline.html\">\n" +
+"						<a href=\"FormModificarUser\">\n" +
 "							<i class=\"entypo-user\"></i>\n" +
 "							Editar Perfil\n" +
 "						</a>\n" +
@@ -550,7 +553,7 @@ public class NuevaP_Cliente extends HttpServlet {
 "			<li class=\"sep\"></li>\n" +
 "			\n" +
 "			<li>\n" +
-"				<a href=\"extra-login.html\">\n" +
+"				<a href=\"CerrarSesion\">\n" +
 "					Cerrar sesión <i class=\"entypo-logout right\"></i>\n" +
 "				</a>\n" +
 "			</li>\n" +
@@ -582,7 +585,8 @@ public class NuevaP_Cliente extends HttpServlet {
 "\n" +
 "<div class=\"container\">\n" +
 "    \n" +
-"    <form role=\"form\" class=\"form-horizontal form-groups-bordered\" id=\"nuevaP\" method=\"get\">\n" +
+"    <form role=\"form\" class=\"form-horizontal form-groups-bordered\" id=\"nuevaP\" action=\"NuevaPreg\" method=\"get\">\n  " +
+"                                                               <input type=\"hidden\" name=\"id_des\" value=\""+id+"\"> \n" +
 "	<div class=\"panel panel-gradient\" data-collapsed=\"0\">\n" +
 "		<!-- panel head -->\n" +
 "		<div class=\"panel-heading\">\n" +
@@ -604,6 +608,7 @@ public class NuevaP_Cliente extends HttpServlet {
 "						\n" +
 "					<div class=\"col-sm-5\">\n" +
 "						<input type=\"text\" class=\"form-control\" name=\"Name_P\" placeholder=\"Nombre\">\n" +
+
 "					</div>\n" +
 "				</div>\n" +
 "\n" +
@@ -620,31 +625,31 @@ public class NuevaP_Cliente extends HttpServlet {
 "					<div class=\"col-sm-3\">\n" +
 "						<div class=\"checkbox\">\n" +
 "							<label>\n" +
-"								<input id=\"cbhtml\" type=\"checkbox\" name=\"cb1\" value=\"HTML\">HTML\n" +
+"								<input type=\"checkbox\" id=\"cbhtml\" name=\"cb1\" value=\"HTML\">HTML\n" +
 "							</label>\n" +
 "						</div>\n" +
 "						\n" +
 "						<div class=\"checkbox\">\n" +
 "							<label>\n" +
-"								<input id=\"cbsql\" type=\"checkbox\" name=\"cb1\" value=\"MySQL\">MySQL\n" +
+"								<input type=\"checkbox\" id=\"cbsql\" name=\"cb1\" value=\"MySQL\">MySQL\n" +
 "							</label>\n" +
 "						</div>\n" +
 "\n" +
 "						<div class=\"checkbox\">\n" +
 "							<label>\n" +
-"								<input id=\"cbC\" type=\"checkbox\" name=\"cb1\" value=\"C,C++\">C, C++\n" +
+"								<input type=\"checkbox\" id=\"cbC\" name=\"cb1\" value=\"C,C++\">C, C++\n" +
 "							</label>\n" +
 "						</div>\n" +
 "\n" +
 "						<div class=\"checkbox\">\n" +
 "							<label>\n" +
-"								<input id=\"cbjava\" type=\"checkbox\" name=\"cb1\" value=\"Java\">Java\n" +
+"								<input type=\"checkbox\" id=\"cbjava\" name=\"cb1\" value=\"Java\">Java\n" +
 "							</label>\n" +
 "						</div>\n" +
 "\n" +
 "						<div class=\"checkbox\">\n" +
 "							<label>\n" +
-"								<input id=\"cbphyton\" type=\"checkbox\" name=\"cb1\" value=\"Phyton\">Phyton\n" +
+"								<input type=\"checkbox\" id=\"cbphyton\" name=\"cb1\" value=\"Phyton\">Phyton\n" +
 "							</label>\n" +
 "						</div>\n" +
 "\n" +
@@ -653,25 +658,25 @@ public class NuevaP_Cliente extends HttpServlet {
 "					<div class=\"col-sm-3\">\n" +
 "						<div class=\"checkbox\">\n" +
 "							<label>\n" +
-"								<input id=\"cbvisual\" type=\"checkbox\" name=\"cb1\" value=\"Visual Basic\">Visual Basic\n" +
+"								<input type=\"checkbox\" id=\"cbvisual\" name=\"cb1\" value=\"Visual Basic\">Visual Basic\n" +
 "							</label>\n" +
 "						</div>\n" +
 "						\n" +
 "						<div class=\"checkbox\">\n" +
 "							<label>\n" +
-"								<input id=\"cbensamblador\" type=\"checkbox\" name=\"cb1\" value=\"Ensamblador\"> Ensamblador\n" +
+"								<input type=\"checkbox\" id=\"cbensamblador\" name=\"cb1\" value=\"Ensamblador\"> Ensamblador\n" +
 "							</label>\n" +
 "						</div>\n" +
 "\n" +
 "						<div class=\"checkbox\">\n" +
 "							<label>\n" +
-"								<input id=\"cbandroid\" type=\"checkbox\" name=\"cb1\" value=\"Android\">Android\n" +
+"								<input type=\"checkbox\" id=\"cbandroid\" name=\"cb1\" value=\"Android\">Android\n" +
 "							</label>\n" +
 "						</div>\n" +
 "\n" +
 "						<div class=\"checkbox\">\n" +
 "							<label>\n" +
-"								<input id=\"cbios\" type=\"checkbox\" name=\"cb1\" value=\"iOS\">iOS\n" +
+"								<input type=\"checkbox\" id=\"cbios\" name=\"cb1\" value=\"iOS\">iOS\n" +
 "							</label>\n" +
 "						</div>\n" +
 "\n" +
@@ -683,8 +688,6 @@ public class NuevaP_Cliente extends HttpServlet {
 "\n" +
 "					</div>\n" +
 "				</div>\n" +
-"				\n" +
-"\n" +
 "\n" +
 "			\n" +
 "			\n" +
@@ -722,31 +725,31 @@ public class NuevaP_Cliente extends HttpServlet {
 "					<div class=\"col-sm-3\">\n" +
 "						<div class=\"checkbox\">\n" +
 "							<label>\n" +
-"								<input type=\"checkbox\" name=\"cb2\" value=\"Desarrollo Web\">Desarrollo WEB\n" +
+"								<input type=\"checkbox\" id=\"cbdweb\" name=\"cb2\" value=\"Desarrollo Web\">Desarrollo WEB\n" +
 "							</label>\n" +
 "						</div>\n" +
 "						\n" +
 "						<div class=\"checkbox\">\n" +
 "							<label>\n" +
-"								<input type=\"checkbox\" name=\"cb2\" value=\"Base de datos\">Base de Datos\n" +
+"								<input type=\"checkbox\" id=\"cbdbd\" name=\"cb2\" value=\"Base de datos\">Base de Datos\n" +
 "							</label>\n" +
 "						</div>\n" +
 "\n" +
 "						<div class=\"checkbox\">\n" +
 "							<label>\n" +
-"								<input type=\"checkbox\" name=\"cb2\" value=\"Java\">Programacion en Java\n" +
+"								<input type=\"checkbox\" id=\"cbdjava\" name=\"cb2\" value=\"Java\">Programacion en Java\n" +
 "							</label>\n" +
 "						</div>\n" +
 "\n" +
 "						<div class=\"checkbox\">\n" +
 "							<label>\n" +
-"								<input type=\"checkbox\" name=\"cb2\" value=\"C\">Programacion en C\n" +
+"								<input type=\"checkbox\" id=\"cbdC\" name=\"cb2\" value=\"C\">Programacion en C\n" +
 "							</label>\n" +
 "						</div>\n" +
 "\n" +
 "						<div class=\"checkbox\">\n" +
 "							<label>\n" +
-"								<input type=\"checkbox\" name=\"cb2\" value=\"Modelado\">Modelado\n" +
+"								<input type=\"checkbox\" id=\"cbdmodelado\" name=\"cb2\" value=\"Modelado\">Modelado\n" +
 "							</label>\n" +
 "						</div>\n" +
 "\n" +
@@ -755,30 +758,31 @@ public class NuevaP_Cliente extends HttpServlet {
 "					<div class=\"col-sm-3\">\n" +
 "						<div class=\"checkbox\">\n" +
 "							<label>\n" +
-"								<input type=\"checkbox\" name=\"cb2\" value=\"Android\">Android\n" +
+"								<input type=\"checkbox\" id=\"cbdandroid\" name=\"cb2\" value=\"Android\">Android\n" +
 "							</label>\n" +
 "						</div>\n" +
 "						\n" +
 "						<div class=\"checkbox\">\n" +
 "							<label>\n" +
-"								<input type=\"checkbox\" name=\"cb2\" value=\"Ensamblador\">Programacion en ensamblador\n" +
+"								<input type=\"checkbox\" id=\"cbdensamblador\" name=\"cb2\" value=\"Ensamblador\">Programacion en ensamblador\n" +
 "							</label>\n" +
 "						</div>\n" +
 "\n" +
 "						<div class=\"checkbox\">\n" +
 "							<label>\n" +
-"								<input type=\"checkbox\" name=\"cb2\" value=\"Medios Audiovisuales\">Medios audiovisuales\n" +
+"								<input type=\"checkbox\" id=\"cbdmedvis\" name=\"cb2\" value=\"Medios Audiovisuales\">Medios audiovisuales\n" +
 "							</label>\n" +
 "						</div>\n" +
 "\n" +
 "						<div class=\"checkbox\">\n" +
 "							<label>\n" +
-"								<input type=\"checkbox\" name=\"cb2\" value=\"Phyton\">Programacion en Phyton\n" +
+"								<input type=\"checkbox\" id=\"cbdphyton\" name=\"cb2\" value=\"Phyton\">Programacion en Phyton\n" +
 "							</label>\n" +
 "						</div>\n" +
 "\n" +
 "						<div class=\"checkbox\">\n" +
 "							<label>\n" +
+
 "								<input type=\"checkbox\" name=\"cb2\" value=\"Otro\">Otro\n" +
 "							</label>\n" +
 "						</div>\n" +
@@ -786,15 +790,13 @@ public class NuevaP_Cliente extends HttpServlet {
 "					</div>\n" +
 "				</div>\n" +
 "				<div class=\"form-group\">\n" +
-"					<label class=\"col-sm-3 control-label\">Rango aproximado de inicio a fin</label>\n" +
-"					\n" +
-"					<div class=\"col-sm-5\">\n" +
-"						<div class=\"daterange daterange-inline\" data-format=\"MMMM D, YYYY\" data-start-date=\"June 13, 2017\" data-end-date=\"June 27, 2017\" name=\"fecha\">\n" +
-"							<i class=\"entypo-calendar\"></i>\n" +
-"							<span>June 13, 2017 - June 27, 2017</span>\n" +
-"						</div>\n" +
+"					<div class=\"form-group\">\n" +
+"						<label for=\"field-1\" class=\"col-sm-3 control-label\">Fecha de entrega</label>\n" +
 "						\n" +
-"					</div>\n" +
+"						<div class=\"col-sm-3\">\n" +
+"                                                    <input type=\"text\" name=\"date\" class=\"form-control datepicker\" data-start-view=\"2\">\n" +
+"						</div>\n" +
+"				</div>\n" +
 "				</div>\n" +
 "   \n" +
 "\n" +
@@ -818,13 +820,13 @@ public class NuevaP_Cliente extends HttpServlet {
 "		\n" +
 "		<!-- panel body -->\n" +
 "		<div class=\"panel-body\">\n" +
-"			<center><button type=\"button\" onClick=\"FobtenPreciodos()\"  class=\"btn btn-primary\">Aproximar precio</button></center>\n" +
+"			<center><button type=\"button\" onClick=\"FobtenPreciodos()\" class=\"btn btn-primary\">Aproximar precio</button></center>\n" +
 "			\n" +
 "				<div class=\"form-group\">\n" +
 "					<label for=\"field-1\" class=\"col-sm-3 control-label\">Precio</label>\n" +
 "						\n" +
 "					<div class=\"col-sm-5\">\n" +
-"						<input type=\"text\" class=\"form-control\" id=\"etprecio\" placeholder=\"Precio\" name=\"precio\">\n" +
+"						<input type=\"text\" class=\"form-control\" id=\"precio\" placeholder=\"Precio\" name=\"precio\">\n" +
 "					</div>\n" +
 "				</div>\n" +
 "			\n" +
@@ -1022,8 +1024,7 @@ public class NuevaP_Cliente extends HttpServlet {
 "\n" +
 "\n" +
 "</body>\n" +
-"</html>\n" +
-"");
+"</html>");
             
         }
     }
