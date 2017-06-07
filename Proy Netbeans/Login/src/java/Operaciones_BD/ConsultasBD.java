@@ -256,4 +256,86 @@ public class ConsultasBD {
         return 0;
     }
     
+    
+    public String[][] ObtenerChat(String Usuario1,String Usuario2)
+    {
+        try {
+            //Diseño [0]Origen [1]Destinatario [2]Mensaje [3] Fecha
+            //select chat.UserOrigen, chat.Mensaje, chat.Fecha from chat where (UserOrigen='AngelC45' && UserDestino='AlanSLC')||(UserOrigen='AlanSLC' && UserDestino='AngelC45')  ORDER BY chat.Fecha asc;
+            ResultSet resultado=consult.executeQuery("select "
+                    + "chat.UserOrigen, chat.Mensaje, chat.Fecha "
+                    + "from chat "
+                    + "where (UserOrigen='AngelC45' && UserDestino='AlanSLC')"
+                    + "||(UserOrigen='AlanSLC' && UserDestino='AngelC45')  "
+                    + "ORDER BY chat.Fecha asc");
+            resultado.last();
+            
+            int NumeroChat=resultado.getRow();
+            String res[][]=new String [NumeroChat][4];
+            for(int i=0;i<NumeroChat;i++)
+            {
+                resultado.absolute(i+1);
+                
+                res[i][0]=resultado.getString(1);
+                //res[i][1]=resultado.getString(1);
+                res[i][2]=resultado.getString(2);
+                res[i][3]=resultado.getString(3);
+                System.out.println(i+res[i][0]+res[i][2]+res[i][3]);
+                
+            }
+            return res;
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    public String[][][] ObtenerChats (String Usuario)
+    {
+        try {
+            System.out.println("select chat.UserDestino "
+                    + "from chat where UserOrigen='AngelC45' "
+                    + "group by UserDestino union "
+                    + "select chat.UserOrigen "
+                    + "from chat where UserDestino='AngelC45' group by UserOrigen");
+            ResultSet resultado1=consult.executeQuery("select chat.UserDestino "
+                    + "from chat where UserOrigen='AngelC45' "
+                    + "group by UserDestino union "
+                    + "select chat.UserOrigen "
+                    + "from chat where UserDestino='AngelC45' group by UserOrigen");
+            
+            resultado1.last();
+            int NumeroChats=resultado1.getRow();
+            String restultado[][][];
+            restultado = new String[NumeroChats][][];
+            for(int i=1;i<=NumeroChats;i++)//NoChats
+            {
+                
+                resultado1.absolute(i);
+                System.out.println("Inicio");
+                String OtroUser=resultado1.getString(1);
+                System.out.println(OtroUser);
+                restultado[i-1]=ObtenerChat(Usuario,OtroUser);
+                resultado1=consult.executeQuery("select chat.UserDestino "
+                    + "from chat where UserOrigen='AngelC45' "
+                    + "group by UserDestino union "
+                    + "select chat.UserOrigen "
+                    + "from chat where UserDestino='AngelC45' group by UserOrigen");
+                
+            }
+            System.out.println("Finalizado");
+            System.out.println("Numero de arryas"+restultado.length+" "+restultado[0].length+ " "+restultado[0][0].length);
+            return restultado;
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultasBD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    public static void main(String[] args) {
+        ConsultasBD consultor = new ConsultasBD();
+        consultor.ObtenerChats("");
+    }
+    
+    
 }
