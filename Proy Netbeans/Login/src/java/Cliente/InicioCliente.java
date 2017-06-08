@@ -66,11 +66,11 @@ public class InicioCliente extends HttpServlet {
 "\n" +
 "\n" +
 "	<script src=\"assets/js/jquery-1.11.0.min.js\"></script>\n" +
-"\n" +
+"\n     <script src='CargadorChat.js'></script>" +
 "	\n" +
 "	\n" +
 "</head>\n" +
-"<body class=\"page-body\" data-url=\"http://neon.dev\">\n" +
+"<body onLoad=\"setInterval('CargarChat()',10000);\" class=\"page-body\" data-url=\"http://neon.dev\">\n" +
 "\n" +
 "<div class=\"page-container\"><!-- add class \"sidebar-collapsed\" to close sidebar by default, \"chat-visible\" to make chat appear always -->	\n" +
 "	\n" +
@@ -643,8 +643,9 @@ out.println("\n" +
 "	\n" +
 "</footer>	</div>\n" +
 "	\n" +
-"	\n" +
-"<div id=\"chat\" class=\"fixed\" data-current-user=\"Art Ramadani\" data-order-by-status=\"1\" data-max-chat-history=\"25\">\n" +
+"	\n" );
+out.println("<div id='ModuloChat'>"+
+"<div id=\"chat\" class=\"fixed\" data-current-user=\""+user+" \" data-order-by-status=\"1\" data-max-chat-history=\"25\">\n" +
 "	\n" +
 "	<div class=\"chat-inner\">\n" +
 "	\n" +
@@ -659,7 +660,7 @@ out.println("\n" +
 "		\n" +
 "		\n" +
 "		<div class=\"chat-group\" id=\"group-1\">\n" +
-"			<strong>Favorites</strong>\n" +
+"			<strong>Chats Recientes</strong>\n" +
 "			\n" +
 "			<a href=\"#\" id=\"sample-user-123\" data-conversation-history=\"#sample_history\"><span class=\"user-status is-online\"></span> <em>Catherine J. Watkins</em></a>\n" +
 "			<a href=\"#\"><span class=\"user-status is-online\"></span> <em>Nicholas R. Walker</em></a>\n" +
@@ -669,6 +670,7 @@ out.println("\n" +
 "		</div>\n" +
 "		\n" +
 "		\n" +
+        /*
 "		<div class=\"chat-group\" id=\"group-2\">\n" +
 "			<strong>Work</strong>\n" +
 "			\n" +
@@ -686,6 +688,7 @@ out.println("\n" +
 "			<a href=\"#\"><span class=\"user-status is-online\"></span> <em>Kathleen M. Canales</em></a>\n" +
 "			<a href=\"#\"><span class=\"user-status is-offline\"></span> <em>Tracy J. Rodriguez</em></a>\n" +
 "		</div>\n" +
+        */
 "	\n" +
 "	</div>\n" +
 "	\n" +
@@ -704,7 +707,7 @@ out.println("\n" +
 "		</ul>\n" +
 "		\n" +
 "		<div class=\"chat-textarea\">\n" +
-"			<textarea class=\"form-control autogrow\" placeholder=\"Type your message\"></textarea>\n" +
+"			<textarea  class=\"form-control autogrow\" placeholder=\"Escribe tu mensaje\" id='CajaChat' onkeydown='MandarMensaje()'></textarea>\n" +
 "		</div>\n" +
 "		\n" +
 "	</div>\n" +
@@ -742,6 +745,7 @@ out.println("\n" +
 "\n" +
 "\n" +
 "\n" +
+        /*
 "<!-- Chat Histories -->\n" +
 "<ul class=\"chat-history\" id=\"sample_history_2\">\n" +
 "	<li class=\"opponent unread\">\n" +
@@ -755,8 +759,11 @@ out.println("\n" +
 "		<p>Mensaje 2</p>\n" +
 "		<span class=\"time\">08:27</span>\n" +
 "	</li>\n" +
-"</ul>	\n" +
+"</ul>	\n");
+out.println();
+out.println(
 "	</div>\n" +
+        */
 "\n" +
 "\n" +
 "\n" +

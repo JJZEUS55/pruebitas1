@@ -64,7 +64,8 @@ var neonChat = neonChat || {
 			{
 				if(e.keyCode == 13 && !e.shiftKey)
 				{
-					e.preventDefault();
+                                        alert("kha?");
+                                        e.preventDefault();                                        
 					neonChat.submitMessage();
 					return false;
 				}
@@ -236,12 +237,13 @@ var neonChat = neonChat || {
 		{
 			var msg = $.trim($textarea.val());
 			
+                        
 			$textarea.val('');
 			
 			if(this.isOpen && this.$current_user)
 			{
 				var id = this.$current_user.uniqueId().attr('id');
-				
+                                
 				this.pushMessage(id, msg.replace( /<.*?>/g, '' ), $chat.data('current-user'), new Date());
 				this.renderMessages(id);
 			}

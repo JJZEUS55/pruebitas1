@@ -51,6 +51,7 @@ public class ServChat extends HttpServlet {
             
             out.println("</head>");
             out.println("<body>");
+            out.println("<div id='ModuloChat'>");
             out.println("<div id='chat' class='fixed' data-current-user='Art Ramadani' data-order-by-status='1' data-max-chat-history='25'>");
 out.println("	");
 out.println("	<div class='chat-inner'>");
@@ -119,6 +120,7 @@ out.println("	");
 out.println("</div>");
 out.println("<!-- Chat Histories -->");
 
+
 //Cargamos Historiales de Conversacion
 for(int i=0;i<NumeroChats;i++)
 {
@@ -154,6 +156,7 @@ out.println("	</li>");
 
 
 out.println("	");
+out.println("</div>");
 out.println("</div>");
 
             out.println("</body>");
